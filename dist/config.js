@@ -7,5 +7,5 @@ exports.server = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 exports.server = {
-    port: process.env.SERVER_PORT,
+    port: process.env.PORT,
 };

@@ -1,5 +1,5 @@
 import express from 'express'
-import { server } from './config'
+// import { server } from './config'
 import router from './routes/users'
 
 const app = express()
