@@ -1,14 +1,12 @@
 import express from 'express'
 import { server } from './config'
 import router from './routes/users'
-// import sequelize from './db'
 import sequelize from './models/models'
+import { createUsersAndRoles } from './helpers/createUsers'
 
 const app = express()
 
 app.use('/users', router)
-
-console.log(typeof process.env.PORT)
 
 const start = async () => {
   try {
@@ -17,6 +15,7 @@ const start = async () => {
     await sequelize.sync({ force: true })
     console.log('All models were synchronized successfully.')
     app.listen(server.port, () => console.log(`Server start on ${server.port} port`))
+    createUsersAndRoles()
   } catch (error) {
     console.error(error)
   }

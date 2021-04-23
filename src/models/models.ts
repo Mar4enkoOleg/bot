@@ -10,12 +10,20 @@ const User = sequelize.define('user', {
   state: { type: DataTypes.STRING, defaultValue: '' },
 })
 
-const Role = sequelize.define('role', {
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  value: { type: DataTypes.STRING, defaultValue: 'USER' },
-})
+const Role = sequelize.define(
+  'role',
+  {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    value: { type: DataTypes.STRING, defaultValue: 'USER' },
+  },
+  {
+    createdAt: false,
+    updatedAt: false,
+  }
+)
 
 Role.hasOne(User)
 User.belongsTo(Role)
 
 export default sequelize
+// export default sequelize

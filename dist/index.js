@@ -15,11 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const config_1 = require("./config");
 const users_1 = __importDefault(require("./routes/users"));
-// import sequelize from './db'
 const models_1 = __importDefault(require("./models/models"));
+const createUsers_1 = require("./helpers/createUsers");
 const app = express_1.default();
 app.use('/users', users_1.default);
-console.log(typeof process.env.PORT);
 const start = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield models_1.default.authenticate();
@@ -27,6 +26,7 @@ const start = () => __awaiter(void 0, void 0, void 0, function* () {
         yield models_1.default.sync({ force: true });
         console.log('All models were synchronized successfully.');
         app.listen(config_1.server.port, () => console.log(`Server start on ${config_1.server.port} port`));
+        createUsers_1.createUsersAndRoles();
     }
     catch (error) {
         console.error(error);

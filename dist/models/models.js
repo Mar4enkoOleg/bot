@@ -16,7 +16,11 @@ const User = db_1.default.define('user', {
 const Role = db_1.default.define('role', {
     id: { type: sequelize_1.DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     value: { type: sequelize_1.DataTypes.STRING, defaultValue: 'USER' },
+}, {
+    createdAt: false,
+    updatedAt: false,
 });
 Role.hasOne(User);
 User.belongsTo(Role);
 exports.default = db_1.default;
+// export default sequelize
