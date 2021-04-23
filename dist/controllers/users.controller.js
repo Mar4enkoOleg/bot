@@ -8,11 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUser = exports.updateUser = exports.getUser = exports.getAllUsers = void 0;
+const models_1 = __importDefault(require("../models/models"));
 const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        return res.json('getAllUsers method');
+        const users = yield models_1.default.model('user').findAll();
+        return res.status(200).json(users);
     }
     catch (error) {
         return res.json(error);
@@ -21,7 +26,9 @@ const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 exports.getAllUsers = getAllUsers;
 const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        return res.json('getUser method');
+        const id = parseInt(req.params.id);
+        const user = yield models_1.default.model('user').findOne({ where: { id } });
+        return res.status(200).json(user);
     }
     catch (error) {
         return res.json(error);
@@ -30,7 +37,19 @@ const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.getUser = getUser;
 const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        return res.json('updateUser method');
+        // const { full_name, telegram_id, user_type, phone, state, roleId } = req.body
+        const id = parseInt(req.params.id);
+        // const newUser: UserAttributes = {
+        //   full_name,
+        //   telegram_id,
+        //   user_type,
+        //   phone,
+        //   state,
+        //   roleId,
+        // }
+        // await sequelize.model('user').update(newUser, { where: { id } })
+        console.log(JSON.stringify(req.body));
+        return res.send(JSON.parse(req.body));
     }
     catch (error) {
         return res.json(error);

@@ -7,6 +7,7 @@ import { createUsersAndRoles } from './helpers/createUsers'
 const app = express()
 
 app.use('/users', router)
+app.use(express.json())
 
 const start = async () => {
   try {

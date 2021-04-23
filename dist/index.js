@@ -19,6 +19,7 @@ const models_1 = __importDefault(require("./models/models"));
 const createUsers_1 = require("./helpers/createUsers");
 const app = express_1.default();
 app.use('/users', users_1.default);
+app.use(express_1.default.json());
 const start = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield models_1.default.authenticate();
