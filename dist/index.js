@@ -17,9 +17,12 @@ const config_1 = require("./config");
 const users_1 = __importDefault(require("./routes/users"));
 const models_1 = __importDefault(require("./models/models"));
 const createUsers_1 = require("./helpers/createUsers");
+const body_parser_1 = __importDefault(require("body-parser"));
 const app = express_1.default();
 app.use('/users', users_1.default);
-app.use(express_1.default.json());
+// app.use(express.json())
+app.use(body_parser_1.default.urlencoded({ extended: false }));
+app.use(body_parser_1.default.json());
 const start = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield models_1.default.authenticate();

@@ -19,29 +19,38 @@ export const getUser = async (req: Request, res: Response): Promise<Response> =>
     return res.json(error)
   }
 }
+
+export const createUser = async (req: Request, res: Response): Promise<Response> => {
+  try {
+    const { telegram_id, full_name, roleId, state, user_type, phone }: UserAttributes = req.body
+    const newUser = await sequelize.model('user').create({
+      telegram_id: telegram_id,
+      full_name,
+      roleId,
+      state,
+      user_type,
+      phone,
+    })
+    console.log(newUser)
+
+    return res.status(201).json(newUser)
+  } catch (error) {
+    return res.json(error)
+  }
+}
+
 export const updateUser = async (req: Request, res: Response): Promise<Response> => {
   try {
-    // const { full_name, telegram_id, user_type, phone, state, roleId } = req.body
-    const id = parseInt(req.params.id)
-    // const newUser: UserAttributes = {
-    //   full_name,
-    //   telegram_id,
-    //   user_type,
-    //   phone,
-    //   state,
-    //   roleId,
-    // }
-    // await sequelize.model('user').update(newUser, { where: { id } })
-    console.log(JSON.stringify(req.body))
-
-    return res.send(JSON.parse(req.body))
+    return res.status(204).json(req.body)
   } catch (error) {
     return res.json(error)
   }
 }
 export const deleteUser = async (req: Request, res: Response): Promise<Response> => {
   try {
-    return res.json('deleteUser method')
+    const id = parseInt(req.params.id)
+    await sequelize.model('user').destroy({ where: { id } })
+    return res.status(204).json(`User with id=${id} deleted`)
   } catch (error) {
     return res.json(error)
   }

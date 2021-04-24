@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.updateUser = exports.getUser = exports.getAllUsers = void 0;
+exports.deleteUser = exports.updateUser = exports.createUser = exports.getUser = exports.getAllUsers = void 0;
 const models_1 = __importDefault(require("../models/models"));
 const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -35,21 +35,28 @@ const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getUser = getUser;
+const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { telegram_id, full_name, roleId, state, user_type, phone } = req.body;
+        const newUser = yield models_1.default.model('user').create({
+            telegram_id: telegram_id,
+            full_name,
+            roleId,
+            state,
+            user_type,
+            phone,
+        });
+        console.log(newUser);
+        return res.status(201).json(newUser);
+    }
+    catch (error) {
+        return res.json(error);
+    }
+});
+exports.createUser = createUser;
 const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        // const { full_name, telegram_id, user_type, phone, state, roleId } = req.body
-        const id = parseInt(req.params.id);
-        // const newUser: UserAttributes = {
-        //   full_name,
-        //   telegram_id,
-        //   user_type,
-        //   phone,
-        //   state,
-        //   roleId,
-        // }
-        // await sequelize.model('user').update(newUser, { where: { id } })
-        console.log(JSON.stringify(req.body));
-        return res.send(JSON.parse(req.body));
+        return res.status(204).json(req.body);
     }
     catch (error) {
         return res.json(error);
@@ -58,7 +65,9 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 exports.updateUser = updateUser;
 const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        return res.json('deleteUser method');
+        const id = parseInt(req.params.id);
+        yield models_1.default.model('user').destroy({ where: { id } });
+        return res.status(204).json(`User with id=${id} deleted`);
     }
     catch (error) {
         return res.json(error);
