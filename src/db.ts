@@ -1,4 +1,4 @@
 import { Sequelize } from 'sequelize'
 import { db } from './config'
 
-export default new Sequelize(process.env.DATABASE_URL!, { ssl: true })
+export default new Sequelize(db.full_address!, { ssl: true, dialect: 'postgres' })
