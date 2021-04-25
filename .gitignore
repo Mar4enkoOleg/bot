@@ -1,2 +1,4 @@
 node_modules/
 .env
+dist/
+heroku_deploy_error.txt
