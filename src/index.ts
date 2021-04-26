@@ -7,10 +7,10 @@ import bodyParser from 'body-parser'
 
 const app = express()
 
-app.use('/users', router)
 // app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use('/users', router)
 
 const start = async () => {
   try {

@@ -20,7 +20,7 @@ const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         return res.status(200).json(users);
     }
     catch (error) {
-        return res.json(error);
+        return res.json(error.errors[0].message);
     }
 });
 exports.getAllUsers = getAllUsers;
@@ -31,7 +31,7 @@ const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         return res.status(200).json(user);
     }
     catch (error) {
-        return res.json(error);
+        return res.json(error.errors[0].message);
     }
 });
 exports.getUser = getUser;
@@ -39,7 +39,7 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     try {
         const { telegram_id, full_name, roleId, state, user_type, phone } = req.body;
         const newUser = yield models_1.default.model('user').create({
-            telegram_id: telegram_id,
+            telegram_id,
             full_name,
             roleId,
             state,
@@ -50,16 +50,16 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         return res.status(201).json(newUser);
     }
     catch (error) {
-        return res.json(error);
+        return res.json(error.errors[0].message);
     }
 });
 exports.createUser = createUser;
 const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        return res.status(204).json(req.body);
+        return res.status(200).json(req.body);
     }
     catch (error) {
-        return res.json(error);
+        return res.json(error.errors[0].message);
     }
 });
 exports.updateUser = updateUser;
@@ -67,10 +67,10 @@ const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     try {
         const id = parseInt(req.params.id);
         yield models_1.default.model('user').destroy({ where: { id } });
-        return res.status(204).json(`User with id=${id} deleted`);
+        return res.status(200).json(`User with id=${id} deleted`);
     }
     catch (error) {
-        return res.json(error);
+        return res.json(error.errors[0].message);
     }
 });
 exports.deleteUser = deleteUser;

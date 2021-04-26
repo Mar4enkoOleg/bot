@@ -4,5 +4,5 @@ export interface UserAttributes {
   phone?: string
   user_type: string
   state: string
-  roleId: number
+  roleId?: number
 }
