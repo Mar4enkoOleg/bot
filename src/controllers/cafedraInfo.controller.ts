@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { logs } from '../db/helpers/logFunc'
+import { logs } from '../helpers/logFunc'
 import CafedraInfoModel from '../db/models/cafedraInfo'
 import ApiError from '../error/ApiError'
 
@@ -13,12 +13,12 @@ export const getCafedraInfo = async (req: Request, res: Response, next: Function
   }
 }
 
-export const updateInfo = async (req: Request, res: Response, next: Function): Promise<Response> => {
+export const updateCafedraInfo = async (req: Request, res: Response, next: Function): Promise<Response> => {
   logs(req, res)
   try {
     const { description } = req.body
     if (!description) {
-      return next(ApiError.badRequest('Wrong parametr'))
+      return next(ApiError.badRequest('Wrong description'))
     }
     await CafedraInfoModel.update({ description }, { where: { id: 1 } })
     return res.status(200).json({ message: `Info was updated` })

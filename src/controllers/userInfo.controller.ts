@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 // import Sequelize from 'sequelize'
 import { Sequelize } from '../db/models'
-import { logs } from '../db/helpers/logFunc'
+import { logs } from '../helpers/logFunc'
 import UserModel from '../db/models/user'
 import GroupModel from '../db/models/group'
 import ApiError from '../error/ApiError'

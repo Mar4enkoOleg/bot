@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { logs } from '../db/helpers/logFunc'
-import { UserAttributes } from '../db/interfaces'
+import { logs } from '../helpers/logFunc'
+import { UserAttributes } from '../interfacesEnums'
 import UserModel from '../db/models/user'
 import ApiError from '../error/ApiError'
 

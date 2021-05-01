@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createSubjectsAndQuestions = exports.createUsersAndRolesAndGroups = void 0;
 const models_1 = require("../models");
@@ -70,23 +79,23 @@ const questions = [
     { name: 'Question7', answer: 'Answer7', SubjectId: 2 },
 ];
 const createUsersAndRolesAndGroups = () => {
-    groups.map((group) => {
-        models_1.sequelize.model('Group').create(group);
-    });
-    roles.map((role) => {
-        models_1.sequelize.model('Role').create(role);
-    });
-    users.map((user) => {
-        models_1.sequelize.model('User').create(user);
-    });
+    groups.map((group) => __awaiter(void 0, void 0, void 0, function* () {
+        yield models_1.sequelize.model('Group').create(group);
+    }));
+    roles.map((role) => __awaiter(void 0, void 0, void 0, function* () {
+        yield models_1.sequelize.model('Role').create(role);
+    }));
+    users.map((user) => __awaiter(void 0, void 0, void 0, function* () {
+        yield models_1.sequelize.model('User').create(user);
+    }));
 };
 exports.createUsersAndRolesAndGroups = createUsersAndRolesAndGroups;
-const createSubjectsAndQuestions = () => {
-    subjects.map((sub) => {
-        models_1.sequelize.model('Subject').create(sub);
-    });
-    questions.map((question) => {
-        models_1.sequelize.model('Question').create(question);
-    });
-};
+const createSubjectsAndQuestions = () => __awaiter(void 0, void 0, void 0, function* () {
+    subjects.map((sub) => __awaiter(void 0, void 0, void 0, function* () {
+        yield models_1.sequelize.model('Subject').create(sub);
+    }));
+    questions.map((question) => __awaiter(void 0, void 0, void 0, function* () {
+        yield models_1.sequelize.model('Question').create(question);
+    }));
+});
 exports.createSubjectsAndQuestions = createSubjectsAndQuestions;

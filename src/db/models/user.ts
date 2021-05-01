@@ -1,6 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize'
 import { sequelize } from '.'
-import { UserAttributes } from '../interfaces'
+import { UserAttributes } from '../../interfacesEnums'
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 

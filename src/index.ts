@@ -9,16 +9,18 @@ import './db/models/group'
 import './db/models/cafedraInfo'
 import usersRouter from './routes/users'
 import subjectsRouter from './routes/subjects'
+// import questionsRouter from './routes/questions'
+// import popQuestionsRouter from './routes/popQuestions'
+// import noAnswerRouter from './routes/questionsNoAnswer'
 import questionsRouter from './routes/questions'
-import popQuestionsRouter from './routes/popQuestions'
-import noAnswerRouter from './routes/questionsNoAnswer'
-import infoRouter from './routes/cafedraInfo'
-import botInfoRouter from './routes/botInfo'
+// import infoRouter from './routes/cafedraInfo'
+// import botInfoRouter from './routes/botInfo'
+import infoRouter from './routes/info'
 import usersInfoRouter from './routes/usersInfo'
 import updateAdminRouter from './routes/updateAdmin'
 import bodyParser from 'body-parser'
-import { createUsersAndRolesAndGroups, createSubjectsAndQuestions } from './db/helpers/createUsers'
-import createInfo from './db/helpers/createInfo'
+import { createUsersAndRolesAndGroups, createSubjectsAndQuestions } from './db/seeders/createUsers'
+import createInfo from './db/seeders/createInfo'
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -29,9 +31,8 @@ app.use('/users', usersRouter)
 app.use('/subjects', subjectsRouter)
 app.use('/questions', questionsRouter)
 app.use('/info', infoRouter)
-app.use('/botInfo', botInfoRouter)
-app.use('/popQuestions', popQuestionsRouter)
-app.use('/noAnswer', noAnswerRouter)
+// app.use('/popQuestions', popQuestionsRouter)
+// app.use('/noAnswer', noAnswerRouter)
 app.use('/usersInfo', usersInfoRouter)
 app.use('/admins', updateAdminRouter)
 
@@ -45,8 +46,8 @@ const start = async () => {
     await sequelize.sync({ force: true })
     console.log('All models were synchronized successfully.')
     await createInfo()
-    createUsersAndRolesAndGroups()
-    createSubjectsAndQuestions()
+    await createUsersAndRolesAndGroups()
+    await createSubjectsAndQuestions()
     app.listen(port, () => console.log(`Server start on ${port} port`))
   } catch (error) {
     console.error(error)

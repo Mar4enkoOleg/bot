@@ -13,10 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAllAdmins = exports.changeUserToAdmin = exports.changeAdminToUser = void 0;
-const logFunc_1 = require("../db/helpers/logFunc");
+const logFunc_1 = require("../helpers/logFunc");
 const user_1 = __importDefault(require("../db/models/user"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
-const index_1 = require("../db/interfaces/index");
+const index_1 = require("../interfacesEnums/index");
 const changeAdminToUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     logFunc_1.logs(req, res);
     try {

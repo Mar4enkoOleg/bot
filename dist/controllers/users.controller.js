@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUser = exports.updateUser = exports.createUser = exports.getUser = exports.getAllUsers = void 0;
-const logFunc_1 = require("../db/helpers/logFunc");
+const logFunc_1 = require("../helpers/logFunc");
 const user_1 = __importDefault(require("../db/models/user"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
 const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {

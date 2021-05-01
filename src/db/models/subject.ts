@@ -1,6 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize'
 import { sequelize } from '.'
-import { SubjectAttributes } from '../interfaces'
+import { SubjectAttributes } from '../../interfacesEnums'
 import Question from './question'
 
 interface SubjectCreationAttributes extends Optional<SubjectAttributes, 'id'> {}

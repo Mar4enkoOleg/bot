@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteSubject = exports.updateSubject = exports.createSubject = exports.getSubject = exports.getAllSubjects = void 0;
 const subject_1 = __importDefault(require("../db/models/subject"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
-const logFunc_1 = require("../db/helpers/logFunc");
+const logFunc_1 = require("../helpers/logFunc");
 const getAllSubjects = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     logFunc_1.logs(req, res);
     try {

@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class ApiError extends Error {
-    constructor(status, message) {
+    constructor(s, m) {
         super();
-        this.status = status;
-        this.message = message;
+        this.status = s;
+        this.message = m;
     }
     static badRequest(message) {
         return new ApiError(404, message);

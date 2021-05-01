@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteQuestion = exports.updateQuestion = exports.createQuestion = exports.getQuestionsBySubjectAndName = exports.getQuestionsBySubject = exports.getQuestionByName = exports.getAllQuestions = void 0;
 // import { parse } from 'node:path'
-const logFunc_1 = require("../db/helpers/logFunc");
+const logFunc_1 = require("../helpers/logFunc");
 const question_1 = __importDefault(require("../db/models/question"));
 const questionsNoAnswer_1 = __importDefault(require("../db/models/questionsNoAnswer"));
 const subject_1 = __importDefault(require("../db/models/subject"));
@@ -72,6 +72,7 @@ const getQuestionsBySubjectAndName = (req, res, next) => __awaiter(void 0, void 
         const name = req.params.name;
         const question = yield question_1.default.findOne({ where: { name }, include: { model: subject_1.default, where: { title: subject } } });
         if (!question) {
+            yield questionsNoAnswer_1.default.create({ name });
             return next(ApiError_1.default.badRequest(`${subject} have not question ${name}`));
         }
         return res.status(200).json(question.answer);

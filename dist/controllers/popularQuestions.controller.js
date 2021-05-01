@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPopularQuestions = void 0;
-const logFunc_1 = require("../db/helpers/logFunc");
+const logFunc_1 = require("../helpers/logFunc");
 const question_1 = __importDefault(require("../db/models/question"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
 const project_settings_1 = require("../project_settings");

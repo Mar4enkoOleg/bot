@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 // import { parse } from 'node:path'
-import { logs } from '../db/helpers/logFunc'
-import { QuestionAttributes } from '../db/interfaces'
+import { logs } from '../helpers/logFunc'
+import { QuestionAttributes } from '../interfacesEnums'
 import QuestionModel from '../db/models/question'
 import QuestionNoAnswer from '../db/models/questionsNoAnswer'
 import Subject from '../db/models/subject'
@@ -54,6 +54,7 @@ export const getQuestionsBySubjectAndName = async (req: Request, res: Response, 
     const name: string = req.params.name
     const question = await QuestionModel.findOne({ where: { name }, include: { model: Subject, where: { title: subject } } })
     if (!question) {
+      await QuestionNoAnswer.create({ name })
       return next(ApiError.badRequest(`${subject} have not question ${name}`))
     }
     return res.status(200).json(question.answer)

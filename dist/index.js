@@ -23,16 +23,18 @@ require("./db/models/group");
 require("./db/models/cafedraInfo");
 const users_1 = __importDefault(require("./routes/users"));
 const subjects_1 = __importDefault(require("./routes/subjects"));
+// import questionsRouter from './routes/questions'
+// import popQuestionsRouter from './routes/popQuestions'
+// import noAnswerRouter from './routes/questionsNoAnswer'
 const questions_1 = __importDefault(require("./routes/questions"));
-const popQuestions_1 = __importDefault(require("./routes/popQuestions"));
-const questionsNoAnswer_1 = __importDefault(require("./routes/questionsNoAnswer"));
-const cafedraInfo_1 = __importDefault(require("./routes/cafedraInfo"));
-const botInfo_1 = __importDefault(require("./routes/botInfo"));
+// import infoRouter from './routes/cafedraInfo'
+// import botInfoRouter from './routes/botInfo'
+const info_1 = __importDefault(require("./routes/info"));
 const usersInfo_1 = __importDefault(require("./routes/usersInfo"));
 const updateAdmin_1 = __importDefault(require("./routes/updateAdmin"));
 const body_parser_1 = __importDefault(require("body-parser"));
-const createUsers_1 = require("./db/helpers/createUsers");
-const createInfo_1 = __importDefault(require("./db/helpers/createInfo"));
+const createUsers_1 = require("./db/seeders/createUsers");
+const createInfo_1 = __importDefault(require("./db/seeders/createInfo"));
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(body_parser_1.default.urlencoded({ extended: false }));
@@ -40,10 +42,9 @@ app.use(body_parser_1.default.json());
 app.use('/users', users_1.default);
 app.use('/subjects', subjects_1.default);
 app.use('/questions', questions_1.default);
-app.use('/info', cafedraInfo_1.default);
-app.use('/botInfo', botInfo_1.default);
-app.use('/popQuestions', popQuestions_1.default);
-app.use('/noAnswer', questionsNoAnswer_1.default);
+app.use('/info', info_1.default);
+// app.use('/popQuestions', popQuestionsRouter)
+// app.use('/noAnswer', noAnswerRouter)
 app.use('/usersInfo', usersInfo_1.default);
 app.use('/admins', updateAdmin_1.default);
 app.use(errorHandler_1.default);
@@ -55,8 +56,8 @@ const start = () => __awaiter(void 0, void 0, void 0, function* () {
         yield models_1.sequelize.sync({ force: true });
         console.log('All models were synchronized successfully.');
         yield createInfo_1.default();
-        createUsers_1.createUsersAndRolesAndGroups();
-        createUsers_1.createSubjectsAndQuestions();
+        yield createUsers_1.createUsersAndRolesAndGroups();
+        yield createUsers_1.createSubjectsAndQuestions();
         app.listen(port, () => console.log(`Server start on ${port} port`));
     }
     catch (error) {

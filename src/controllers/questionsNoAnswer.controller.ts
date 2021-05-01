@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { logs } from '../db/helpers/logFunc'
+import { logs } from '../helpers/logFunc'
 import QuestionsNoAnswerModel from '../db/models/questionsNoAnswer'
 import { noAnswerSettings } from '../project_settings'
 import ApiError from '../error/ApiError'

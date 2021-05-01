@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
-import { SubjectAttributes } from '../db/interfaces'
+import { SubjectAttributes } from '../interfacesEnums'
 import SubjectModel from '../db/models/subject'
 import ApiError from '../error/ApiError'
-import { logs } from '../db/helpers/logFunc'
+import { logs } from '../helpers/logFunc'
 
 export const getAllSubjects = async (req: Request, res: Response, next: Function): Promise<Response> => {
   logs(req, res)

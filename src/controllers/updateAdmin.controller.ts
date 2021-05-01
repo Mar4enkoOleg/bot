@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
-import { logs } from '../db/helpers/logFunc'
+import { logs } from '../helpers/logFunc'
 import UserModel from '../db/models/user'
 import ApiError from '../error/ApiError'
-import { Roles } from '../db/interfaces/index'
+import { Roles } from '../interfacesEnums/index'
 
 export const changeAdminToUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
   logs(req, res)
