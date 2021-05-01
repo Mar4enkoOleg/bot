@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createSubjectsAndQuestions = exports.createUsersAndRolesAndGroups = void 0;
+const interfacesEnums_1 = require("../../interfacesEnums");
 const models_1 = require("../models");
 const users = [
     // RoleId = 1 (defaultValue in sequelize model)
@@ -18,7 +19,7 @@ const users = [
         fullName: 'John Doe',
         userName: 'johnDoe',
         phone: '111-111-111',
-        userType: 'Student',
+        userType: interfacesEnums_1.UserType.STUDENT,
         state: '.......',
         GroupId: 1,
     },
@@ -27,7 +28,7 @@ const users = [
         fullName: 'Ivanov Ivan',
         userName: 'Ivanushka',
         phone: '222-222-222',
-        userType: 'Teacher',
+        userType: interfacesEnums_1.UserType.TEACHER,
         state: '.......',
         RoleId: 2,
         GroupId: 1,
@@ -37,7 +38,7 @@ const users = [
         fullName: 'Petrov Petr',
         userName: 'Petruha',
         phone: '333-333-333',
-        userType: 'Student',
+        userType: interfacesEnums_1.UserType.STUDENT,
         state: '.......',
         GroupId: 2,
     },

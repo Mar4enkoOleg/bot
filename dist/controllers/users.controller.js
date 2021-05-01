@@ -69,13 +69,15 @@ const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
-        const { telegramId, fullName, RoleId, state, userType, phone } = req.body;
+        const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone } = req.body;
         const updateCandidate = yield user_1.default.findOne({ where: { id } });
         if (!updateCandidate) {
             return next(ApiError_1.default.badRequest(`User with id=${id} not exist`));
         }
         yield user_1.default.update({
             telegramId,
+            GroupId,
+            userName,
             fullName,
             RoleId,
             state,

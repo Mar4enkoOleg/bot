@@ -1,5 +1,5 @@
 import { GroupAttributes, QuestionAttributes, SubjectAttributes, UserAttributes } from '../../interfacesEnums'
-import { RoleAttributes } from '../../interfacesEnums'
+import { RoleAttributes, UserType } from '../../interfacesEnums'
 import { sequelize } from '../models'
 
 const users: Array<UserAttributes> = [
@@ -9,7 +9,7 @@ const users: Array<UserAttributes> = [
     fullName: 'John Doe',
     userName: 'johnDoe',
     phone: '111-111-111',
-    userType: 'Student',
+    userType: UserType.STUDENT,
     state: '.......',
     GroupId: 1,
   },
@@ -18,7 +18,7 @@ const users: Array<UserAttributes> = [
     fullName: 'Ivanov Ivan',
     userName: 'Ivanushka',
     phone: '222-222-222',
-    userType: 'Teacher',
+    userType: UserType.TEACHER,
     state: '.......',
     RoleId: 2,
     GroupId: 1,
@@ -28,7 +28,7 @@ const users: Array<UserAttributes> = [
     fullName: 'Petrov Petr',
     userName: 'Petruha',
     phone: '333-333-333',
-    userType: 'Student',
+    userType: UserType.STUDENT,
     state: '.......',
     GroupId: 2,
   },

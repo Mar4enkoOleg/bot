@@ -53,7 +53,7 @@ export const updateUser = async (req: Request, res: Response, next: Function): P
   logs(req, res)
   try {
     const id = parseInt(req.params.id)
-    const { telegramId, fullName, RoleId, state, userType, phone }: UserAttributes = req.body
+    const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone }: UserAttributes = req.body
     const updateCandidate = await UserModel.findOne({ where: { id } })
     if (!updateCandidate) {
       return next(ApiError.badRequest(`User with id=${id} not exist`))
@@ -61,6 +61,8 @@ export const updateUser = async (req: Request, res: Response, next: Function): P
     await UserModel.update(
       {
         telegramId,
+        GroupId,
+        userName,
         fullName,
         RoleId,
         state,

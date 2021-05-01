@@ -9,7 +9,7 @@ export interface UserAttributes {
   userName: string
   fullName: string
   phone?: string
-  userType: string
+  userType?: string
   state: string
   RoleId?: number
   GroupId?: number
@@ -37,4 +37,9 @@ export enum Roles {
   USER = 1,
   ADMIN = 2,
   SUPERADMIN = 3,
+}
+export enum UserType {
+  STUDENT = 'Student',
+  ASPIRANT = 'Aspirant',
+  TEACHER = 'Teacher',
 }
