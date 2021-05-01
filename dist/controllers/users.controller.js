@@ -13,64 +13,95 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUser = exports.updateUser = exports.createUser = exports.getUser = exports.getAllUsers = void 0;
-const models_1 = __importDefault(require("../models/models"));
-const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const logFunc_1 = require("../db/helpers/logFunc");
+const user_1 = __importDefault(require("../db/models/user"));
+const ApiError_1 = __importDefault(require("../error/ApiError"));
+const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    logFunc_1.logs(req, res);
     try {
-        const users = yield models_1.default.model('user').findAll();
+        const users = yield user_1.default.findAll();
+        if (!users.length) {
+            return next(ApiError_1.default.badRequest(`Users does not exist yet`));
+        }
         return res.status(200).json(users);
     }
     catch (error) {
-        return res.json(error.errors[0].message);
+        return next(ApiError_1.default.badRequest(error.message));
     }
 });
 exports.getAllUsers = getAllUsers;
-const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
-        const user = yield models_1.default.model('user').findOne({ where: { id } });
+        const user = yield user_1.default.findOne({ where: { id } });
+        if (!user) {
+            return next(ApiError_1.default.badRequest(`User with id=${id} not exist`));
+        }
         return res.status(200).json(user);
     }
     catch (error) {
-        return res.json(error.errors[0].message);
+        return next(ApiError_1.default.badRequest(error.message));
     }
 });
 exports.getUser = getUser;
-const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const createUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    logFunc_1.logs(req, res);
     try {
-        const { telegram_id, full_name, roleId, state, user_type, phone } = req.body;
-        const newUser = yield models_1.default.model('user').create({
-            telegram_id,
-            full_name,
-            roleId,
+        const { telegramId, fullName, RoleId, userName, state, userType, phone } = req.body;
+        yield user_1.default.create({
+            telegramId,
+            fullName,
+            userName,
+            RoleId,
             state,
-            user_type,
+            userType,
             phone,
         });
-        console.log(newUser);
-        return res.status(201).json(newUser);
+        return res.status(201).json({ message: 'User was created' });
     }
     catch (error) {
-        return res.json(error.errors[0].message);
+        return next(ApiError_1.default.forbidden(error.message));
     }
 });
 exports.createUser = createUser;
-const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    logFunc_1.logs(req, res);
     try {
-        return res.status(200).json(req.body);
+        const id = parseInt(req.params.id);
+        const { telegramId, fullName, RoleId, state, userType, phone } = req.body;
+        const updateCandidate = yield user_1.default.findOne({ where: { id } });
+        if (!updateCandidate) {
+            return next(ApiError_1.default.badRequest(`User with id=${id} not exist`));
+        }
+        yield user_1.default.update({
+            telegramId,
+            fullName,
+            RoleId,
+            state,
+            userType,
+            phone,
+        }, { where: { id } });
+        return res.status(200).json({ message: `User with id=${id} updated` });
     }
     catch (error) {
-        return res.json(error.errors[0].message);
+        return next(ApiError_1.default.forbidden(error.message));
     }
 });
 exports.updateUser = updateUser;
-const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
-        yield models_1.default.model('user').destroy({ where: { id } });
-        return res.status(200).json(`User with id=${id} deleted`);
+        const deleteCandidate = yield user_1.default.findOne({ where: { id } });
+        if (!deleteCandidate) {
+            return next(ApiError_1.default.badRequest(`User with id=${id} not exist`));
+        }
+        yield user_1.default.destroy({ where: { id } });
+        return res.status(200).json({ message: `User with id=${id} deleted` });
     }
     catch (error) {
-        return res.json(error.errors[0].message);
+        return next(ApiError_1.default.forbidden(error.message));
     }
 });
 exports.deleteUser = deleteUser;

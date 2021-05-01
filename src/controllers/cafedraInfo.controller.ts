@@ -1,0 +1,28 @@
+import { Request, Response } from 'express'
+import { logs } from '../db/helpers/logFunc'
+import CafedraInfoModel from '../db/models/cafedraInfo'
+import ApiError from '../error/ApiError'
+
+export const getCafedraInfo = async (req: Request, res: Response, next: Function): Promise<Response> => {
+  logs(req, res)
+  try {
+    const info = await CafedraInfoModel.findOne()
+    return res.status(200).json(info?.getDataValue('description'))
+  } catch (error) {
+    return next(ApiError.badRequest(error.message))
+  }
+}
+
+export const updateInfo = async (req: Request, res: Response, next: Function): Promise<Response> => {
+  logs(req, res)
+  try {
+    const { description } = req.body
+    if (!description) {
+      return next(ApiError.badRequest('Wrong parametr'))
+    }
+    await CafedraInfoModel.update({ description }, { where: { id: 1 } })
+    return res.status(200).json({ message: `Info was updated` })
+  } catch (error) {
+    return next(ApiError.forbidden(error.message))
+  }
+}
