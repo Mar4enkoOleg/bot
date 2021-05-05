@@ -13,14 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteQuestion = exports.updateQuestion = exports.createQuestion = exports.getQuestionsBySubjectAndName = exports.getQuestionsBySubject = exports.getQuestionByName = exports.getAllQuestions = void 0;
-// import { parse } from 'node:path'
-const logFunc_1 = require("../helpers/logFunc");
 const question_1 = __importDefault(require("../db/models/question"));
 const questionsNoAnswer_1 = __importDefault(require("../db/models/questionsNoAnswer"));
 const subject_1 = __importDefault(require("../db/models/subject"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
 const getAllQuestions = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const questions = yield question_1.default.findAll();
         if (!questions.length) {
@@ -34,7 +31,6 @@ const getAllQuestions = (req, res, next) => __awaiter(void 0, void 0, void 0, fu
 });
 exports.getAllQuestions = getAllQuestions;
 const getQuestionByName = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const name = req.params.name;
         const question = yield question_1.default.findOne({ where: { name } });
@@ -51,7 +47,6 @@ const getQuestionByName = (req, res, next) => __awaiter(void 0, void 0, void 0, 
 });
 exports.getQuestionByName = getQuestionByName;
 const getQuestionsBySubject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const subject = req.params.subject;
         const questions = yield question_1.default.findAll({ include: { model: subject_1.default, where: { title: subject } } });
@@ -66,7 +61,6 @@ const getQuestionsBySubject = (req, res, next) => __awaiter(void 0, void 0, void
 });
 exports.getQuestionsBySubject = getQuestionsBySubject;
 const getQuestionsBySubjectAndName = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const subject = req.params.subject;
         const name = req.params.name;
@@ -83,7 +77,6 @@ const getQuestionsBySubjectAndName = (req, res, next) => __awaiter(void 0, void 
 });
 exports.getQuestionsBySubjectAndName = getQuestionsBySubjectAndName;
 const createQuestion = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const { name, answer, SubjectId } = req.body;
         yield question_1.default.create({
@@ -99,7 +92,6 @@ const createQuestion = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
 });
 exports.createQuestion = createQuestion;
 const updateQuestion = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
         const { name, answer, SubjectId } = req.body;
@@ -120,7 +112,6 @@ const updateQuestion = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
 });
 exports.updateQuestion = updateQuestion;
 const deleteQuestion = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
         const deleteQuestion = yield question_1.default.findOne({ where: { id } });

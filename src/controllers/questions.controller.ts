@@ -1,6 +1,4 @@
 import { Request, Response } from 'express'
-// import { parse } from 'node:path'
-import { logs } from '../helpers/logFunc'
 import { QuestionAttributes } from '../interfacesEnums'
 import QuestionModel from '../db/models/question'
 import QuestionNoAnswer from '../db/models/questionsNoAnswer'
@@ -8,7 +6,6 @@ import Subject from '../db/models/subject'
 import ApiError from '../error/ApiError'
 
 export const getAllQuestions = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const questions = await QuestionModel.findAll()
     if (!questions.length) {
@@ -20,7 +17,6 @@ export const getAllQuestions = async (req: Request, res: Response, next: Functio
   }
 }
 export const getQuestionByName = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const name: string = req.params.name
     const question = await QuestionModel.findOne({ where: { name } })
@@ -35,7 +31,6 @@ export const getQuestionByName = async (req: Request, res: Response, next: Funct
   }
 }
 export const getQuestionsBySubject = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const subject: string = req.params.subject
     const questions = await QuestionModel.findAll({ include: { model: Subject, where: { title: subject } } })
@@ -48,7 +43,6 @@ export const getQuestionsBySubject = async (req: Request, res: Response, next: F
   }
 }
 export const getQuestionsBySubjectAndName = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const subject: string = req.params.subject
     const name: string = req.params.name
@@ -64,7 +58,6 @@ export const getQuestionsBySubjectAndName = async (req: Request, res: Response, 
 }
 
 export const createQuestion = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const { name, answer, SubjectId }: QuestionAttributes = req.body
     await QuestionModel.create({
@@ -79,7 +72,6 @@ export const createQuestion = async (req: Request, res: Response, next: Function
 }
 
 export const updateQuestion = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const id = parseInt(req.params.id)
     const { name, answer, SubjectId }: QuestionAttributes = req.body
@@ -101,7 +93,6 @@ export const updateQuestion = async (req: Request, res: Response, next: Function
   }
 }
 export const deleteQuestion = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const id = parseInt(req.params.id)
     const deleteQuestion = await QuestionModel.findOne({ where: { id } })

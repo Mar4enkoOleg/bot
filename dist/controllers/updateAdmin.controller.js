@@ -13,12 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAllAdmins = exports.changeUserToAdmin = exports.changeAdminToUser = void 0;
-const logFunc_1 = require("../helpers/logFunc");
 const user_1 = __importDefault(require("../db/models/user"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
 const index_1 = require("../interfacesEnums/index");
 const changeAdminToUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const username = req.params.username;
         const updateCandidate = yield user_1.default.findOne({ where: { userName: username } });
@@ -34,7 +32,6 @@ const changeAdminToUser = (req, res, next) => __awaiter(void 0, void 0, void 0, 
 });
 exports.changeAdminToUser = changeAdminToUser;
 const changeUserToAdmin = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const username = req.params.username;
         const updateCandidate = yield user_1.default.findOne({ where: { userName: username } });
@@ -53,7 +50,6 @@ const changeUserToAdmin = (req, res, next) => __awaiter(void 0, void 0, void 0, 
 });
 exports.changeUserToAdmin = changeUserToAdmin;
 const getAllAdmins = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const admins = yield user_1.default.findAll({ where: { RoleId: index_1.Roles.ADMIN } });
         if (!admins.length) {

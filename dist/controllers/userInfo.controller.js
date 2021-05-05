@@ -13,12 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getUsersByGroup = exports.getUsersCount = void 0;
-const logFunc_1 = require("../helpers/logFunc");
 const user_1 = __importDefault(require("../db/models/user"));
 const group_1 = __importDefault(require("../db/models/group"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
 const getUsersCount = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const usersCount = yield user_1.default.findAndCountAll();
         if (!usersCount) {
@@ -32,7 +30,6 @@ const getUsersCount = (req, res, next) => __awaiter(void 0, void 0, void 0, func
 });
 exports.getUsersCount = getUsersCount;
 const getUsersByGroup = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const name = req.params.group;
         const groupCheck = yield group_1.default.findOne({ where: { name } });

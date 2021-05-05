@@ -2,11 +2,8 @@ import { Request, Response } from 'express'
 import { SubjectAttributes } from '../interfacesEnums'
 import SubjectModel from '../db/models/subject'
 import ApiError from '../error/ApiError'
-import { logs } from '../helpers/logFunc'
 
 export const getAllSubjects = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
-
   try {
     const subjects = await SubjectModel.findAll()
     if (!subjects.length) {
@@ -18,7 +15,6 @@ export const getAllSubjects = async (req: Request, res: Response, next: Function
   }
 }
 export const getSubject = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const id = parseInt(req.params.id)
     const subject = await SubjectModel.findOne({ where: { id } })
@@ -32,7 +28,6 @@ export const getSubject = async (req: Request, res: Response, next: Function): P
 }
 
 export const createSubject = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const { title }: SubjectAttributes = req.body
     await SubjectModel.create({
@@ -45,7 +40,6 @@ export const createSubject = async (req: Request, res: Response, next: Function)
 }
 
 export const updateSubject = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const id = parseInt(req.params.id)
     const { title }: SubjectAttributes = req.body
@@ -65,7 +59,6 @@ export const updateSubject = async (req: Request, res: Response, next: Function)
   }
 }
 export const deleteSubject = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const id = parseInt(req.params.id)
     const deleteSubject = await SubjectModel.findOne({ where: { id } })

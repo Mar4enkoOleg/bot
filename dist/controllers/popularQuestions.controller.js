@@ -13,12 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPopularQuestions = void 0;
-const logFunc_1 = require("../helpers/logFunc");
 const question_1 = __importDefault(require("../db/models/question"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
 const project_settings_1 = require("../project_settings");
 const getPopularQuestions = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const popularQuestions = yield question_1.default.findAll({ order: [['counter', 'DESC']], limit: project_settings_1.popularQuestionsSettings.limitQuestions });
         if (!popularQuestions.length) {

@@ -13,11 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateCafedraInfo = exports.getCafedraInfo = void 0;
-const logFunc_1 = require("../helpers/logFunc");
 const cafedraInfo_1 = __importDefault(require("../db/models/cafedraInfo"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
 const getCafedraInfo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const info = yield cafedraInfo_1.default.findOne();
         return res.status(200).json(info === null || info === void 0 ? void 0 : info.getDataValue('description'));
@@ -28,7 +26,6 @@ const getCafedraInfo = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
 });
 exports.getCafedraInfo = getCafedraInfo;
 const updateCafedraInfo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const { description } = req.body;
         if (!description) {

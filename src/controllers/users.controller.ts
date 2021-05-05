@@ -1,11 +1,9 @@
 import { Request, Response } from 'express'
-import { logs } from '../helpers/logFunc'
 import { UserAttributes } from '../interfacesEnums'
 import UserModel from '../db/models/user'
 import ApiError from '../error/ApiError'
 
 export const getAllUsers = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const users = await UserModel.findAll()
     if (!users.length) {
@@ -17,7 +15,6 @@ export const getAllUsers = async (req: Request, res: Response, next: Function): 
   }
 }
 export const getUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const id = parseInt(req.params.id)
     const user = await UserModel.findOne({ where: { id } })
@@ -31,7 +28,6 @@ export const getUser = async (req: Request, res: Response, next: Function): Prom
 }
 
 export const createUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const { telegramId, fullName, RoleId, userName, state, userType, phone }: UserAttributes = req.body
     await UserModel.create({
@@ -50,7 +46,6 @@ export const createUser = async (req: Request, res: Response, next: Function): P
 }
 
 export const updateUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const id = parseInt(req.params.id)
     const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone }: UserAttributes = req.body
@@ -77,7 +72,6 @@ export const updateUser = async (req: Request, res: Response, next: Function): P
   }
 }
 export const deleteUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const id = parseInt(req.params.id)
     const deleteCandidate = await UserModel.findOne({ where: { id } })

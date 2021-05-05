@@ -15,9 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteSubject = exports.updateSubject = exports.createSubject = exports.getSubject = exports.getAllSubjects = void 0;
 const subject_1 = __importDefault(require("../db/models/subject"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
-const logFunc_1 = require("../helpers/logFunc");
 const getAllSubjects = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const subjects = yield subject_1.default.findAll();
         if (!subjects.length) {
@@ -31,7 +29,6 @@ const getAllSubjects = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
 });
 exports.getAllSubjects = getAllSubjects;
 const getSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
         const subject = yield subject_1.default.findOne({ where: { id } });
@@ -46,7 +43,6 @@ const getSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
 });
 exports.getSubject = getSubject;
 const createSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const { title } = req.body;
         yield subject_1.default.create({
@@ -60,7 +56,6 @@ const createSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, func
 });
 exports.createSubject = createSubject;
 const updateSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
         const { title } = req.body;
@@ -79,7 +74,6 @@ const updateSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, func
 });
 exports.updateSubject = updateSubject;
 const deleteSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
         const deleteSubject = yield subject_1.default.findOne({ where: { id } });

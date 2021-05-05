@@ -5,12 +5,7 @@ import User from './user'
 
 interface RoleCreationAttributes extends Optional<RoleAttributes, 'id'> {}
 
-interface RoleInstance extends Model<RoleAttributes, RoleCreationAttributes>, RoleAttributes {
-  //   createdAt?: Date
-  //   updatedAt?: Date
-  //   createdAt: false
-  //   updatedAt: false
-}
+interface RoleInstance extends Model<RoleAttributes, RoleCreationAttributes>, RoleAttributes {}
 
 const Role = sequelize.define<RoleInstance>(
   'Role',

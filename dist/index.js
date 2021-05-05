@@ -23,28 +23,25 @@ require("./db/models/group");
 require("./db/models/cafedraInfo");
 const users_1 = __importDefault(require("./routes/users"));
 const subjects_1 = __importDefault(require("./routes/subjects"));
-// import questionsRouter from './routes/questions'
-// import popQuestionsRouter from './routes/popQuestions'
-// import noAnswerRouter from './routes/questionsNoAnswer'
 const questions_1 = __importDefault(require("./routes/questions"));
-// import infoRouter from './routes/cafedraInfo'
-// import botInfoRouter from './routes/botInfo'
 const info_1 = __importDefault(require("./routes/info"));
 const usersInfo_1 = __importDefault(require("./routes/usersInfo"));
 const updateAdmin_1 = __importDefault(require("./routes/updateAdmin"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const createUsers_1 = require("./db/seeders/createUsers");
 const createInfo_1 = __importDefault(require("./db/seeders/createInfo"));
+const morgan_1 = __importDefault(require("morgan"));
 const app = express_1.default();
 const port = process.env.PORT || 3000;
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan_1.default('dev'));
+}
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(body_parser_1.default.json());
 app.use('/users', users_1.default);
 app.use('/subjects', subjects_1.default);
 app.use('/questions', questions_1.default);
 app.use('/info', info_1.default);
-// app.use('/popQuestions', popQuestionsRouter)
-// app.use('/noAnswer', noAnswerRouter)
 app.use('/usersInfo', usersInfo_1.default);
 app.use('/admins', updateAdmin_1.default);
 app.use(errorHandler_1.default);

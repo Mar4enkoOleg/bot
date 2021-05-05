@@ -14,6 +14,4 @@ const Group = _1.sequelize.define('Group', {
 });
 Group.hasMany(user_1.default);
 user_1.default.belongsTo(Group);
-// Role.hasOne(User)
-// User.belongsTo(Role)
 exports.default = Group;

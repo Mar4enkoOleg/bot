@@ -1,14 +1,9 @@
 import { Request, Response } from 'express'
-// import Sequelize from 'sequelize'
-import { Sequelize } from '../db/models'
-import { logs } from '../helpers/logFunc'
 import UserModel from '../db/models/user'
 import GroupModel from '../db/models/group'
 import ApiError from '../error/ApiError'
-import { Op } from 'sequelize/types'
 
 export const getUsersCount = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const usersCount = await UserModel.findAndCountAll()
     if (!usersCount) {
@@ -20,7 +15,6 @@ export const getUsersCount = async (req: Request, res: Response, next: Function)
   }
 }
 export const getUsersByGroup = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const name: string = req.params.group
     const groupCheck = await GroupModel.findOne({ where: { name } })

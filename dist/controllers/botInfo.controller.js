@@ -13,11 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getBotInfo = void 0;
-const logFunc_1 = require("../helpers/logFunc");
 const botInfo_1 = __importDefault(require("../db/models/botInfo"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
 const getBotInfo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const info = yield botInfo_1.default.findOne();
         return res.status(200).json(info === null || info === void 0 ? void 0 : info.getDataValue('description'));

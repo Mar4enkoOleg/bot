@@ -1,11 +1,9 @@
 import { Request, Response } from 'express'
-import { logs } from '../helpers/logFunc'
 import UserModel from '../db/models/user'
 import ApiError from '../error/ApiError'
 import { Roles } from '../interfacesEnums/index'
 
 export const changeAdminToUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const username: string = req.params.username
     const updateCandidate = await UserModel.findOne({ where: { userName: username } })
@@ -19,7 +17,6 @@ export const changeAdminToUser = async (req: Request, res: Response, next: Funct
   }
 }
 export const changeUserToAdmin = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const username: string = req.params.username
     const updateCandidate = await UserModel.findOne({ where: { userName: username } })
@@ -36,7 +33,6 @@ export const changeUserToAdmin = async (req: Request, res: Response, next: Funct
   }
 }
 export const getAllAdmins = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const admins = await UserModel.findAll({ where: { RoleId: Roles.ADMIN } })
     if (!admins.length) {

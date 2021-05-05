@@ -21,7 +21,4 @@ const Group = sequelize.define<GroupInstance>(
 Group.hasMany(User)
 User.belongsTo(Group)
 
-// Role.hasOne(User)
-// User.belongsTo(Role)
-
 export default Group

@@ -1,5 +1,4 @@
 import { DataTypes } from 'sequelize'
-import { any } from 'sequelize/types/lib/operators'
 import { sequelize } from '.'
 
 const CafedraInfo = sequelize.define('CafedraInfo', {

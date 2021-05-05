@@ -9,21 +9,21 @@ import './db/models/group'
 import './db/models/cafedraInfo'
 import usersRouter from './routes/users'
 import subjectsRouter from './routes/subjects'
-// import questionsRouter from './routes/questions'
-// import popQuestionsRouter from './routes/popQuestions'
-// import noAnswerRouter from './routes/questionsNoAnswer'
 import questionsRouter from './routes/questions'
-// import infoRouter from './routes/cafedraInfo'
-// import botInfoRouter from './routes/botInfo'
 import infoRouter from './routes/info'
 import usersInfoRouter from './routes/usersInfo'
 import updateAdminRouter from './routes/updateAdmin'
 import bodyParser from 'body-parser'
 import { createUsersAndRolesAndGroups, createSubjectsAndQuestions } from './db/seeders/createUsers'
 import createInfo from './db/seeders/createInfo'
+import logger from 'morgan'
 
 const app = express()
 const port = process.env.PORT || 3000
+
+if (process.env.NODE_ENV === 'development') {
+  app.use(logger('dev'))
+}
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -31,8 +31,6 @@ app.use('/users', usersRouter)
 app.use('/subjects', subjectsRouter)
 app.use('/questions', questionsRouter)
 app.use('/info', infoRouter)
-// app.use('/popQuestions', popQuestionsRouter)
-// app.use('/noAnswer', noAnswerRouter)
 app.use('/usersInfo', usersInfoRouter)
 app.use('/admins', updateAdminRouter)
 

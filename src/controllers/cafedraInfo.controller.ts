@@ -1,10 +1,8 @@
 import { Request, Response } from 'express'
-import { logs } from '../helpers/logFunc'
 import CafedraInfoModel from '../db/models/cafedraInfo'
 import ApiError from '../error/ApiError'
 
 export const getCafedraInfo = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const info = await CafedraInfoModel.findOne()
     return res.status(200).json(info?.getDataValue('description'))
@@ -14,7 +12,6 @@ export const getCafedraInfo = async (req: Request, res: Response, next: Function
 }
 
 export const updateCafedraInfo = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const { description } = req.body
     if (!description) {

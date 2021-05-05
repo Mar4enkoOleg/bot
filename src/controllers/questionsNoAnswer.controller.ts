@@ -1,11 +1,9 @@
 import { Request, Response } from 'express'
-import { logs } from '../helpers/logFunc'
 import QuestionsNoAnswerModel from '../db/models/questionsNoAnswer'
 import { noAnswerSettings } from '../project_settings'
 import ApiError from '../error/ApiError'
 
 export const getNoAnswerQuestions = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const noAnswer = await QuestionsNoAnswerModel.findAll({ limit: noAnswerSettings.limitQuestions })
     if (!noAnswer.length) {
@@ -17,7 +15,6 @@ export const getNoAnswerQuestions = async (req: Request, res: Response, next: Fu
   }
 }
 export const deleteAllNoAnswerQuestions = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     await QuestionsNoAnswerModel.destroy({ where: {}, truncate: true })
     return res.status(200).json({ message: `All no answer questions was deleted` })
@@ -27,7 +24,6 @@ export const deleteAllNoAnswerQuestions = async (req: Request, res: Response, ne
 }
 
 export const deleteNoAnswerQuestionById = async (req: Request, res: Response, next: Function): Promise<Response> => {
-  logs(req, res)
   try {
     const id = parseInt(req.params.id)
     const deleteQuestion = await QuestionsNoAnswerModel.findOne({ where: { id } })

@@ -13,11 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUser = exports.updateUser = exports.createUser = exports.getUser = exports.getAllUsers = void 0;
-const logFunc_1 = require("../helpers/logFunc");
 const user_1 = __importDefault(require("../db/models/user"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
 const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const users = yield user_1.default.findAll();
         if (!users.length) {
@@ -31,7 +29,6 @@ const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
 });
 exports.getAllUsers = getAllUsers;
 const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
         const user = yield user_1.default.findOne({ where: { id } });
@@ -46,7 +43,6 @@ const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* 
 });
 exports.getUser = getUser;
 const createUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const { telegramId, fullName, RoleId, userName, state, userType, phone } = req.body;
         yield user_1.default.create({
@@ -66,7 +62,6 @@ const createUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
 });
 exports.createUser = createUser;
 const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
         const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone } = req.body;
@@ -92,7 +87,6 @@ const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
 });
 exports.updateUser = updateUser;
 const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    logFunc_1.logs(req, res);
     try {
         const id = parseInt(req.params.id);
         const deleteCandidate = yield user_1.default.findOne({ where: { id } });
