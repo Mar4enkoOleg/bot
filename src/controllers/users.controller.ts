@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { UserAttributes } from '../interfacesEnums'
 import UserModel from '../db/models/user'
 import ApiError from '../error/ApiError'
-import { userSchema } from '../helpers/validation'
+import { userSchemaCreate, userSchemaUpdate } from '../helpers/validation'
 
 export const getAllUsers = async (req: Request, res: Response, next: Function): Promise<Response> => {
   try {
@@ -44,7 +44,7 @@ export const getUser = async (req: Request, res: Response, next: Function): Prom
 export const createUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
   try {
     const { telegramId, fullName, RoleId, userName, state, userType, phone, GroupId }: UserAttributes = req.body
-    await userSchema.validateAsync(req.body)
+    await userSchemaCreate.validateAsync(req.body)
 
     await UserModel.create({
       telegramId,
@@ -69,7 +69,7 @@ export const updateUser = async (req: Request, res: Response, next: Function): P
     if (!updateCandidate) {
       return next(ApiError.badRequest(`User with id=${id} not exist`))
     }
-    await userSchema.validateAsync(req.body)
+    await userSchemaUpdate.validateAsync(req.body)
 
     const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone }: UserAttributes = req.body
     await UserModel.update(
