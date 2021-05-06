@@ -65,13 +65,13 @@ export const createUser = async (req: Request, res: Response, next: Function): P
 export const updateUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
   try {
     const id = parseInt(req.params.id)
-    await userSchema.validateAsync(req.body)
-
-    const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone }: UserAttributes = req.body
     const updateCandidate = await UserModel.findOne({ where: { id } })
     if (!updateCandidate) {
       return next(ApiError.badRequest(`User with id=${id} not exist`))
     }
+    await userSchema.validateAsync(req.body)
+
+    const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone }: UserAttributes = req.body
     await UserModel.update(
       {
         telegramId,
