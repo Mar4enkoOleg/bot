@@ -79,12 +79,12 @@ exports.createUser = createUser;
 const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
-        yield validation_1.userSchema.validateAsync(req.body);
-        const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone } = req.body;
         const updateCandidate = yield user_1.default.findOne({ where: { id } });
         if (!updateCandidate) {
             return next(ApiError_1.default.badRequest(`User with id=${id} not exist`));
         }
+        yield validation_1.userSchema.validateAsync(req.body);
+        const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone } = req.body;
         yield user_1.default.update({
             telegramId,
             GroupId,
