@@ -1,4 +1,6 @@
 import express from 'express'
+import bodyParser from 'body-parser'
+import logger from 'morgan'
 import { sequelize } from './db/models'
 import errorHandler from './middleware/errorHandler'
 import './db/models/user'
@@ -13,10 +15,6 @@ import questionsRouter from './routes/questions'
 import infoRouter from './routes/info'
 import usersInfoRouter from './routes/usersInfo'
 import updateAdminRouter from './routes/updateAdmin'
-import bodyParser from 'body-parser'
-import { createUsersAndRolesAndGroups, createSubjectsAndQuestions } from './db/seeders/createUsers'
-import createInfo from './db/seeders/createInfo'
-import logger from 'morgan'
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -41,11 +39,8 @@ const start = async () => {
     console.log(process.env.NODE_ENV)
     await sequelize.authenticate()
     console.log('Connection has been established successfully.')
-    await sequelize.sync({ force: true })
+    await sequelize.sync()
     console.log('All models were synchronized successfully.')
-    await createInfo()
-    await createUsersAndRolesAndGroups()
-    await createSubjectsAndQuestions()
     app.listen(port, () => console.log(`Server start on ${port} port`))
   } catch (error) {
     console.error(error)

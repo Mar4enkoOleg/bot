@@ -13,6 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const body_parser_1 = __importDefault(require("body-parser"));
+const morgan_1 = __importDefault(require("morgan"));
 const models_1 = require("./db/models");
 const errorHandler_1 = __importDefault(require("./middleware/errorHandler"));
 require("./db/models/user");
@@ -27,10 +29,6 @@ const questions_1 = __importDefault(require("./routes/questions"));
 const info_1 = __importDefault(require("./routes/info"));
 const usersInfo_1 = __importDefault(require("./routes/usersInfo"));
 const updateAdmin_1 = __importDefault(require("./routes/updateAdmin"));
-const body_parser_1 = __importDefault(require("body-parser"));
-const createUsers_1 = require("./db/seeders/createUsers");
-const createInfo_1 = __importDefault(require("./db/seeders/createInfo"));
-const morgan_1 = __importDefault(require("morgan"));
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 if (process.env.NODE_ENV === 'development') {
@@ -50,11 +48,8 @@ const start = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(process.env.NODE_ENV);
         yield models_1.sequelize.authenticate();
         console.log('Connection has been established successfully.');
-        yield models_1.sequelize.sync({ force: true });
+        yield models_1.sequelize.sync();
         console.log('All models were synchronized successfully.');
-        yield createInfo_1.default();
-        yield createUsers_1.createUsersAndRolesAndGroups();
-        yield createUsers_1.createSubjectsAndQuestions();
         app.listen(port, () => console.log(`Server start on ${port} port`));
     }
     catch (error) {

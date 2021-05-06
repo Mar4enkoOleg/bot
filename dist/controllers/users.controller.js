@@ -12,9 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.updateUser = exports.createUser = exports.getUser = exports.getAllUsers = void 0;
+exports.deleteUser = exports.updateUser = exports.createUser = exports.getUser = exports.getUserByParams = exports.getAllUsers = void 0;
 const user_1 = __importDefault(require("../db/models/user"));
 const ApiError_1 = __importDefault(require("../error/ApiError"));
+const validation_1 = require("../helpers/validation");
 const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield user_1.default.findAll();
@@ -28,6 +29,18 @@ const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.getAllUsers = getAllUsers;
+const getUserByParams = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const params = req.body;
+        //////////////////////////////
+        const user = null;
+        return res.json(user);
+    }
+    catch (error) {
+        return next(ApiError_1.default.badRequest(`User not found`));
+    }
+});
+exports.getUserByParams = getUserByParams;
 const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
@@ -44,7 +57,8 @@ const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* 
 exports.getUser = getUser;
 const createUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { telegramId, fullName, RoleId, userName, state, userType, phone } = req.body;
+        const { telegramId, fullName, RoleId, userName, state, userType, phone, GroupId } = req.body;
+        yield validation_1.userSchema.validateAsync(req.body);
         yield user_1.default.create({
             telegramId,
             fullName,
@@ -53,17 +67,19 @@ const createUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
             state,
             userType,
             phone,
+            GroupId,
         });
         return res.status(201).json({ message: 'User was created' });
     }
     catch (error) {
-        return next(ApiError_1.default.forbidden(error.message));
+        return next(ApiError_1.default.badRequest(error.message));
     }
 });
 exports.createUser = createUser;
 const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
+        yield validation_1.userSchema.validateAsync(req.body);
         const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone } = req.body;
         const updateCandidate = yield user_1.default.findOne({ where: { id } });
         if (!updateCandidate) {
@@ -82,7 +98,7 @@ const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
         return res.status(200).json({ message: `User with id=${id} updated` });
     }
     catch (error) {
-        return next(ApiError_1.default.forbidden(error.message));
+        return next(ApiError_1.default.badRequest(error.message));
     }
 });
 exports.updateUser = updateUser;
@@ -97,7 +113,7 @@ const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
         return res.status(200).json({ message: `User with id=${id} deleted` });
     }
     catch (error) {
-        return next(ApiError_1.default.forbidden(error.message));
+        return next(ApiError_1.default.badRequest(error.message));
     }
 });
 exports.deleteUser = deleteUser;

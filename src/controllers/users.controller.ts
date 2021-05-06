@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 import { UserAttributes } from '../interfacesEnums'
 import UserModel from '../db/models/user'
 import ApiError from '../error/ApiError'
+import { userSchema } from '../helpers/validation'
 
 export const getAllUsers = async (req: Request, res: Response, next: Function): Promise<Response> => {
   try {
@@ -14,6 +15,19 @@ export const getAllUsers = async (req: Request, res: Response, next: Function): 
     return next(ApiError.badRequest(error.message))
   }
 }
+
+export const getUserByParams = async (req: Request, res: Response, next: Function): Promise<Response> => {
+  try {
+    const params: any = req.body
+    //////////////////////////////
+
+    const user = null
+    return res.json(user)
+  } catch (error) {
+    return next(ApiError.badRequest(`User not found`))
+  }
+}
+
 export const getUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
   try {
     const id = parseInt(req.params.id)
@@ -29,7 +43,9 @@ export const getUser = async (req: Request, res: Response, next: Function): Prom
 
 export const createUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
   try {
-    const { telegramId, fullName, RoleId, userName, state, userType, phone }: UserAttributes = req.body
+    const { telegramId, fullName, RoleId, userName, state, userType, phone, GroupId }: UserAttributes = req.body
+    await userSchema.validateAsync(req.body)
+
     await UserModel.create({
       telegramId,
       fullName,
@@ -38,16 +54,19 @@ export const createUser = async (req: Request, res: Response, next: Function): P
       state,
       userType,
       phone,
+      GroupId,
     })
     return res.status(201).json({ message: 'User was created' })
   } catch (error) {
-    return next(ApiError.forbidden(error.message))
+    return next(ApiError.badRequest(error.message))
   }
 }
 
 export const updateUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
   try {
     const id = parseInt(req.params.id)
+    await userSchema.validateAsync(req.body)
+
     const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone }: UserAttributes = req.body
     const updateCandidate = await UserModel.findOne({ where: { id } })
     if (!updateCandidate) {
@@ -68,7 +87,7 @@ export const updateUser = async (req: Request, res: Response, next: Function): P
     )
     return res.status(200).json({ message: `User with id=${id} updated` })
   } catch (error) {
-    return next(ApiError.forbidden(error.message))
+    return next(ApiError.badRequest(error.message))
   }
 }
 export const deleteUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
@@ -81,6 +100,6 @@ export const deleteUser = async (req: Request, res: Response, next: Function): P
     await UserModel.destroy({ where: { id } })
     return res.status(200).json({ message: `User with id=${id} deleted` })
   } catch (error) {
-    return next(ApiError.forbidden(error.message))
+    return next(ApiError.badRequest(error.message))
   }
 }

@@ -10,29 +10,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const models_1 = require("../models");
-require("../models/botInfo");
-require("../models/cafedraInfo");
-function CreateCafedraInfo() {
+require("../models/role");
+const roles = [
+    {
+        value: 'USER',
+    },
+    {
+        value: 'ADMIN',
+    },
+    {
+        value: 'SUPERADMIN',
+    },
+];
+function createRoles() {
     return __awaiter(this, void 0, void 0, function* () {
-        const check = yield models_1.sequelize.model('CafedraInfo').findOne();
-        if (!check) {
-            yield models_1.sequelize.model('CafedraInfo').create();
-        }
-        else {
-            console.log('Cafedra info already exist');
-        }
+        roles.map((role) => __awaiter(this, void 0, void 0, function* () {
+            yield models_1.sequelize.model('Role').create(role);
+        }));
     });
 }
-function CreateBotInfo() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const check = yield models_1.sequelize.model('BotInfo').findOne();
-        if (!check) {
-            yield models_1.sequelize.model('BotInfo').create();
-        }
-        else {
-            console.log('Bot info already exist');
-        }
-    });
-}
-CreateCafedraInfo();
-CreateBotInfo();
+createRoles();

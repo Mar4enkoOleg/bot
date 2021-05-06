@@ -9,9 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createSubjectsAndQuestions = exports.createUsersAndRolesAndGroups = void 0;
 const interfacesEnums_1 = require("../../interfacesEnums");
 const models_1 = require("../models");
+require("../models/group");
+require("../models/user");
+require("../models/subject");
+require("../models/question");
 const users = [
     // RoleId = 1 (defaultValue in sequelize model)
     {
@@ -43,17 +46,6 @@ const users = [
         GroupId: 2,
     },
 ];
-const roles = [
-    {
-        value: 'USER',
-    },
-    {
-        value: 'ADMIN',
-    },
-    {
-        value: 'SUPERADMIN',
-    },
-];
 const groups = [
     {
         name: 'Group1',
@@ -79,24 +71,25 @@ const questions = [
     { name: 'Question6', answer: 'Answer6', SubjectId: 2 },
     { name: 'Question7', answer: 'Answer7', SubjectId: 2 },
 ];
-const createUsersAndRolesAndGroups = () => {
-    groups.map((group) => __awaiter(void 0, void 0, void 0, function* () {
-        yield models_1.sequelize.model('Group').create(group);
-    }));
-    roles.map((role) => __awaiter(void 0, void 0, void 0, function* () {
-        yield models_1.sequelize.model('Role').create(role);
-    }));
-    users.map((user) => __awaiter(void 0, void 0, void 0, function* () {
-        yield models_1.sequelize.model('User').create(user);
-    }));
-};
-exports.createUsersAndRolesAndGroups = createUsersAndRolesAndGroups;
-const createSubjectsAndQuestions = () => __awaiter(void 0, void 0, void 0, function* () {
-    subjects.map((sub) => __awaiter(void 0, void 0, void 0, function* () {
-        yield models_1.sequelize.model('Subject').create(sub);
-    }));
-    questions.map((question) => __awaiter(void 0, void 0, void 0, function* () {
-        yield models_1.sequelize.model('Question').create(question);
-    }));
-});
-exports.createSubjectsAndQuestions = createSubjectsAndQuestions;
+function createUsersAndGroups() {
+    return __awaiter(this, void 0, void 0, function* () {
+        groups.map((group) => __awaiter(this, void 0, void 0, function* () {
+            yield models_1.sequelize.model('Group').create(group);
+        }));
+        users.map((user) => __awaiter(this, void 0, void 0, function* () {
+            yield models_1.sequelize.model('User').create(user);
+        }));
+    });
+}
+function createSubjectsAndQuestions() {
+    return __awaiter(this, void 0, void 0, function* () {
+        subjects.map((sub) => __awaiter(this, void 0, void 0, function* () {
+            yield models_1.sequelize.model('Subject').create(sub);
+        }));
+        questions.map((question) => __awaiter(this, void 0, void 0, function* () {
+            yield models_1.sequelize.model('Question').create(question);
+        }));
+    });
+}
+createUsersAndGroups();
+createSubjectsAndQuestions();

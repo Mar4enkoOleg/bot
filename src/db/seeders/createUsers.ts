@@ -1,6 +1,10 @@
 import { GroupAttributes, QuestionAttributes, SubjectAttributes, UserAttributes } from '../../interfacesEnums'
-import { RoleAttributes, UserType } from '../../interfacesEnums'
+import { UserType } from '../../interfacesEnums'
 import { sequelize } from '../models'
+import '../models/group'
+import '../models/user'
+import '../models/subject'
+import '../models/question'
 
 const users: Array<UserAttributes> = [
   // RoleId = 1 (defaultValue in sequelize model)
@@ -34,18 +38,6 @@ const users: Array<UserAttributes> = [
   },
 ]
 
-const roles: Array<RoleAttributes> = [
-  {
-    value: 'USER',
-  },
-  {
-    value: 'ADMIN',
-  },
-  {
-    value: 'SUPERADMIN',
-  },
-]
-
 const groups: Array<GroupAttributes> = [
   {
     name: 'Group1',
@@ -74,13 +66,9 @@ const questions: Array<QuestionAttributes> = [
   { name: 'Question7', answer: 'Answer7', SubjectId: 2 },
 ]
 
-export const createUsersAndRolesAndGroups = () => {
+async function createUsersAndGroups() {
   groups.map(async (group) => {
     await sequelize.model('Group').create(group)
-  })
-
-  roles.map(async (role) => {
-    await sequelize.model('Role').create(role)
   })
 
   users.map(async (user) => {
@@ -88,7 +76,7 @@ export const createUsersAndRolesAndGroups = () => {
   })
 }
 
-export const createSubjectsAndQuestions = async () => {
+async function createSubjectsAndQuestions() {
   subjects.map(async (sub) => {
     await sequelize.model('Subject').create(sub)
   })
@@ -96,3 +84,6 @@ export const createSubjectsAndQuestions = async () => {
     await sequelize.model('Question').create(question)
   })
 }
+
+createUsersAndGroups()
+createSubjectsAndQuestions()

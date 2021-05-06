@@ -4,6 +4,7 @@ const express_1 = require("express");
 const users_controller_1 = require("../controllers/users.controller");
 const router = express_1.Router();
 router.get('/', users_controller_1.getAllUsers);
+router.get('/byparams/', users_controller_1.getUserByParams);
 router.get('/:id', users_controller_1.getUser);
 router.post('/', users_controller_1.createUser);
 router.put('/:id', users_controller_1.updateUser);
