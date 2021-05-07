@@ -6,11 +6,11 @@ export interface RoleAttributes {
 export interface UserAttributes {
   id?: number
   telegramId: number
-  userName: string
-  fullName: string
+  userName?: string
+  fullName?: string
   phone?: string
   userType?: string
-  state: string
+  state?: string
   role?: Roles
   GroupId?: number
 }

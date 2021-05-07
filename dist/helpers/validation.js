@@ -23,12 +23,18 @@ const checkTelegramId = (telegramId) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 const checkUserName = (userName) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!userName) {
+        return;
+    }
     const user = yield models_1.sequelize.model('User').findOne({ where: { userName } });
     if (user) {
         throw new Error('Must be unique');
     }
 });
 const checkGroupExist = (GroupId) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!GroupId) {
+        return;
+    }
     const group = yield models_1.sequelize.model('Group').findOne({ where: { id: GroupId } });
     if (group) {
         return;
@@ -41,19 +47,19 @@ exports.userSchemaCreate = joi_1.default.object({
     telegramId: joi_1.default.number().required().min(0).max(99999999).external(checkTelegramId),
     fullName: joi_1.default.string().min(2).max(50),
     userName: joi_1.default.string().min(2).max(100).alphanum().external(checkUserName),
-    userType: joi_1.default.string().valid(interfacesEnums_1.UserType),
+    userType: joi_1.default.string().valid(interfacesEnums_1.UserType.STUDENT, interfacesEnums_1.UserType.TEACHER, interfacesEnums_1.UserType.ASPIRANT),
     phone: joi_1.default.string().pattern(/^[0-9]+$/),
     state: joi_1.default.string().default(''),
     GroupId: joi_1.default.number().external(checkGroupExist),
-    role: joi_1.default.string().default(interfacesEnums_1.Roles.USER).valid(interfacesEnums_1.Roles),
+    role: joi_1.default.string().default(interfacesEnums_1.Roles.USER).valid(interfacesEnums_1.Roles.ADMIN, interfacesEnums_1.Roles.SUPERADMIN, interfacesEnums_1.Roles.USER),
 });
 exports.userSchemaUpdate = joi_1.default.object({
     telegramId: joi_1.default.number().required().min(0).max(99999999),
     fullName: joi_1.default.string().min(2).max(50),
     userName: joi_1.default.string().min(2).max(100).alphanum(),
-    userType: joi_1.default.string().valid(interfacesEnums_1.UserType),
+    userType: joi_1.default.string().valid(interfacesEnums_1.UserType.STUDENT, interfacesEnums_1.UserType.TEACHER, interfacesEnums_1.UserType.ASPIRANT),
     phone: joi_1.default.string().pattern(/^[0-9]+$/),
     state: joi_1.default.string().default(''),
     GroupId: joi_1.default.number().required().external(checkGroupExist),
-    role: joi_1.default.string().default(interfacesEnums_1.Roles.USER).valid(interfacesEnums_1.Roles),
+    role: joi_1.default.string().default(interfacesEnums_1.Roles.USER).valid(interfacesEnums_1.Roles.ADMIN, interfacesEnums_1.Roles.SUPERADMIN, interfacesEnums_1.Roles.USER),
 });
