@@ -60,6 +60,6 @@ exports.userSchemaUpdate = joi_1.default.object({
     userType: joi_1.default.string().valid(interfacesEnums_1.UserType.STUDENT, interfacesEnums_1.UserType.TEACHER, interfacesEnums_1.UserType.ASPIRANT),
     phone: joi_1.default.string().pattern(/^[0-9]+$/),
     state: joi_1.default.string().default(''),
-    GroupId: joi_1.default.number().required().external(checkGroupExist),
+    GroupId: joi_1.default.number().external(checkGroupExist),
     role: joi_1.default.string().default(interfacesEnums_1.Roles.USER).valid(interfacesEnums_1.Roles.ADMIN, interfacesEnums_1.Roles.SUPERADMIN, interfacesEnums_1.Roles.USER),
 });
