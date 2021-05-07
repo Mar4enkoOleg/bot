@@ -45,6 +45,6 @@ export const userSchemaUpdate = Joi.object<UserAttributes>({
   userType: Joi.string().valid(UserType.STUDENT, UserType.TEACHER, UserType.ASPIRANT),
   phone: Joi.string().pattern(/^[0-9]+$/),
   state: Joi.string().default(''),
-  GroupId: Joi.number().required().external(checkGroupExist),
+  GroupId: Joi.number().external(checkGroupExist),
   role: Joi.string().default(Roles.USER).valid(Roles.ADMIN, Roles.SUPERADMIN, Roles.USER),
 })
