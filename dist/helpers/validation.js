@@ -39,21 +39,21 @@ const checkGroupExist = (GroupId) => __awaiter(void 0, void 0, void 0, function*
 });
 exports.userSchemaCreate = joi_1.default.object({
     telegramId: joi_1.default.number().required().min(0).max(99999999).external(checkTelegramId),
-    fullName: joi_1.default.string().required().min(2).max(50),
-    userName: joi_1.default.string().required().min(2).max(100).alphanum().external(checkUserName),
-    userType: joi_1.default.string().valid('Student', 'Teacher', 'Aspirant'),
+    fullName: joi_1.default.string().min(2).max(50),
+    userName: joi_1.default.string().min(2).max(100).alphanum().external(checkUserName),
+    userType: joi_1.default.string().valid(interfacesEnums_1.UserType),
     phone: joi_1.default.string().pattern(/^[0-9]+$/),
     state: joi_1.default.string().default(''),
-    GroupId: joi_1.default.number().required().external(checkGroupExist),
-    RoleId: joi_1.default.number().default(interfacesEnums_1.Roles.USER),
+    GroupId: joi_1.default.number().external(checkGroupExist),
+    role: joi_1.default.string().default(interfacesEnums_1.Roles.USER).valid(interfacesEnums_1.Roles),
 });
 exports.userSchemaUpdate = joi_1.default.object({
     telegramId: joi_1.default.number().required().min(0).max(99999999),
-    fullName: joi_1.default.string().required().min(2).max(50),
-    userName: joi_1.default.string().required().min(2).max(100).alphanum(),
-    userType: joi_1.default.string().valid('Student', 'Teacher', 'Aspirant'),
+    fullName: joi_1.default.string().min(2).max(50),
+    userName: joi_1.default.string().min(2).max(100).alphanum(),
+    userType: joi_1.default.string().valid(interfacesEnums_1.UserType),
     phone: joi_1.default.string().pattern(/^[0-9]+$/),
     state: joi_1.default.string().default(''),
     GroupId: joi_1.default.number().required().external(checkGroupExist),
-    RoleId: joi_1.default.number().default(interfacesEnums_1.Roles.USER),
+    role: joi_1.default.string().default(interfacesEnums_1.Roles.USER).valid(interfacesEnums_1.Roles),
 });

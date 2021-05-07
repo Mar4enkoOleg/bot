@@ -12,23 +12,22 @@ const User = _1.sequelize.define('User', {
     },
     fullName: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
     },
     userName: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
         unique: true,
     },
     phone: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: true,
     },
     userType: {
         type: sequelize_1.DataTypes.STRING,
     },
-    state: { type: sequelize_1.DataTypes.STRING, defaultValue: '' },
-    RoleId: {
-        type: sequelize_1.DataTypes.INTEGER,
+    state: {
+        type: sequelize_1.DataTypes.STRING,
+    },
+    role: {
+        type: sequelize_1.DataTypes.STRING,
         defaultValue: interfacesEnums_1.Roles.USER,
         allowNull: false,
     },

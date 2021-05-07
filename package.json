@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node dist/index.js",
     "addinfo": "node dist/db/seeders/createInfo.js",
-    "addroles": "node dist/db/seeders/createRoles.js",
     "addtest": "node dist/db/seeders/createUsers.js"
   },
   "keywords": [],

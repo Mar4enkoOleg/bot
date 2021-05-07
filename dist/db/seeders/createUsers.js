@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const interfacesEnums_1 = require("../../interfacesEnums");
+const interfacesEnums_2 = require("../../interfacesEnums");
 const models_1 = require("../models");
 require("../models/group");
 require("../models/user");
@@ -22,7 +23,7 @@ const users = [
         fullName: 'John Doe',
         userName: 'johnDoe',
         phone: '111-111-111',
-        userType: interfacesEnums_1.UserType.STUDENT,
+        userType: interfacesEnums_2.UserType.STUDENT,
         state: '.......',
         GroupId: 1,
     },
@@ -31,9 +32,9 @@ const users = [
         fullName: 'Ivanov Ivan',
         userName: 'Ivanushka',
         phone: '222-222-222',
-        userType: interfacesEnums_1.UserType.TEACHER,
+        userType: interfacesEnums_2.UserType.TEACHER,
         state: '.......',
-        RoleId: 2,
+        role: interfacesEnums_1.Roles.ADMIN,
         GroupId: 1,
     },
     {
@@ -41,7 +42,7 @@ const users = [
         fullName: 'Petrov Petr',
         userName: 'Petruha',
         phone: '333-333-333',
-        userType: interfacesEnums_1.UserType.STUDENT,
+        userType: interfacesEnums_2.UserType.STUDENT,
         state: '.......',
         GroupId: 2,
     },

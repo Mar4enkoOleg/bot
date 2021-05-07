@@ -23,7 +23,7 @@ const changeAdminToUser = (req, res, next) => __awaiter(void 0, void 0, void 0, 
         if (!updateCandidate) {
             return next(ApiError_1.default.badRequest(`Admin with userName: ${username} not exist`));
         }
-        yield user_1.default.update({ RoleId: index_1.Roles.USER }, { where: { userName: username } });
+        yield user_1.default.update({ role: index_1.Roles.USER }, { where: { userName: username } });
         return res.status(200).json(`Admin ${username} was changed to user`);
     }
     catch (error) {
@@ -38,10 +38,10 @@ const changeUserToAdmin = (req, res, next) => __awaiter(void 0, void 0, void 0, 
         if (!updateCandidate) {
             return next(ApiError_1.default.badRequest(`User with userName: ${username} not exist`));
         }
-        if (updateCandidate.RoleId === index_1.Roles.ADMIN) {
+        if (updateCandidate.role === index_1.Roles.ADMIN) {
             return next(ApiError_1.default.badRequest(`User with userName: ${username} is already admin`));
         }
-        yield user_1.default.update({ RoleId: index_1.Roles.ADMIN }, { where: { userName: username } });
+        yield user_1.default.update({ role: index_1.Roles.ADMIN }, { where: { userName: username } });
         return res.status(200).json(`User ${username} was changed to admin`);
     }
     catch (error) {
@@ -51,7 +51,7 @@ const changeUserToAdmin = (req, res, next) => __awaiter(void 0, void 0, void 0, 
 exports.changeUserToAdmin = changeUserToAdmin;
 const getAllAdmins = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const admins = yield user_1.default.findAll({ where: { RoleId: index_1.Roles.ADMIN } });
+        const admins = yield user_1.default.findAll({ where: { role: index_1.Roles.ADMIN } });
         if (!admins.length) {
             return next(ApiError_1.default.badRequest(`No one admin`));
         }

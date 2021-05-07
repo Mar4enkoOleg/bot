@@ -18,7 +18,6 @@ const morgan_1 = __importDefault(require("morgan"));
 const models_1 = require("./db/models");
 const errorHandler_1 = __importDefault(require("./middleware/errorHandler"));
 require("./db/models/user");
-require("./db/models/role");
 require("./db/models/question");
 require("./db/models/subject");
 require("./db/models/group");

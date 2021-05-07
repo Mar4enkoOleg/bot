@@ -8,7 +8,7 @@ const _1 = require(".");
 const question_1 = __importDefault(require("./question"));
 const Subject = _1.sequelize.define('Subject', {
     id: { type: sequelize_1.DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    title: { type: sequelize_1.DataTypes.STRING, allowNull: false, unique: true, validate: { notNull: { msg: 'title is required' } } },
+    title: { type: sequelize_1.DataTypes.STRING, allowNull: false, unique: true },
 });
 Subject.hasMany(question_1.default);
 question_1.default.belongsTo(Subject);

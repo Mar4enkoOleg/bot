@@ -1,5 +1,5 @@
 import Joi from 'joi'
-import { Roles, UserAttributes } from '../interfacesEnums'
+import { Roles, UserAttributes, UserType } from '../interfacesEnums'
 import { sequelize } from '../db/models'
 const checkTelegramId = async (telegramId: number) => {
   const user = await sequelize.model('User').findOne({ where: { telegramId } })
@@ -24,21 +24,21 @@ const checkGroupExist = async (GroupId: number) => {
 
 export const userSchemaCreate = Joi.object<UserAttributes>({
   telegramId: Joi.number().required().min(0).max(99999999).external(checkTelegramId),
-  fullName: Joi.string().required().min(2).max(50),
-  userName: Joi.string().required().min(2).max(100).alphanum().external(checkUserName),
-  userType: Joi.string().valid('Student', 'Teacher', 'Aspirant'),
+  fullName: Joi.string().min(2).max(50),
+  userName: Joi.string().min(2).max(100).alphanum().external(checkUserName),
+  userType: Joi.string().valid(UserType),
   phone: Joi.string().pattern(/^[0-9]+$/),
   state: Joi.string().default(''),
-  GroupId: Joi.number().required().external(checkGroupExist),
-  RoleId: Joi.number().default(Roles.USER),
+  GroupId: Joi.number().external(checkGroupExist),
+  role: Joi.string().default(Roles.USER).valid(Roles),
 })
 export const userSchemaUpdate = Joi.object<UserAttributes>({
   telegramId: Joi.number().required().min(0).max(99999999),
-  fullName: Joi.string().required().min(2).max(50),
-  userName: Joi.string().required().min(2).max(100).alphanum(),
-  userType: Joi.string().valid('Student', 'Teacher', 'Aspirant'),
+  fullName: Joi.string().min(2).max(50),
+  userName: Joi.string().min(2).max(100).alphanum(),
+  userType: Joi.string().valid(UserType),
   phone: Joi.string().pattern(/^[0-9]+$/),
   state: Joi.string().default(''),
   GroupId: Joi.number().required().external(checkGroupExist),
-  RoleId: Joi.number().default(Roles.USER),
+  role: Joi.string().default(Roles.USER).valid(Roles),
 })

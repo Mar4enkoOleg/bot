@@ -11,7 +11,7 @@ export interface UserAttributes {
   phone?: string
   userType?: string
   state: string
-  RoleId?: number
+  role?: Roles
   GroupId?: number
 }
 
@@ -34,9 +34,9 @@ export interface GroupAttributes {
 }
 
 export enum Roles {
-  USER = 1,
-  ADMIN = 2,
-  SUPERADMIN = 3,
+  USER = 'USER',
+  ADMIN = 'ADMIN',
+  SUPERADMIN = 'SUPERADMIN',
 }
 export enum UserType {
   STUDENT = 'Student',

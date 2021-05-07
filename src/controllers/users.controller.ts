@@ -43,14 +43,14 @@ export const getUser = async (req: Request, res: Response, next: Function): Prom
 
 export const createUser = async (req: Request, res: Response, next: Function): Promise<Response> => {
   try {
-    const { telegramId, fullName, RoleId, userName, state, userType, phone, GroupId }: UserAttributes = req.body
+    const { telegramId, fullName, role, userName, state, userType, phone, GroupId }: UserAttributes = req.body
     await userSchemaCreate.validateAsync(req.body)
 
     await UserModel.create({
       telegramId,
       fullName,
       userName,
-      RoleId,
+      role,
       state,
       userType,
       phone,
@@ -71,14 +71,14 @@ export const updateUser = async (req: Request, res: Response, next: Function): P
     }
     await userSchemaUpdate.validateAsync(req.body)
 
-    const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone }: UserAttributes = req.body
+    const { telegramId, fullName, role, userName, state, GroupId, userType, phone }: UserAttributes = req.body
     await UserModel.update(
       {
         telegramId,
         GroupId,
         userName,
         fullName,
-        RoleId,
+        role,
         state,
         userType,
         phone,

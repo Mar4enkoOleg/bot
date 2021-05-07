@@ -57,13 +57,13 @@ const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* 
 exports.getUser = getUser;
 const createUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { telegramId, fullName, RoleId, userName, state, userType, phone, GroupId } = req.body;
+        const { telegramId, fullName, role, userName, state, userType, phone, GroupId } = req.body;
         yield validation_1.userSchemaCreate.validateAsync(req.body);
         yield user_1.default.create({
             telegramId,
             fullName,
             userName,
-            RoleId,
+            role,
             state,
             userType,
             phone,
@@ -84,13 +84,13 @@ const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
             return next(ApiError_1.default.badRequest(`User with id=${id} not exist`));
         }
         yield validation_1.userSchemaUpdate.validateAsync(req.body);
-        const { telegramId, fullName, RoleId, userName, state, GroupId, userType, phone } = req.body;
+        const { telegramId, fullName, role, userName, state, GroupId, userType, phone } = req.body;
         yield user_1.default.update({
             telegramId,
             GroupId,
             userName,
             fullName,
-            RoleId,
+            role,
             state,
             userType,
             phone,

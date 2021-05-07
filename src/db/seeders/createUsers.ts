@@ -1,4 +1,4 @@
-import { GroupAttributes, QuestionAttributes, SubjectAttributes, UserAttributes } from '../../interfacesEnums'
+import { GroupAttributes, QuestionAttributes, Roles, SubjectAttributes, UserAttributes } from '../../interfacesEnums'
 import { UserType } from '../../interfacesEnums'
 import { sequelize } from '../models'
 import '../models/group'
@@ -24,7 +24,7 @@ const users: Array<UserAttributes> = [
     phone: '222-222-222',
     userType: UserType.TEACHER,
     state: '.......',
-    RoleId: 2,
+    role: Roles.ADMIN,
     GroupId: 1,
   },
   {
