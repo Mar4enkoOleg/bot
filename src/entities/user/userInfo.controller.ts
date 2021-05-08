@@ -18,6 +18,7 @@ export const getUsersCount = async (
     return next(ApiError.badRequest(error.message));
   }
 };
+
 export const getUsersByGroup = async (
   req: Request,
   res: Response,
