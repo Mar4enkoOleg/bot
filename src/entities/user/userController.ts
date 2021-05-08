@@ -1,10 +1,10 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { UserAttributes } from "../../helpers/interfacesEnums";
 import UserModel from "../../db/models/user";
 import ApiError from "../../helpers/ApiError";
 import { userSchemaCreate, userSchemaUpdate } from "../../helpers/validation";
 
-export const getAllUsers = async (
+export const getAll = async (
   req: Request,
   res: Response,
   next: Function
@@ -36,7 +36,7 @@ export const getUserByParams = async (
   }
 };
 
-export const getUser = async (
+export const getById = async (
   req: Request,
   res: Response,
   next: Function
@@ -53,7 +53,7 @@ export const getUser = async (
   }
 };
 
-export const createUser = async (
+export const add = async (
   req: Request,
   res: Response,
   next: Function
@@ -87,7 +87,7 @@ export const createUser = async (
   }
 };
 
-export const updateUser = async (
+export const update = async (
   req: Request,
   res: Response,
   next: Function
@@ -129,7 +129,7 @@ export const updateUser = async (
     return next(ApiError.badRequest(error.message));
   }
 };
-export const deleteUser = async (
+export const remove = async (
   req: Request,
   res: Response,
   next: Function

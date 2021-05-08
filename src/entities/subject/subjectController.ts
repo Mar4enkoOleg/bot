@@ -3,7 +3,7 @@ import { SubjectAttributes } from "../../helpers/interfacesEnums";
 import SubjectModel from "../../db/models/subject";
 import ApiError from "../../helpers/ApiError";
 
-export const getAllSubjects = async (
+export const getAll = async (
   req: Request,
   res: Response,
   next: Function
@@ -18,7 +18,8 @@ export const getAllSubjects = async (
     return next(ApiError.badRequest(error.message));
   }
 };
-export const getSubject = async (
+
+export const getById = async (
   req: Request,
   res: Response,
   next: Function
@@ -35,7 +36,7 @@ export const getSubject = async (
   }
 };
 
-export const createSubject = async (
+export const add = async (
   req: Request,
   res: Response,
   next: Function
@@ -51,7 +52,7 @@ export const createSubject = async (
   }
 };
 
-export const updateSubject = async (
+export const update = async (
   req: Request,
   res: Response,
   next: Function
@@ -74,7 +75,8 @@ export const updateSubject = async (
     return next(ApiError.forbidden(error.message));
   }
 };
-export const deleteSubject = async (
+
+export const remove = async (
   req: Request,
   res: Response,
   next: Function
