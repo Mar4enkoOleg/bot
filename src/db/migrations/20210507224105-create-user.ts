@@ -1,10 +1,8 @@
-'use strict'
-
-import { Roles } from '../../interfacesEnums'
+import { Roles } from "../../helpers/interfacesEnums";
 
 export default {
   up: async (queryInterface: any, Sequelize: any) => {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable("Users", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -46,9 +44,9 @@ export default {
         allowNull: false,
         type: Sequelize.DATE,
       },
-    })
+    });
   },
   down: async (queryInterface: any, Sequelize: any) => {
-    await queryInterface.dropTable('Users')
+    await queryInterface.dropTable("Users");
   },
-}
+};
