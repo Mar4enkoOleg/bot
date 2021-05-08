@@ -11,7 +11,7 @@ interface SubjectInstance extends Model<SubjectAttributes, SubjectCreationAttrib
 }
 
 const Subject = sequelize.define<SubjectInstance>('Subject', {
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false },
   title: { type: DataTypes.STRING, allowNull: false, unique: true },
 })
 

@@ -10,7 +10,7 @@ interface QuestionInstance extends Model<QuestionAttributes, QuestionCreationAtt
 }
 
 const Question = sequelize.define<QuestionInstance>('Question', {
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false },
   name: { type: DataTypes.STRING, unique: true },
   answer: { type: DataTypes.STRING, allowNull: false, validate: { notNull: { msg: 'answer is required' } } },
   SubjectId: { type: DataTypes.INTEGER, allowNull: false, validate: { notNull: { msg: 'subjectId is required' } } },
