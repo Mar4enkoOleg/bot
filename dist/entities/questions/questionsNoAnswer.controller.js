@@ -13,12 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteNoAnswerQuestionById = exports.deleteAllNoAnswerQuestions = exports.getNoAnswerQuestions = void 0;
-const questionsNoAnswer_1 = __importDefault(require("../db/models/questionsNoAnswer"));
-const project_settings_1 = require("../project_settings");
-const ApiError_1 = __importDefault(require("../error/ApiError"));
+const questionsNoAnswer_1 = __importDefault(require("../../db/models/questionsNoAnswer"));
+const constants_1 = require("../../helpers/constants");
+const ApiError_1 = __importDefault(require("../../helpers/ApiError"));
 const getNoAnswerQuestions = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const noAnswer = yield questionsNoAnswer_1.default.findAll({ limit: project_settings_1.noAnswerSettings.limitQuestions });
+        const noAnswer = yield questionsNoAnswer_1.default.findAll({
+            limit: constants_1.noAnswerSettings.limitQuestions,
+        });
         if (!noAnswer.length) {
             return next(ApiError_1.default.badRequest(`List no answer questions is empty`));
         }
@@ -32,7 +34,9 @@ exports.getNoAnswerQuestions = getNoAnswerQuestions;
 const deleteAllNoAnswerQuestions = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield questionsNoAnswer_1.default.destroy({ where: {}, truncate: true });
-        return res.status(200).json({ message: `All no answer questions was deleted` });
+        return res
+            .status(200)
+            .json({ message: `All no answer questions was deleted` });
     }
     catch (error) {
         return next(ApiError_1.default.forbidden(error.message));
@@ -42,7 +46,9 @@ exports.deleteAllNoAnswerQuestions = deleteAllNoAnswerQuestions;
 const deleteNoAnswerQuestionById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
-        const deleteQuestion = yield questionsNoAnswer_1.default.findOne({ where: { id } });
+        const deleteQuestion = yield questionsNoAnswer_1.default.findOne({
+            where: { id },
+        });
         if (!deleteQuestion) {
             return next(ApiError_1.default.badRequest(`No answer question with id=${id} not exist`));
         }

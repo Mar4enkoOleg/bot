@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.noAnswerSettings = exports.popularQuestionsSettings = void 0;
+//  Project settings
+// ======================================
 exports.popularQuestionsSettings = {
     limitQuestions: 5,
 };

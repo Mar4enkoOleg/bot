@@ -12,20 +12,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPopularQuestions = void 0;
-const question_1 = __importDefault(require("../db/models/question"));
-const ApiError_1 = __importDefault(require("../error/ApiError"));
-const project_settings_1 = require("../project_settings");
-const getPopularQuestions = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const models_1 = require("../db/models");
+const app_1 = __importDefault(require("../app"));
+const port = process.env.PORT || 3000;
+const start = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const popularQuestions = yield question_1.default.findAll({ order: [['counter', 'DESC']], limit: project_settings_1.popularQuestionsSettings.limitQuestions });
-        if (!popularQuestions.length) {
-            return next(ApiError_1.default.badRequest(`No questions yet`));
-        }
-        return res.status(200).json(popularQuestions);
+        console.log(process.env.NODE_ENV);
+        yield models_1.sequelize.authenticate();
+        console.log("Connection has been established successfully.");
+        yield models_1.sequelize.sync();
+        console.log("All models were synchronized successfully.");
+        app_1.default.listen(port, () => console.log(`Server start on ${port} port`));
     }
     catch (error) {
-        return next(ApiError_1.default.badRequest(error.message));
+        console.error(error);
     }
 });
-exports.getPopularQuestions = getPopularQuestions;
+start();
+exports.default = models_1.sequelize;

@@ -12,11 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteQuestion = exports.updateQuestion = exports.createQuestion = exports.getQuestionsBySubjectAndName = exports.getQuestionsBySubject = exports.getQuestionByName = exports.getAllQuestions = void 0;
-const question_1 = __importDefault(require("../db/models/question"));
-const questionsNoAnswer_1 = __importDefault(require("../db/models/questionsNoAnswer"));
-const subject_1 = __importDefault(require("../db/models/subject"));
-const ApiError_1 = __importDefault(require("../error/ApiError"));
+exports.getPopularQuestions = exports.deleteQuestion = exports.updateQuestion = exports.createQuestion = exports.getQuestionsBySubjectAndName = exports.getQuestionsBySubject = exports.getQuestionByName = exports.getAllQuestions = void 0;
+const question_1 = __importDefault(require("../../db/models/question"));
+const questionsNoAnswer_1 = __importDefault(require("../../db/models/questionsNoAnswer"));
+const subject_1 = __importDefault(require("../../db/models/subject"));
+const ApiError_1 = __importDefault(require("../../helpers/ApiError"));
+const constants_1 = require("../../helpers/constants");
 const getAllQuestions = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const questions = yield question_1.default.findAll();
@@ -38,7 +39,7 @@ const getQuestionByName = (req, res, next) => __awaiter(void 0, void 0, void 0, 
             yield questionsNoAnswer_1.default.create({ name });
             return next(ApiError_1.default.badRequest(`${name} no answer`));
         }
-        yield question.increment('counter', { by: 1 });
+        yield question.increment("counter", { by: 1 });
         return res.status(200).json(question.answer);
     }
     catch (error) {
@@ -49,7 +50,9 @@ exports.getQuestionByName = getQuestionByName;
 const getQuestionsBySubject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const subject = req.params.subject;
-        const questions = yield question_1.default.findAll({ include: { model: subject_1.default, where: { title: subject } } });
+        const questions = yield question_1.default.findAll({
+            include: { model: subject_1.default, where: { title: subject } },
+        });
         if (!questions.length) {
             return next(ApiError_1.default.badRequest(`${subject} have not questions`));
         }
@@ -64,7 +67,10 @@ const getQuestionsBySubjectAndName = (req, res, next) => __awaiter(void 0, void 
     try {
         const subject = req.params.subject;
         const name = req.params.name;
-        const question = yield question_1.default.findOne({ where: { name }, include: { model: subject_1.default, where: { title: subject } } });
+        const question = yield question_1.default.findOne({
+            where: { name },
+            include: { model: subject_1.default, where: { title: subject } },
+        });
         if (!question) {
             yield questionsNoAnswer_1.default.create({ name });
             return next(ApiError_1.default.badRequest(`${subject} have not question ${name}`));
@@ -84,7 +90,7 @@ const createQuestion = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
             answer,
             SubjectId,
         });
-        return res.status(201).json({ message: 'Question was created' });
+        return res.status(201).json({ message: "Question was created" });
     }
     catch (error) {
         return next(ApiError_1.default.forbidden(error.message));
@@ -126,3 +132,19 @@ const deleteQuestion = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
     }
 });
 exports.deleteQuestion = deleteQuestion;
+const getPopularQuestions = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const popularQuestions = yield question_1.default.findAll({
+            order: [["counter", "DESC"]],
+            limit: constants_1.popularQuestionsSettings.limitQuestions,
+        });
+        if (!popularQuestions.length) {
+            return next(ApiError_1.default.badRequest(`No questions yet`));
+        }
+        return res.status(200).json(popularQuestions);
+    }
+    catch (error) {
+        return next(ApiError_1.default.badRequest(error.message));
+    }
+});
+exports.getPopularQuestions = getPopularQuestions;

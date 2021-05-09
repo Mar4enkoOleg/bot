@@ -13,13 +13,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAllAdmins = exports.changeUserToAdmin = exports.changeAdminToUser = void 0;
-const user_1 = __importDefault(require("../db/models/user"));
-const ApiError_1 = __importDefault(require("../error/ApiError"));
-const index_1 = require("../interfacesEnums/index");
+const user_1 = __importDefault(require("../../db/models/user"));
+const ApiError_1 = __importDefault(require("../../helpers/ApiError"));
+const index_1 = require("../../helpers/interfacesEnums/index");
 const changeAdminToUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const username = req.params.username;
-        const updateCandidate = yield user_1.default.findOne({ where: { userName: username } });
+        const updateCandidate = yield user_1.default.findOne({
+            where: { userName: username },
+        });
         if (!updateCandidate) {
             return next(ApiError_1.default.badRequest(`Admin with userName: ${username} not exist`));
         }
@@ -34,7 +36,9 @@ exports.changeAdminToUser = changeAdminToUser;
 const changeUserToAdmin = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const username = req.params.username;
-        const updateCandidate = yield user_1.default.findOne({ where: { userName: username } });
+        const updateCandidate = yield user_1.default.findOne({
+            where: { userName: username },
+        });
         if (!updateCandidate) {
             return next(ApiError_1.default.badRequest(`User with userName: ${username} not exist`));
         }

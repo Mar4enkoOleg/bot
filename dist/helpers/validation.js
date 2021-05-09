@@ -14,28 +14,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userSchemaUpdate = exports.userSchemaCreate = void 0;
 const joi_1 = __importDefault(require("joi"));
-const interfacesEnums_1 = require("../interfacesEnums");
+const interfacesEnums_1 = require("./interfacesEnums");
 const models_1 = require("../db/models");
 const checkTelegramId = (telegramId) => __awaiter(void 0, void 0, void 0, function* () {
-    const user = yield models_1.sequelize.model('User').findOne({ where: { telegramId } });
+    const user = yield models_1.sequelize.model("User").findOne({ where: { telegramId } });
     if (user) {
-        throw new Error('Must be unique');
+        throw new Error("Must be unique");
     }
 });
 const checkUserName = (userName) => __awaiter(void 0, void 0, void 0, function* () {
     if (!userName) {
         return;
     }
-    const user = yield models_1.sequelize.model('User').findOne({ where: { userName } });
+    const user = yield models_1.sequelize.model("User").findOne({ where: { userName } });
     if (user) {
-        throw new Error('Must be unique');
+        throw new Error("Must be unique");
     }
 });
 const checkGroupExist = (GroupId) => __awaiter(void 0, void 0, void 0, function* () {
     if (!GroupId) {
         return;
     }
-    const group = yield models_1.sequelize.model('Group').findOne({ where: { id: GroupId } });
+    const group = yield models_1.sequelize
+        .model("Group")
+        .findOne({ where: { id: GroupId } });
     if (group) {
         return;
     }
@@ -44,14 +46,20 @@ const checkGroupExist = (GroupId) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.userSchemaCreate = joi_1.default.object({
-    telegramId: joi_1.default.number().required().min(0).max(99999999).external(checkTelegramId),
+    telegramId: joi_1.default.number()
+        .required()
+        .min(0)
+        .max(99999999)
+        .external(checkTelegramId),
     fullName: joi_1.default.string().min(2).max(50),
     userName: joi_1.default.string().min(2).max(100).alphanum().external(checkUserName),
     userType: joi_1.default.string().valid(interfacesEnums_1.UserType.STUDENT, interfacesEnums_1.UserType.TEACHER, interfacesEnums_1.UserType.ASPIRANT),
     phone: joi_1.default.string().pattern(/^[0-9]+$/),
-    state: joi_1.default.string().default(''),
+    state: joi_1.default.string().default(""),
     GroupId: joi_1.default.number().external(checkGroupExist),
-    role: joi_1.default.string().default(interfacesEnums_1.Roles.USER).valid(interfacesEnums_1.Roles.ADMIN, interfacesEnums_1.Roles.SUPERADMIN, interfacesEnums_1.Roles.USER),
+    role: joi_1.default.string()
+        .default(interfacesEnums_1.Roles.USER)
+        .valid(interfacesEnums_1.Roles.ADMIN, interfacesEnums_1.Roles.SUPERADMIN, interfacesEnums_1.Roles.USER),
 });
 exports.userSchemaUpdate = joi_1.default.object({
     telegramId: joi_1.default.number().required().min(0).max(99999999),
@@ -59,7 +67,9 @@ exports.userSchemaUpdate = joi_1.default.object({
     userName: joi_1.default.string().min(2).max(100).alphanum(),
     userType: joi_1.default.string().valid(interfacesEnums_1.UserType.STUDENT, interfacesEnums_1.UserType.TEACHER, interfacesEnums_1.UserType.ASPIRANT),
     phone: joi_1.default.string().pattern(/^[0-9]+$/),
-    state: joi_1.default.string().default(''),
+    state: joi_1.default.string().default(""),
     GroupId: joi_1.default.number().external(checkGroupExist),
-    role: joi_1.default.string().default(interfacesEnums_1.Roles.USER).valid(interfacesEnums_1.Roles.ADMIN, interfacesEnums_1.Roles.SUPERADMIN, interfacesEnums_1.Roles.USER),
+    role: joi_1.default.string()
+        .default(interfacesEnums_1.Roles.USER)
+        .valid(interfacesEnums_1.Roles.ADMIN, interfacesEnums_1.Roles.SUPERADMIN, interfacesEnums_1.Roles.USER),
 });

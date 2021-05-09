@@ -12,10 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteSubject = exports.updateSubject = exports.createSubject = exports.getSubject = exports.getAllSubjects = void 0;
-const subject_1 = __importDefault(require("../db/models/subject"));
-const ApiError_1 = __importDefault(require("../error/ApiError"));
-const getAllSubjects = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.remove = exports.update = exports.add = exports.getById = exports.getAll = void 0;
+const subject_1 = __importDefault(require("../../db/models/subject"));
+const ApiError_1 = __importDefault(require("../../helpers/ApiError"));
+const getAll = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const subjects = yield subject_1.default.findAll();
         if (!subjects.length) {
@@ -27,8 +27,8 @@ const getAllSubjects = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
         return next(ApiError_1.default.badRequest(error.message));
     }
 });
-exports.getAllSubjects = getAllSubjects;
-const getSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getAll = getAll;
+const getById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
         const subject = yield subject_1.default.findOne({ where: { id } });
@@ -41,21 +41,21 @@ const getSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
         return next(ApiError_1.default.badRequest(error.message));
     }
 });
-exports.getSubject = getSubject;
-const createSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getById = getById;
+const add = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { title } = req.body;
         yield subject_1.default.create({
             title,
         });
-        return res.status(201).json({ message: 'Subject was created' });
+        return res.status(201).json({ message: "Subject was created" });
     }
     catch (error) {
         return next(ApiError_1.default.forbidden(error.message));
     }
 });
-exports.createSubject = createSubject;
-const updateSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.add = add;
+const update = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
         const { title } = req.body;
@@ -72,8 +72,8 @@ const updateSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, func
         return next(ApiError_1.default.forbidden(error.message));
     }
 });
-exports.updateSubject = updateSubject;
-const deleteSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.update = update;
+const remove = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
         const deleteSubject = yield subject_1.default.findOne({ where: { id } });
@@ -87,4 +87,4 @@ const deleteSubject = (req, res, next) => __awaiter(void 0, void 0, void 0, func
         return next(ApiError_1.default.forbidden(error.message));
     }
 });
-exports.deleteSubject = deleteSubject;
+exports.remove = remove;

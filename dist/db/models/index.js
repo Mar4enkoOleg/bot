@@ -9,6 +9,8 @@ Object.defineProperty(exports, "Sequelize", { enumerable: true, get: function ()
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const env = process.env.NODE_ENV || 'production';
-const config = require(__dirname + '/../../connection_config.js')[env];
-const sequelize = config.url ? new sequelize_1.Sequelize(config.url, config) : new sequelize_1.Sequelize(config.database, config.username, config.password, config);
+const config = require('../../config/connection_config')[env];
+const sequelize = config.url
+    ? new sequelize_1.Sequelize(config.url, config)
+    : new sequelize_1.Sequelize(config.database, config.username, config.password, config);
 exports.sequelize = sequelize;

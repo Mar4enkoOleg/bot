@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -9,10 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const interfacesEnums_1 = require("../../interfacesEnums");
+const interfacesEnums_1 = require("../../helpers/interfacesEnums");
 exports.default = {
     up: (queryInterface, Sequelize) => __awaiter(void 0, void 0, void 0, function* () {
-        yield queryInterface.createTable('Users', {
+        yield queryInterface.createTable("Users", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -56,6 +56,6 @@ exports.default = {
         });
     }),
     down: (queryInterface, Sequelize) => __awaiter(void 0, void 0, void 0, function* () {
-        yield queryInterface.dropTable('Users');
+        yield queryInterface.dropTable("Users");
     }),
 };

@@ -12,11 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.updateUser = exports.createUser = exports.getUser = exports.getUserByParams = exports.getAllUsers = void 0;
-const user_1 = __importDefault(require("../db/models/user"));
-const ApiError_1 = __importDefault(require("../error/ApiError"));
-const validation_1 = require("../helpers/validation");
-const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.remove = exports.update = exports.add = exports.getById = exports.getUserByParams = exports.getAll = void 0;
+const user_1 = __importDefault(require("../../db/models/user"));
+const ApiError_1 = __importDefault(require("../../helpers/ApiError"));
+const validation_1 = require("../../helpers/validation");
+const getAll = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield user_1.default.findAll();
         if (!users.length) {
@@ -28,7 +28,7 @@ const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
         return next(ApiError_1.default.badRequest(error.message));
     }
 });
-exports.getAllUsers = getAllUsers;
+exports.getAll = getAll;
 const getUserByParams = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const params = req.body;
@@ -41,7 +41,7 @@ const getUserByParams = (req, res, next) => __awaiter(void 0, void 0, void 0, fu
     }
 });
 exports.getUserByParams = getUserByParams;
-const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const getById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
         const user = yield user_1.default.findOne({ where: { id } });
@@ -54,10 +54,10 @@ const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* 
         return next(ApiError_1.default.badRequest(error.message));
     }
 });
-exports.getUser = getUser;
-const createUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getById = getById;
+const add = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { telegramId, fullName, role, userName, state, userType, phone, GroupId } = req.body;
+        const { telegramId, fullName, role, userName, state, userType, phone, GroupId, } = req.body;
         yield validation_1.userSchemaCreate.validateAsync(req.body);
         yield user_1.default.create({
             telegramId,
@@ -69,14 +69,14 @@ const createUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
             phone,
             GroupId,
         });
-        return res.status(201).json({ message: 'User was created' });
+        return res.status(201).json({ message: "User was created" });
     }
     catch (error) {
         return next(ApiError_1.default.badRequest(error.message));
     }
 });
-exports.createUser = createUser;
-const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.add = add;
+const update = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
         const updateCandidate = yield user_1.default.findOne({ where: { id } });
@@ -84,7 +84,7 @@ const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
             return next(ApiError_1.default.badRequest(`User with id=${id} not exist`));
         }
         yield validation_1.userSchemaUpdate.validateAsync(req.body);
-        const { telegramId, fullName, role, userName, state, GroupId, userType, phone } = req.body;
+        const { telegramId, fullName, role, userName, state, GroupId, userType, phone, } = req.body;
         yield user_1.default.update({
             telegramId,
             GroupId,
@@ -101,8 +101,8 @@ const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
         return next(ApiError_1.default.badRequest(error.message));
     }
 });
-exports.updateUser = updateUser;
-const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.update = update;
+const remove = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
         const deleteCandidate = yield user_1.default.findOne({ where: { id } });
@@ -116,4 +116,4 @@ const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
         return next(ApiError_1.default.badRequest(error.message));
     }
 });
-exports.deleteUser = deleteUser;
+exports.remove = remove;

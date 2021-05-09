@@ -1,9 +1,10 @@
-import { Sequelize } from "sequelize";
-import pkg from "dotenv";
+import { Sequelize } from 'sequelize';
+import pkg from 'dotenv';
+
 pkg.config();
 
-const env = process.env.NODE_ENV || "production";
-const config = require(__dirname + "/../../config/connection_config.js")[env];
+const env = process.env.NODE_ENV || 'production';
+const config = require('../../config/connection_config')[env];
 
 const sequelize = config.url
   ? new Sequelize(config.url, config)

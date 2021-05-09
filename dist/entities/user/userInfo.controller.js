@@ -13,9 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getUsersByGroup = exports.getUsersCount = void 0;
-const user_1 = __importDefault(require("../db/models/user"));
-const group_1 = __importDefault(require("../db/models/group"));
-const ApiError_1 = __importDefault(require("../error/ApiError"));
+const user_1 = __importDefault(require("../../db/models/user"));
+const group_1 = __importDefault(require("../../db/models/group"));
+const ApiError_1 = __importDefault(require("../../helpers/ApiError"));
 const getUsersCount = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const usersCount = yield user_1.default.findAndCountAll();
@@ -36,7 +36,9 @@ const getUsersByGroup = (req, res, next) => __awaiter(void 0, void 0, void 0, fu
         if (!groupCheck) {
             return next(ApiError_1.default.badRequest(`Group ${name} not exist`));
         }
-        const group = yield user_1.default.findAndCountAll({ include: { model: group_1.default, where: { name } } });
+        const group = yield user_1.default.findAndCountAll({
+            include: { model: group_1.default, where: { name } },
+        });
         return res.status(200).json(group);
     }
     catch (error) {
