@@ -13,19 +13,19 @@ const models_1 = require("../models");
 require("../models/role");
 const roles = [
     {
-        value: "USER",
+        value: 'USER',
     },
     {
-        value: "ADMIN",
+        value: 'ADMIN',
     },
     {
-        value: "SUPERADMIN",
+        value: 'SUPERADMIN',
     },
 ];
 function createRoles() {
     return __awaiter(this, void 0, void 0, function* () {
         roles.map((role) => __awaiter(this, void 0, void 0, function* () {
-            yield models_1.sequelize.model("Role").create(role);
+            yield models_1.sequelize.model('Role').create(role);
         }));
     });
 }

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const _1 = require(".");
 const user_1 = __importDefault(require("./user"));
-const Group = _1.sequelize.define("Group", {
+const Group = _1.sequelize.define('Group', {
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,

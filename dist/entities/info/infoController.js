@@ -19,7 +19,7 @@ const ApiError_1 = __importDefault(require("../../helpers/ApiError"));
 const getCafedraInfo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const info = yield cafedraInfo_1.default.findOne();
-        return res.status(200).json(info === null || info === void 0 ? void 0 : info.getDataValue("description"));
+        return res.status(200).json(info === null || info === void 0 ? void 0 : info.getDataValue('description'));
     }
     catch (error) {
         return next(ApiError_1.default.badRequest(error.message));
@@ -30,7 +30,7 @@ const updateCafedraInfo = (req, res, next) => __awaiter(void 0, void 0, void 0, 
     try {
         const { description } = req.body;
         if (!description) {
-            return next(ApiError_1.default.badRequest("Wrong description"));
+            return next(ApiError_1.default.badRequest('Wrong description'));
         }
         yield cafedraInfo_1.default.update({ description }, { where: { id: 1 } });
         return res.status(200).json({ message: `Info was updated` });
@@ -43,7 +43,7 @@ exports.updateCafedraInfo = updateCafedraInfo;
 const getBotInfo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const info = yield botInfo_1.default.findOne();
-        return res.status(200).json(info === null || info === void 0 ? void 0 : info.getDataValue("description"));
+        return res.status(200).json(info === null || info === void 0 ? void 0 : info.getDataValue('description'));
     }
     catch (error) {
         return next(ApiError_1.default.badRequest(error.message));

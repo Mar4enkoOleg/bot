@@ -17,18 +17,18 @@ const joi_1 = __importDefault(require("joi"));
 const interfacesEnums_1 = require("./interfacesEnums");
 const models_1 = require("../db/models");
 const checkTelegramId = (telegramId) => __awaiter(void 0, void 0, void 0, function* () {
-    const user = yield models_1.sequelize.model("User").findOne({ where: { telegramId } });
+    const user = yield models_1.sequelize.model('User').findOne({ where: { telegramId } });
     if (user) {
-        throw new Error("Must be unique");
+        throw new Error('Must be unique');
     }
 });
 const checkUserName = (userName) => __awaiter(void 0, void 0, void 0, function* () {
     if (!userName) {
         return;
     }
-    const user = yield models_1.sequelize.model("User").findOne({ where: { userName } });
+    const user = yield models_1.sequelize.model('User').findOne({ where: { userName } });
     if (user) {
-        throw new Error("Must be unique");
+        throw new Error('Must be unique');
     }
 });
 const checkGroupExist = (GroupId) => __awaiter(void 0, void 0, void 0, function* () {
@@ -36,7 +36,7 @@ const checkGroupExist = (GroupId) => __awaiter(void 0, void 0, void 0, function*
         return;
     }
     const group = yield models_1.sequelize
-        .model("Group")
+        .model('Group')
         .findOne({ where: { id: GroupId } });
     if (group) {
         return;
@@ -55,7 +55,7 @@ exports.userSchemaCreate = joi_1.default.object({
     userName: joi_1.default.string().min(2).max(100).alphanum().external(checkUserName),
     userType: joi_1.default.string().valid(interfacesEnums_1.UserType.STUDENT, interfacesEnums_1.UserType.TEACHER, interfacesEnums_1.UserType.ASPIRANT),
     phone: joi_1.default.string().pattern(/^[0-9]+$/),
-    state: joi_1.default.string().default(""),
+    state: joi_1.default.string().default(''),
     GroupId: joi_1.default.number().external(checkGroupExist),
     role: joi_1.default.string()
         .default(interfacesEnums_1.Roles.USER)
@@ -67,7 +67,7 @@ exports.userSchemaUpdate = joi_1.default.object({
     userName: joi_1.default.string().min(2).max(100).alphanum(),
     userType: joi_1.default.string().valid(interfacesEnums_1.UserType.STUDENT, interfacesEnums_1.UserType.TEACHER, interfacesEnums_1.UserType.ASPIRANT),
     phone: joi_1.default.string().pattern(/^[0-9]+$/),
-    state: joi_1.default.string().default(""),
+    state: joi_1.default.string().default(''),
     GroupId: joi_1.default.number().external(checkGroupExist),
     role: joi_1.default.string()
         .default(interfacesEnums_1.Roles.USER)

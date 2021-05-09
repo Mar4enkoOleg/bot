@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 export default {
   up: async (queryInterface: any, Sequelize: any) => {
@@ -12,9 +12,9 @@ export default {
       name: {
         type: Sequelize.STRING,
       },
-    })
+    });
   },
   down: async (queryInterface: any, Sequelize: any) => {
-    await queryInterface.dropTable('QuestionsNoAnswers')
+    await queryInterface.dropTable('QuestionsNoAnswers');
   },
-}
+};

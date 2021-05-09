@@ -34,12 +34,12 @@ export interface GroupAttributes {
 }
 
 export enum Roles {
-  USER = "USER",
-  ADMIN = "ADMIN",
-  SUPERADMIN = "SUPERADMIN",
+  USER = 'USER',
+  ADMIN = 'ADMIN',
+  SUPERADMIN = 'SUPERADMIN',
 }
 export enum UserType {
-  STUDENT = "Student",
-  ASPIRANT = "Aspirant",
-  TEACHER = "Teacher",
+  STUDENT = 'Student',
+  ASPIRANT = 'Aspirant',
+  TEACHER = 'Teacher',
 }

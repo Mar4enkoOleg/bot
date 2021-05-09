@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import UserModel from "../../db/models/user";
-import ApiError from "../../helpers/ApiError";
-import { Roles } from "../../helpers/interfacesEnums/index";
+import { Request, Response } from 'express';
+import UserModel from '../../db/models/user';
+import ApiError from '../../helpers/ApiError';
+import { Roles } from '../../helpers/interfacesEnums/index';
 
 export const changeAdminToUser = async (
   req: Request,

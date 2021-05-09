@@ -48,7 +48,7 @@ const add = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
         yield subject_1.default.create({
             title,
         });
-        return res.status(201).json({ message: "Subject was created" });
+        return res.status(201).json({ message: 'Subject was created' });
     }
     catch (error) {
         return next(ApiError_1.default.forbidden(error.message));

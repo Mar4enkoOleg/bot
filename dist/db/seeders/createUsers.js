@@ -20,75 +20,75 @@ const users = [
     // RoleId = 1 (defaultValue in sequelize model)
     {
         telegramId: 1,
-        fullName: "John Doe",
-        userName: "johnDoe",
-        phone: "111-111-111",
+        fullName: 'John Doe',
+        userName: 'johnDoe',
+        phone: '111-111-111',
         userType: interfacesEnums_2.UserType.STUDENT,
-        state: ".......",
+        state: '.......',
         GroupId: 1,
     },
     {
         telegramId: 2,
-        fullName: "Ivanov Ivan",
-        userName: "Ivanushka",
-        phone: "222-222-222",
+        fullName: 'Ivanov Ivan',
+        userName: 'Ivanushka',
+        phone: '222-222-222',
         userType: interfacesEnums_2.UserType.TEACHER,
-        state: ".......",
+        state: '.......',
         role: interfacesEnums_1.Roles.ADMIN,
         GroupId: 1,
     },
     {
         telegramId: 3,
-        fullName: "Petrov Petr",
-        userName: "Petruha",
-        phone: "333-333-333",
+        fullName: 'Petrov Petr',
+        userName: 'Petruha',
+        phone: '333-333-333',
         userType: interfacesEnums_2.UserType.STUDENT,
-        state: ".......",
+        state: '.......',
         GroupId: 2,
     },
 ];
 const groups = [
     {
-        name: "Group1",
+        name: 'Group1',
     },
     {
-        name: "Group2",
+        name: 'Group2',
     },
 ];
 const subjects = [
     {
-        title: "Machine learning",
+        title: 'Machine learning',
     },
     {
-        title: "Deep learning",
+        title: 'Deep learning',
     },
 ];
 const questions = [
-    { name: "Вопрос1", answer: "Answer1", SubjectId: 1 },
-    { name: "Question2", answer: "Answer2", SubjectId: 1 },
-    { name: "Question3", answer: "Answer3", SubjectId: 1 },
-    { name: "Question4", answer: "Answer4", SubjectId: 1 },
-    { name: "Question5", answer: "Answer5", SubjectId: 2 },
-    { name: "Question6", answer: "Answer6", SubjectId: 2 },
-    { name: "Question7", answer: "Answer7", SubjectId: 2 },
+    { name: 'Вопрос1', answer: 'Answer1', SubjectId: 1 },
+    { name: 'Question2', answer: 'Answer2', SubjectId: 1 },
+    { name: 'Question3', answer: 'Answer3', SubjectId: 1 },
+    { name: 'Question4', answer: 'Answer4', SubjectId: 1 },
+    { name: 'Question5', answer: 'Answer5', SubjectId: 2 },
+    { name: 'Question6', answer: 'Answer6', SubjectId: 2 },
+    { name: 'Question7', answer: 'Answer7', SubjectId: 2 },
 ];
 function createUsersAndGroups() {
     return __awaiter(this, void 0, void 0, function* () {
         groups.map((group) => __awaiter(this, void 0, void 0, function* () {
-            yield models_1.sequelize.model("Group").create(group);
+            yield models_1.sequelize.model('Group').create(group);
         }));
         users.map((user) => __awaiter(this, void 0, void 0, function* () {
-            yield models_1.sequelize.model("User").create(user);
+            yield models_1.sequelize.model('User').create(user);
         }));
     });
 }
 function createSubjectsAndQuestions() {
     return __awaiter(this, void 0, void 0, function* () {
         subjects.map((sub) => __awaiter(this, void 0, void 0, function* () {
-            yield models_1.sequelize.model("Subject").create(sub);
+            yield models_1.sequelize.model('Subject').create(sub);
         }));
         questions.map((question) => __awaiter(this, void 0, void 0, function* () {
-            yield models_1.sequelize.model("Question").create(question);
+            yield models_1.sequelize.model('Question').create(question);
         }));
     });
 }

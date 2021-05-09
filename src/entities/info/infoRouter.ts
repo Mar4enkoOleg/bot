@@ -1,15 +1,15 @@
-import { Router } from "express";
+import { Router } from 'express';
 import {
   getCafedraInfo,
   updateCafedraInfo,
   getBotInfo,
-} from "./infoController";
+} from './infoController';
 
 const router = Router();
 
-router.get("/bot", getBotInfo);
+router.get('/bot', getBotInfo);
 
-router.get("/cafedra", getCafedraInfo);
-router.put("/cafedra", updateCafedraInfo);
+router.get('/cafedra', getCafedraInfo);
+router.put('/cafedra', updateCafedraInfo);
 
 export default router;

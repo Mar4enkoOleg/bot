@@ -39,7 +39,7 @@ const getQuestionByName = (req, res, next) => __awaiter(void 0, void 0, void 0, 
             yield questionsNoAnswer_1.default.create({ name });
             return next(ApiError_1.default.badRequest(`${name} no answer`));
         }
-        yield question.increment("counter", { by: 1 });
+        yield question.increment('counter', { by: 1 });
         return res.status(200).json(question.answer);
     }
     catch (error) {
@@ -90,7 +90,7 @@ const createQuestion = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
             answer,
             SubjectId,
         });
-        return res.status(201).json({ message: "Question was created" });
+        return res.status(201).json({ message: 'Question was created' });
     }
     catch (error) {
         return next(ApiError_1.default.forbidden(error.message));
@@ -135,7 +135,7 @@ exports.deleteQuestion = deleteQuestion;
 const getPopularQuestions = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const popularQuestions = yield question_1.default.findAll({
-            order: [["counter", "DESC"]],
+            order: [['counter', 'DESC']],
             limit: constants_1.popularQuestionsSettings.limitQuestions,
         });
         if (!popularQuestions.length) {

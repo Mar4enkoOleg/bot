@@ -69,7 +69,7 @@ const add = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
             phone,
             GroupId,
         });
-        return res.status(201).json({ message: "User was created" });
+        return res.status(201).json({ message: 'User was created' });
     }
     catch (error) {
         return next(ApiError_1.default.badRequest(error.message));

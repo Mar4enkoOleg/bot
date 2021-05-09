@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 export default {
   up: async (queryInterface: any, Sequelize: any) => {
@@ -14,9 +14,9 @@ export default {
         unique: true,
         allowNull: false,
       },
-    })
+    });
   },
   down: async (queryInterface: any, Sequelize: any) => {
-    await queryInterface.dropTable('Groups')
+    await queryInterface.dropTable('Groups');
   },
-}
+};

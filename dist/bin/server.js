@@ -19,9 +19,9 @@ const start = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         console.log(process.env.NODE_ENV);
         yield models_1.sequelize.authenticate();
-        console.log("Connection has been established successfully.");
+        console.log('Connection has been established successfully.');
         yield models_1.sequelize.sync();
-        console.log("All models were synchronized successfully.");
+        console.log('All models were synchronized successfully.');
         app_1.default.listen(port, () => console.log(`Server start on ${port} port`));
     }
     catch (error) {

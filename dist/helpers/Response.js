@@ -12,19 +12,19 @@ class Res {
             data,
         });
     }
-    static BadRequest(res, message = "Bad Requset") {
+    static BadRequest(res, message = 'Bad Requset') {
         res.status(enums_1.httpCode.BAD_REQUEST).json({
             message,
         });
     }
-    static Unauthorized(res, message = "Unauthorized") {
+    static Unauthorized(res, message = 'Unauthorized') {
         res.status(enums_1.httpCode.UNAUTHORIZED).json({
             message,
         });
     }
     static Forbidden(res) {
         res.status(enums_1.httpCode.FORBIDDEN).json({
-            message: "Bad Requset",
+            message: 'Bad Requset',
         });
     }
     static Conflict(res, message) {
@@ -32,7 +32,7 @@ class Res {
             message,
         });
     }
-    static InternalError(res, message = "Shit Happens") {
+    static InternalError(res, message = 'Shit Happens') {
         res.status(enums_1.httpCode.CONFLICT).json({
             message,
         });

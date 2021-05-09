@@ -8,6 +8,6 @@ function default_1(err, req, res, next) {
     if (err instanceof ApiError_1.default) {
         return res.status(err.status).json({ message: err.message });
     }
-    return res.status(500).json({ message: "Internal error" });
+    return res.status(500).json({ message: 'Internal error' });
 }
 exports.default = default_1;

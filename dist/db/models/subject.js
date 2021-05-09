@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const _1 = require(".");
 const question_1 = __importDefault(require("./question"));
-const Subject = _1.sequelize.define("Subject", {
+const Subject = _1.sequelize.define('Subject', {
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,

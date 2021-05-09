@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const interfacesEnums_1 = require("../../helpers/interfacesEnums");
 exports.default = {
     up: (queryInterface, Sequelize) => __awaiter(void 0, void 0, void 0, function* () {
-        yield queryInterface.createTable("Users", {
+        yield queryInterface.createTable('Users', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -56,6 +56,6 @@ exports.default = {
         });
     }),
     down: (queryInterface, Sequelize) => __awaiter(void 0, void 0, void 0, function* () {
-        yield queryInterface.dropTable("Users");
+        yield queryInterface.dropTable('Users');
     }),
 };

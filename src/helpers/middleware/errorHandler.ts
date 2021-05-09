@@ -1,5 +1,5 @@
-import ApiError from "../ApiError";
-import { Request, Response } from "express";
+import ApiError from '../ApiError';
+import { Request, Response } from 'express';
 
 export default function (
   err: Error,
@@ -10,5 +10,5 @@ export default function (
   if (err instanceof ApiError) {
     return res.status(err.status).json({ message: err.message });
   }
-  return res.status(500).json({ message: "Internal error" });
+  return res.status(500).json({ message: 'Internal error' });
 }

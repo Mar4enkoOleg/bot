@@ -4,6 +4,8 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "eslint_prettier": "npx eslint-config-prettier src/app.ts",
+    "prettier": "npx prettier --write src/",
     "compile": "tsc",
     "start": "node dist/bin/server.js",
     "dev": "ts-node-dev --respawn -r dotenv/config  ./src/bin/server.ts",
@@ -23,6 +25,7 @@
     "@typescript-eslint/parser": "^4.22.1",
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
     "prettier": "^2.2.1",
     "sequelize-cli": "^6.2.0",

@@ -1,16 +1,16 @@
-import { DataTypes, Model, Optional } from "sequelize";
-import { sequelize } from ".";
-import { GroupAttributes } from "../../helpers/interfacesEnums";
-import User from "./user";
+import { DataTypes, Model, Optional } from 'sequelize';
+import { sequelize } from '.';
+import { GroupAttributes } from '../../helpers/interfacesEnums';
+import User from './user';
 
-interface GroupCreationAttributes extends Optional<GroupAttributes, "id"> {}
+interface GroupCreationAttributes extends Optional<GroupAttributes, 'id'> {}
 
 interface GroupInstance
   extends Model<GroupAttributes, GroupCreationAttributes>,
     GroupAttributes {}
 
 const Group = sequelize.define<GroupInstance>(
-  "Group",
+  'Group',
   {
     id: {
       type: DataTypes.INTEGER,

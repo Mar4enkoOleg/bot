@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router } from 'express';
 import {
   getAll,
   remove,
@@ -6,17 +6,17 @@ import {
   update,
   add,
   getUserByParams,
-} from "./userController";
+} from './userController';
 
 const router = Router();
 
-router.post("/", add);
-router.get("/", getAll);
+router.post('/', add);
+router.get('/', getAll);
 
-router.get("/:id", getById);
-router.put("/:id", update);
-router.delete("/:id", remove);
+router.get('/:id', getById);
+router.put('/:id', update);
+router.delete('/:id', remove);
 
-router.get("/byparams/", getUserByParams);
+router.get('/byparams/', getUserByParams);
 
 export default router;

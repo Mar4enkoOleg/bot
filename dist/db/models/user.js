@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const _1 = require(".");
 const interfacesEnums_1 = require("../../helpers/interfacesEnums");
-const User = _1.sequelize.define("User", {
+const User = _1.sequelize.define('User', {
     id: { type: sequelize_1.DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     telegramId: {
         type: sequelize_1.DataTypes.INTEGER,

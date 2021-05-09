@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import UserModel from "../../db/models/user";
-import GroupModel from "../../db/models/group";
-import ApiError from "../../helpers/ApiError";
+import { Request, Response } from 'express';
+import UserModel from '../../db/models/user';
+import GroupModel from '../../db/models/group';
+import ApiError from '../../helpers/ApiError';
 
 export const getUsersCount = async (
   req: Request,
