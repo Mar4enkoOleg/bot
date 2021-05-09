@@ -1,10 +1,10 @@
-import Joi from "joi";
-import { Roles, UserAttributes, UserType } from "./interfacesEnums";
-import { sequelize } from "../db/models";
+import Joi from 'joi';
+import { Roles, UserAttributes, UserType } from './interfacesEnums';
+import { sequelize } from '../db/models';
 const checkTelegramId = async (telegramId: number) => {
-  const user = await sequelize.model("User").findOne({ where: { telegramId } });
+  const user = await sequelize.model('User').findOne({ where: { telegramId } });
   if (user) {
-    throw new Error("Must be unique");
+    throw new Error('Must be unique');
   }
 };
 
@@ -12,9 +12,9 @@ const checkUserName = async (userName: string) => {
   if (!userName) {
     return;
   }
-  const user = await sequelize.model("User").findOne({ where: { userName } });
+  const user = await sequelize.model('User').findOne({ where: { userName } });
   if (user) {
-    throw new Error("Must be unique");
+    throw new Error('Must be unique');
   }
 };
 
@@ -23,7 +23,7 @@ const checkGroupExist = async (GroupId: number) => {
     return;
   }
   const group = await sequelize
-    .model("Group")
+    .model('Group')
     .findOne({ where: { id: GroupId } });
   if (group) {
     return;
@@ -46,7 +46,7 @@ export const userSchemaCreate = Joi.object<UserAttributes>({
     UserType.ASPIRANT
   ),
   phone: Joi.string().pattern(/^[0-9]+$/),
-  state: Joi.string().default(""),
+  state: Joi.string().default(''),
   GroupId: Joi.number().external(checkGroupExist),
   role: Joi.string()
     .default(Roles.USER)
@@ -63,7 +63,7 @@ export const userSchemaUpdate = Joi.object<UserAttributes>({
     UserType.ASPIRANT
   ),
   phone: Joi.string().pattern(/^[0-9]+$/),
-  state: Joi.string().default(""),
+  state: Joi.string().default(''),
   GroupId: Joi.number().external(checkGroupExist),
   role: Joi.string()
     .default(Roles.USER)

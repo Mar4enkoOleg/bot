@@ -1,12 +1,12 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-import QuestionModel from "../../db/models/question";
-import QuestionNoAnswer from "../../db/models/questionsNoAnswer";
-import Subject from "../../db/models/subject";
+import QuestionModel from '../../db/models/question';
+import QuestionNoAnswer from '../../db/models/questionsNoAnswer';
+import Subject from '../../db/models/subject';
 
-import ApiError from "../../helpers/ApiError";
-import { QuestionAttributes } from "../../helpers/interfacesEnums";
-import { popularQuestionsSettings } from "../../helpers/constants";
+import ApiError from '../../helpers/ApiError';
+import { QuestionAttributes } from '../../helpers/interfacesEnums';
+import { popularQuestionsSettings } from '../../helpers/constants';
 
 export const getAllQuestions = async (
   req: Request,
@@ -36,7 +36,7 @@ export const getQuestionByName = async (
       await QuestionNoAnswer.create({ name });
       return next(ApiError.badRequest(`${name} no answer`));
     }
-    await question.increment("counter", { by: 1 });
+    await question.increment('counter', { by: 1 });
     return res.status(200).json(question.answer);
   } catch (error) {
     return next(ApiError.badRequest(error.message));
@@ -96,7 +96,7 @@ export const createQuestion = async (
       answer,
       SubjectId,
     });
-    return res.status(201).json({ message: "Question was created" });
+    return res.status(201).json({ message: 'Question was created' });
   } catch (error) {
     return next(ApiError.forbidden(error.message));
   }
@@ -153,7 +153,7 @@ export const getPopularQuestions = async (
 ): Promise<Response> => {
   try {
     const popularQuestions = await QuestionModel.findAll({
-      order: [["counter", "DESC"]],
+      order: [['counter', 'DESC']],
       limit: popularQuestionsSettings.limitQuestions,
     });
     if (!popularQuestions.length) {

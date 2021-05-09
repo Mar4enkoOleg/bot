@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import QuestionsNoAnswerModel from "../../db/models/questionsNoAnswer";
-import { noAnswerSettings } from "../../helpers/constants";
-import ApiError from "../../helpers/ApiError";
+import { Request, Response } from 'express';
+import QuestionsNoAnswerModel from '../../db/models/questionsNoAnswer';
+import { noAnswerSettings } from '../../helpers/constants';
+import ApiError from '../../helpers/ApiError';
 
 export const getNoAnswerQuestions = async (
   req: Request,

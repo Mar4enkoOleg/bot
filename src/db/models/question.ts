@@ -1,9 +1,9 @@
-import { DataTypes, Model, Optional } from "sequelize";
-import { sequelize } from ".";
-import { QuestionAttributes } from "../../helpers/interfacesEnums";
+import { DataTypes, Model, Optional } from 'sequelize';
+import { sequelize } from '.';
+import { QuestionAttributes } from '../../helpers/interfacesEnums';
 
 interface QuestionCreationAttributes
-  extends Optional<QuestionAttributes, "id"> {}
+  extends Optional<QuestionAttributes, 'id'> {}
 
 interface QuestionInstance
   extends Model<QuestionAttributes, QuestionCreationAttributes>,
@@ -12,7 +12,7 @@ interface QuestionInstance
   updatedAt?: Date;
 }
 
-const Question = sequelize.define<QuestionInstance>("Question", {
+const Question = sequelize.define<QuestionInstance>('Question', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -23,12 +23,12 @@ const Question = sequelize.define<QuestionInstance>("Question", {
   answer: {
     type: DataTypes.STRING,
     allowNull: false,
-    validate: { notNull: { msg: "answer is required" } },
+    validate: { notNull: { msg: 'answer is required' } },
   },
   SubjectId: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    validate: { notNull: { msg: "subjectId is required" } },
+    validate: { notNull: { msg: 'subjectId is required' } },
   },
   counter: { type: DataTypes.INTEGER, defaultValue: 0 },
 });

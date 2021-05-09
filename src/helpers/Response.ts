@@ -1,5 +1,5 @@
-import { Response } from "express";
-import { httpCode } from "../typeScript/enums";
+import { Response } from 'express';
+import { httpCode } from '../typeScript/enums';
 
 class Res {
   static Success<D>(res: Response, data: D): void {
@@ -14,13 +14,13 @@ class Res {
     });
   }
 
-  static BadRequest(res: Response, message = "Bad Requset"): void {
+  static BadRequest(res: Response, message = 'Bad Requset'): void {
     res.status(httpCode.BAD_REQUEST).json({
       message,
     });
   }
 
-  static Unauthorized(res: Response, message = "Unauthorized"): void {
+  static Unauthorized(res: Response, message = 'Unauthorized'): void {
     res.status(httpCode.UNAUTHORIZED).json({
       message,
     });
@@ -28,7 +28,7 @@ class Res {
 
   static Forbidden(res: Response): void {
     res.status(httpCode.FORBIDDEN).json({
-      message: "Bad Requset",
+      message: 'Bad Requset',
     });
   }
 
@@ -38,7 +38,7 @@ class Res {
     });
   }
 
-  static InternalError(res: Response, message = "Shit Happens"): void {
+  static InternalError(res: Response, message = 'Shit Happens'): void {
     res.status(httpCode.CONFLICT).json({
       message,
     });

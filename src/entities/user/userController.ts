@@ -1,8 +1,8 @@
-import { Request, Response, NextFunction } from "express";
-import { UserAttributes } from "../../helpers/interfacesEnums";
-import UserModel from "../../db/models/user";
-import ApiError from "../../helpers/ApiError";
-import { userSchemaCreate, userSchemaUpdate } from "../../helpers/validation";
+import { Request, Response, NextFunction } from 'express';
+import { UserAttributes } from '../../helpers/interfacesEnums';
+import UserModel from '../../db/models/user';
+import ApiError from '../../helpers/ApiError';
+import { userSchemaCreate, userSchemaUpdate } from '../../helpers/validation';
 
 export const getAll = async (
   req: Request,
@@ -81,7 +81,7 @@ export const add = async (
       phone,
       GroupId,
     });
-    return res.status(201).json({ message: "User was created" });
+    return res.status(201).json({ message: 'User was created' });
   } catch (error) {
     return next(ApiError.badRequest(error.message));
   }

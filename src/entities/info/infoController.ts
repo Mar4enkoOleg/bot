@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
-import BotInfoModel from "../../db/models/botInfo";
-import CafedraInfoModel from "../../db/models/cafedraInfo";
+import { Request, Response } from 'express';
+import BotInfoModel from '../../db/models/botInfo';
+import CafedraInfoModel from '../../db/models/cafedraInfo';
 
-import ApiError from "../../helpers/ApiError";
+import ApiError from '../../helpers/ApiError';
 
 export const getCafedraInfo = async (
   req: Request,
@@ -11,7 +11,7 @@ export const getCafedraInfo = async (
 ): Promise<Response> => {
   try {
     const info = await CafedraInfoModel.findOne();
-    return res.status(200).json(info?.getDataValue("description"));
+    return res.status(200).json(info?.getDataValue('description'));
   } catch (error) {
     return next(ApiError.badRequest(error.message));
   }
@@ -25,7 +25,7 @@ export const updateCafedraInfo = async (
   try {
     const { description } = req.body;
     if (!description) {
-      return next(ApiError.badRequest("Wrong description"));
+      return next(ApiError.badRequest('Wrong description'));
     }
     await CafedraInfoModel.update({ description }, { where: { id: 1 } });
     return res.status(200).json({ message: `Info was updated` });
@@ -41,7 +41,7 @@ export const getBotInfo = async (
 ): Promise<Response> => {
   try {
     const info = await BotInfoModel.findOne();
-    return res.status(200).json(info?.getDataValue("description"));
+    return res.status(200).json(info?.getDataValue('description'));
   } catch (error) {
     return next(ApiError.badRequest(error.message));
   }

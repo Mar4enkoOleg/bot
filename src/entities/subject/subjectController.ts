@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import { SubjectAttributes } from "../../helpers/interfacesEnums";
-import SubjectModel from "../../db/models/subject";
-import ApiError from "../../helpers/ApiError";
+import { Request, Response } from 'express';
+import { SubjectAttributes } from '../../helpers/interfacesEnums';
+import SubjectModel from '../../db/models/subject';
+import ApiError from '../../helpers/ApiError';
 
 export const getAll = async (
   req: Request,
@@ -46,7 +46,7 @@ export const add = async (
     await SubjectModel.create({
       title,
     });
-    return res.status(201).json({ message: "Subject was created" });
+    return res.status(201).json({ message: 'Subject was created' });
   } catch (error) {
     return next(ApiError.forbidden(error.message));
   }

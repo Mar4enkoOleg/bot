@@ -1,9 +1,9 @@
-import { DataTypes, Model, Optional } from "sequelize";
-import { sequelize } from ".";
-import { SubjectAttributes } from "../../helpers/interfacesEnums";
-import Question from "./question";
+import { DataTypes, Model, Optional } from 'sequelize';
+import { sequelize } from '.';
+import { SubjectAttributes } from '../../helpers/interfacesEnums';
+import Question from './question';
 
-interface SubjectCreationAttributes extends Optional<SubjectAttributes, "id"> {}
+interface SubjectCreationAttributes extends Optional<SubjectAttributes, 'id'> {}
 
 interface SubjectInstance
   extends Model<SubjectAttributes, SubjectCreationAttributes>,
@@ -12,7 +12,7 @@ interface SubjectInstance
   updatedAt?: Date;
 }
 
-const Subject = sequelize.define<SubjectInstance>("Subject", {
+const Subject = sequelize.define<SubjectInstance>('Subject', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
