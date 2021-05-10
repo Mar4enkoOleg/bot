@@ -1,17 +1,15 @@
-import { DataTypes, Model, Optional } from "sequelize";
-import { sequelize } from ".";
-import { Roles, UserAttributes } from "../../helpers/interfacesEnums";
+import { DataTypes, Model, Optional } from 'sequelize'
+import { sequelize } from '.'
+import { Roles, UserAttributes } from '../../helpers/interfacesEnums'
 
-interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
+interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
-interface UserInstance
-  extends Model<UserAttributes, UserCreationAttributes>,
-    UserAttributes {
-  createdAt?: Date;
-  updatedAt?: Date;
+export interface UserInstance extends Model<UserAttributes, UserCreationAttributes>, UserAttributes {
+  createdAt?: Date
+  updatedAt?: Date
 }
 
-const User = sequelize.define<UserInstance>("User", {
+const User = sequelize.define<UserInstance>('User', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   telegramId: {
     type: DataTypes.INTEGER,
@@ -40,6 +38,6 @@ const User = sequelize.define<UserInstance>("User", {
     defaultValue: Roles.USER,
     allowNull: false,
   },
-});
+})
 
-export default User;
+export default User
