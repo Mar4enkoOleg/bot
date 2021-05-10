@@ -2,44 +2,44 @@ import { Response } from 'express';
 import { httpCode } from '../typeScript/enums';
 
 class Res {
-  static Success<D>(res: Response, data: D): void {
-    res.status(httpCode.OK).json({
+  static Success<D>(res: Response, data: D): Response {
+    return res.status(httpCode.OK).json({
       data,
     });
   }
 
-  static Created<D>(res: Response, data: D): void {
-    res.status(httpCode.CREATED).json({
+  static Created<D>(res: Response, data: D): Response {
+    return res.status(httpCode.CREATED).json({
       data,
     });
   }
 
-  static BadRequest(res: Response, message = 'Bad Requset'): void {
-    res.status(httpCode.BAD_REQUEST).json({
+  static BadRequest(res: Response, message = 'Bad Requset'): Response {
+    return res.status(httpCode.BAD_REQUEST).json({
       message,
     });
   }
 
-  static Unauthorized(res: Response, message = 'Unauthorized'): void {
-    res.status(httpCode.UNAUTHORIZED).json({
+  static Unauthorized(res: Response, message = 'Unauthorized'): Response {
+    return res.status(httpCode.UNAUTHORIZED).json({
       message,
     });
   }
 
-  static Forbidden(res: Response): void {
-    res.status(httpCode.FORBIDDEN).json({
+  static Forbidden(res: Response): Response {
+    return res.status(httpCode.FORBIDDEN).json({
       message: 'Bad Requset',
     });
   }
 
-  static Conflict(res: Response, message: string): void {
-    res.status(httpCode.CONFLICT).json({
+  static Conflict(res: Response, message: string): Response {
+    return res.status(httpCode.CONFLICT).json({
       message,
     });
   }
 
-  static InternalError(res: Response, message = 'Shit Happens'): void {
-    res.status(httpCode.CONFLICT).json({
+  static InternalError(res: Response, message = 'Shit Happens'): Response {
+    return res.status(httpCode.CONFLICT).json({
       message,
     });
   }

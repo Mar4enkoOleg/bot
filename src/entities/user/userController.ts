@@ -1,33 +1,33 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { UserAttributes } from '../../helpers/interfacesEnums';
 import UserModel from '../../db/models/user';
 import ApiError from '../../helpers/ApiError';
 import { userSchemaCreate, userSchemaUpdate } from '../../helpers/validation';
+import Res from '../../helpers/Response';
+import Logger from '../../config/winston_config';
+import { httpCode } from '../../typeScript/enums';
 
 export const getAll = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const users = await UserModel.findAll();
-    if (!users.length) {
-      return next(ApiError.badRequest(`Users does not exist yet`));
-    }
-    return res.status(200).json(users);
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const users = await UserModel.findAll();
+
+  if (!users.length) {
+    return Res.BadRequest(res, 'There are no users in DB');
   }
+
+  return Res.Success(res, users);
 };
 
+//  need to Fix it
 export const getUserByParams = async (
   req: Request,
   res: Response,
   next: Function
 ): Promise<Response> => {
   try {
-    const params: any = req.body;
-    //////////////////////////////
+    // const params: any = req.body;
 
     const user = null;
     return res.json(user);
@@ -38,111 +38,68 @@ export const getUserByParams = async (
 
 export const getById = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const id = parseInt(req.params.id);
-    const user = await UserModel.findOne({ where: { id } });
-    if (!user) {
-      return next(ApiError.badRequest(`User with id=${id} not exist`));
-    }
-    return res.status(200).json(user);
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const id = parseInt(req.params.id, 10);
+
+  Logger.info(`req User id ${id}`);
+  const user = await UserModel.findOne({ where: { id } });
+  if (!user) {
+    return Res.BadRequest(res, `User with id '${id}' not exist`);
   }
+  return Res.Success(res, user);
 };
 
-export const add = async (
-  req: Request,
-  res: Response,
-  next: Function
-): Promise<Response> => {
-  try {
-    const {
-      telegramId,
-      fullName,
-      role,
-      userName,
-      state,
-      userType,
-      phone,
-      GroupId,
-    }: UserAttributes = req.body;
-    await userSchemaCreate.validateAsync(req.body);
+export const add = async (req: Request, res: Response): Promise<Response> => {
+  // telegramId, fullname, role, userName, state, userType, phone, GroupId
+  const userAttributes: UserAttributes = req.body;
 
-    await UserModel.create({
-      telegramId,
-      fullName,
-      userName,
-      role,
-      state,
-      userType,
-      phone,
-      GroupId,
-    });
-    return res.status(201).json({ message: 'User was created' });
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
-  }
+  Logger.info(userAttributes);
+
+  await userSchemaCreate.validateAsync(req.body);
+
+  const dbUser = await UserModel.create({
+    ...userAttributes,
+  });
+  return Res.Created(res, { ...dbUser.get() });
 };
 
 export const update = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const id = parseInt(req.params.id);
-    const updateCandidate = await UserModel.findOne({ where: { id } });
-    if (!updateCandidate) {
-      return next(ApiError.badRequest(`User with id=${id} not exist`));
-    }
-    await userSchemaUpdate.validateAsync(req.body);
+  const id = parseInt(req.params.id, 10);
 
-    const {
-      telegramId,
-      fullName,
-      role,
-      userName,
-      state,
-      GroupId,
-      userType,
-      phone,
-    }: UserAttributes = req.body;
+  Logger.info(`User id '${id}'`);
 
-    await UserModel.update(
-      {
-        telegramId,
-        GroupId,
-        userName,
-        fullName,
-        role,
-        state,
-        userType,
-        phone,
-      },
-      { where: { id } }
-    );
-    return res.status(200).json({ message: `User with id=${id} updated` });
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const updateCandidate = await UserModel.findOne({ where: { id } });
+  if (!updateCandidate) {
+    return Res.BadRequest(res, `User with id '${id}' not exist`);
   }
+
+  await userSchemaUpdate.validateAsync(req.body);
+
+  const userAttributes: UserAttributes = req.body;
+
+  // eslint-disable-next-line no-unused-vars
+  const [_amount, [updatedUser]] = await UserModel.update(
+    { ...userAttributes },
+    { returning: true, where: { id } }
+  );
+
+  // return res.status(200).json({ message: `User with id=${id} updated` });
+  return Res.Success(res, updatedUser.get());
 };
 export const remove = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const id = parseInt(req.params.id);
-    const deleteCandidate = await UserModel.findOne({ where: { id } });
-    if (!deleteCandidate) {
-      return next(ApiError.badRequest(`User with id=${id} not exist`));
-    }
-    await UserModel.destroy({ where: { id } });
-    return res.status(200).json({ message: `User with id=${id} deleted` });
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const id = parseInt(req.params.id, 10);
+
+  const deleteCandidate = await UserModel.findOne({ where: { id } });
+  if (!deleteCandidate) {
+    return Res.BadRequest(res, `User with id '${id}' not exist`);
   }
+  await UserModel.destroy({ where: { id } });
+  return res.sendStatus(httpCode.NO_CONTENT);
 };
