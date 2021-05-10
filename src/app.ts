@@ -1,7 +1,8 @@
 import express from 'express';
-import logger from 'morgan';
 
-import { sequelize } from './db/models';
+import Logger from './config/winston_config';
+import morganMiddleware from './config/morgan_config';
+
 import errorHandler from './helpers/middleware/errorHandler';
 
 import './db/models/user';
@@ -19,12 +20,9 @@ import updateAdminRouter from './entities/user/updateAdminRouter';
 
 const app = express();
 
-// Loger
+// Http Loger
 // ===========================================
-if (process.env.NODE_ENV === 'development') {
-  app.use(logger('dev'));
-}
-
+app.use(morganMiddleware);
 // middlewares
 // ===========================================
 app.use(express.urlencoded({ extended: false }));
@@ -40,6 +38,16 @@ app.use('/subjects', subjectsRouter);
 app.use('/questions', questionsRouter);
 
 app.use('/info', infoRouter);
+
+app.get('/logger', (_, res) => {
+  Logger.error('This is an error log');
+  Logger.warn('This is a warn log');
+  Logger.info('This is a info log');
+  Logger.http('This is a http log');
+  Logger.debug('This is a debug log');
+
+  res.send('Hello world');
+});
 
 app.use(errorHandler);
 
