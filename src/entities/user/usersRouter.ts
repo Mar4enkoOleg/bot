@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import tryCatchWrapper from '../../helpers/tryCatchWrapper';
 import {
   getAll,
   remove,
@@ -10,8 +11,8 @@ import {
 
 const router = Router();
 
-router.post('/', add);
-router.get('/', getAll);
+router.post('/', tryCatchWrapper(add));
+router.get('/', tryCatchWrapper(getAll));
 
 router.get('/:id', getById);
 router.put('/:id', update);
