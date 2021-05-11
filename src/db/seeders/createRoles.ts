@@ -1,5 +1,6 @@
-import { RoleAttributes } from '../../helpers/interfacesEnums';
 import { sequelize } from '../models';
+
+import { RoleAttributes } from '../../typeScript/interfaces';
 import '../models/role';
 
 const roles: Array<RoleAttributes> = [

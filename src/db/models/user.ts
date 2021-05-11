@@ -1,6 +1,8 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { sequelize } from '.';
-import { Roles, UserAttributes } from '../../helpers/interfacesEnums';
+
+import { Roles } from '../../typeScript/enums';
+import { UserAttributes } from '../../typeScript/interfaces';
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 

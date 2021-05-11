@@ -1,11 +1,13 @@
 import { Request, Response } from 'express';
-import { UserAttributes } from '../../helpers/interfacesEnums';
+
 import UserModel from '../../db/models/user';
-import ApiError from '../../helpers/ApiError';
-import { userSchemaCreate, userSchemaUpdate } from '../../helpers/validation';
-import Res from '../../helpers/Response';
 import Logger from '../../config/winston_config';
+
+import Res from '../../helpers/Response';
+import { userSchemaCreate, userSchemaUpdate } from '../../helpers/validation';
+
 import { httpCode } from '../../typeScript/enums';
+import { UserAttributes } from '../../typeScript/interfaces';
 
 export const getAll = async (
   req: Request,
@@ -23,17 +25,12 @@ export const getAll = async (
 //  need to Fix it
 export const getUserByParams = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    // const params: any = req.body;
+  // const params: any = req.body;
 
-    const user = null;
-    return res.json(user);
-  } catch (error) {
-    return next(ApiError.badRequest(`User not found`));
-  }
+  const user = null;
+  return res.json(user);
 };
 
 export const getById = async (
@@ -87,9 +84,9 @@ export const update = async (
     { returning: true, where: { id } }
   );
 
-  // return res.status(200).json({ message: `User with id=${id} updated` });
   return Res.Success(res, updatedUser.get());
 };
+
 export const remove = async (
   req: Request,
   res: Response

@@ -1,13 +1,14 @@
 import { Router } from 'express';
+import tryCatchWrapper from '../../helpers/tryCatchWrapper';
 import {
-  createQuestion,
-  deleteQuestion,
-  getAllQuestions,
-  getQuestionByName,
-  getQuestionsBySubjectAndName,
-  updateQuestion,
-  getQuestionsBySubject,
-  getPopularQuestions,
+  add,
+  remove,
+  getAll,
+  getByName,
+  getBySubject,
+  update,
+  getBySubjectAndName,
+  getPopular,
 } from './questionsController';
 
 import {
@@ -16,23 +17,27 @@ import {
   getNoAnswerQuestions,
 } from './questionsNoAnswer.controller';
 
-const router = Router();
+const questions = Router();
 
-router.get('/main', getAllQuestions);
-router.post('/main', createQuestion);
+questions.get('/main', tryCatchWrapper(getAll));
+questions.post('/main', tryCatchWrapper(add));
 
-router.put('/main/:id', updateQuestion);
-router.delete('/main/:id', deleteQuestion);
+questions.put('/main/:id', tryCatchWrapper(update));
+questions.delete('/main/:id', tryCatchWrapper(remove));
 
-router.get('/main/:name', getQuestionByName);
+questions.get('/main/:name', tryCatchWrapper(getByName));
 
-router.get('/main/subject/:subject/', getQuestionsBySubject);
-router.get('/main/subject/:subject/:name', getQuestionsBySubjectAndName);
+questions.get('/main/subject/:subject/', tryCatchWrapper(getBySubject));
+questions.get(
+  '/main/subject/:subject/:name',
+  tryCatchWrapper(getBySubjectAndName)
+);
 
-router.get('/noanswer', getNoAnswerQuestions);
-router.delete('/noanswer', deleteAllNoAnswerQuestions);
-router.delete('/noanswer/:id', deleteNoAnswerQuestionById);
+questions.get('/noanswer', tryCatchWrapper(getNoAnswerQuestions));
+questions.delete('/noanswer', tryCatchWrapper(deleteAllNoAnswerQuestions));
 
-router.get('/popular', getPopularQuestions);
+questions.delete('/noanswer/:id', tryCatchWrapper(deleteNoAnswerQuestionById));
 
-export default router;
+questions.get('/popular', tryCatchWrapper(getPopular));
+
+export default questions;

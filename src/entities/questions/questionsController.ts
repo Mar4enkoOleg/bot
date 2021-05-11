@@ -3,150 +3,142 @@ import { Request, Response } from 'express';
 import QuestionModel from '../../db/models/question';
 import QuestionNoAnswer from '../../db/models/questionsNoAnswer';
 import Subject from '../../db/models/subject';
+import Logger from '../../config/winston_config';
 
 import ApiError from '../../helpers/ApiError';
-import { QuestionAttributes } from '../../helpers/interfacesEnums';
 import { popularQuestionsSettings } from '../../helpers/constants';
+import Res from '../../helpers/Response';
 
-export const getAllQuestions = async (
+import { httpCode } from '../../typeScript/enums';
+import { QuestionAttributes } from '../../typeScript/interfaces';
+
+export const getAll = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const questions = await QuestionModel.findAll();
-    if (!questions.length) {
-      return next(ApiError.badRequest(`Questions does not exist yet`));
-    }
-    return res.status(200).json(questions);
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const questions = await QuestionModel.findAll();
+
+  if (!questions.length) {
+    return Res.BadRequest(res, `Questions does not exist yet`);
   }
+  return Res.Success(res, questions);
 };
 
-export const getQuestionByName = async (
+export const getByName = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const name: string = req.params.name;
-    const question = await QuestionModel.findOne({ where: { name } });
-    if (!question) {
-      await QuestionNoAnswer.create({ name });
-      return next(ApiError.badRequest(`${name} no answer`));
-    }
-    await question.increment('counter', { by: 1 });
-    return res.status(200).json(question.answer);
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const name = req.params?.name;
+
+  const question = await QuestionModel.findOne({ where: { name } });
+  if (!question) {
+    await QuestionNoAnswer.create({ name });
+
+    return Res.BadRequest(res, `${name} no answer`);
   }
+  await question.increment('counter', { by: 1 });
+
+  return Res.Success(res, question.get());
 };
 
-export const getQuestionsBySubject = async (
+export const getBySubject = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const subject: string = req.params.subject;
-    const questions = await QuestionModel.findAll({
-      include: { model: Subject, where: { title: subject } },
-    });
-    if (!questions.length) {
-      return next(ApiError.badRequest(`${subject} have not questions`));
-    }
-    return res.status(200).json(questions);
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const subject: string = req.params?.subject;
+
+  const questions = await QuestionModel.findAll({
+    include: { model: Subject, where: { title: subject } },
+  });
+
+  if (!questions.length) {
+    return Res.BadRequest(res, `${subject} have not questions`);
   }
+
+  return Res.Success(res, questions);
 };
 
-export const getQuestionsBySubjectAndName = async (
+export const getBySubjectAndName = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const subject: string = req.params.subject;
-    const name: string = req.params.name;
-    const question = await QuestionModel.findOne({
-      where: { name },
-      include: { model: Subject, where: { title: subject } },
-    });
-    if (!question) {
-      await QuestionNoAnswer.create({ name });
-      return next(ApiError.badRequest(`${subject} have not question ${name}`));
-    }
-    return res.status(200).json(question.answer);
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const subject: string = req.params?.subject;
+  const name: string = req.params?.name;
+
+  Logger.info(`params ${req.params}`);
+
+  const question = await QuestionModel.findOne({
+    where: { name },
+    include: { model: Subject, where: { title: subject } },
+  });
+
+  if (!question) {
+    await QuestionNoAnswer.create({ name });
+    return Res.BadRequest(res, `${subject} have not question ${name}`);
   }
+
+  return Res.Success(res, question.get());
 };
 
-export const createQuestion = async (
+export const add = async (req: Request, res: Response): Promise<Response> => {
+  const { name, answer, SubjectId }: QuestionAttributes = req.body;
+
+  const newQuestion = await QuestionModel.create({
+    name,
+    answer,
+    SubjectId,
+  });
+
+  return Res.Created(res, newQuestion);
+};
+
+export const update = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const { name, answer, SubjectId }: QuestionAttributes = req.body;
-    await QuestionModel.create({
+  const id = parseInt(req.params.id, 10);
+  const { name, answer, SubjectId }: QuestionAttributes = req.body;
+
+  Logger.info(`params ${req.params}`);
+
+  const updateQuestion = await QuestionModel.findOne({ where: { id } });
+
+  if (!updateQuestion) {
+    return Res.BadRequest(res, `Question with id '${id}' not exist`);
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  const [_amount, [updatedQuestion]] = await QuestionModel.update(
+    {
       name,
       answer,
       SubjectId,
-    });
-    return res.status(201).json({ message: 'Question was created' });
-  } catch (error) {
-    return next(ApiError.forbidden(error.message));
-  }
+    },
+    { returning: true, where: { id } }
+  );
+
+  return Res.Success(res, updatedQuestion);
 };
 
-export const updateQuestion = async (
+export const remove = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const id = parseInt(req.params.id);
-    const { name, answer, SubjectId }: QuestionAttributes = req.body;
-    const updateQuestion = await QuestionModel.findOne({ where: { id } });
-    if (!updateQuestion) {
-      return next(ApiError.badRequest(`Question with id=${id} not exist`));
-    }
-    await QuestionModel.update(
-      {
-        name,
-        answer,
-        SubjectId,
-      },
-      { where: { id } }
-    );
-    return res.status(200).json({ message: `Question with id=${id} updated` });
-  } catch (error) {
-    return next(ApiError.forbidden(error.message));
+  const id = parseInt(req.params.id, 10);
+
+  Logger.info(`Question id '${id}'`);
+
+  const deleteQuestion = await QuestionModel.findOne({ where: { id } });
+
+  if (!deleteQuestion) {
+    return Res.BadRequest(res, `Question with id '${id}' not exist`);
   }
+
+  await QuestionModel.destroy({ where: { id } });
+  return res.sendStatus(httpCode.NO_CONTENT);
 };
 
-export const deleteQuestion = async (
-  req: Request,
-  res: Response,
-  next: Function
-): Promise<Response> => {
-  try {
-    const id = parseInt(req.params.id);
-    const deleteQuestion = await QuestionModel.findOne({ where: { id } });
-    if (!deleteQuestion) {
-      return next(ApiError.badRequest(`Question with id=${id} not exist`));
-    }
-    await QuestionModel.destroy({ where: { id } });
-    return res.status(200).json({ message: `Question with id=${id} deleted` });
-  } catch (error) {
-    return next(ApiError.forbidden(error.message));
-  }
-};
-
-export const getPopularQuestions = async (
+export const getPopular = async (
   req: Request,
   res: Response,
   next: Function

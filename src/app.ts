@@ -16,13 +16,13 @@ import subjectsRouter from './entities/subject/subjectRouter';
 import questionsRouter from './entities/questions/questionsRouter';
 import infoRouter from './entities/info/infoRouter';
 import usersInfoRouter from './entities/user/usersInfoRouter';
-import updateAdminRouter from './entities/user/updateAdminRouter';
 
 const app = express();
 
 // Http Loger
 // ===========================================
 app.use(morganMiddleware);
+
 // middlewares
 // ===========================================
 app.use(express.urlencoded({ extended: false }));
@@ -31,7 +31,6 @@ app.use(express.json());
 // Routes
 // ===========================================
 app.use('/users', usersRouter);
-app.use('/admins', updateAdminRouter);
 app.use('/usersInfo', usersInfoRouter);
 
 app.use('/subjects', subjectsRouter);

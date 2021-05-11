@@ -9,15 +9,15 @@ import {
   getUserByParams,
 } from './userController';
 
-const router = Router();
+const users = Router();
 
-router.post('/', tryCatchWrapper(add));
-router.get('/', tryCatchWrapper(getAll));
+users.post('/', tryCatchWrapper(add));
+users.get('/', tryCatchWrapper(getAll));
 
-router.get('/:id', getById);
-router.put('/:id', update);
-router.delete('/:id', remove);
+users.get('/:id', tryCatchWrapper(getById));
+users.put('/:id', tryCatchWrapper(update));
+users.delete('/:id', tryCatchWrapper(remove));
 
-router.get('/byparams/', getUserByParams);
+users.get('/byparams/', tryCatchWrapper(getUserByParams));
 
-export default router;
+export default users;

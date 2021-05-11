@@ -1,6 +1,9 @@
 import Joi from 'joi';
-import { Roles, UserAttributes, UserType } from './interfacesEnums';
 import { sequelize } from '../db/models';
+
+import { UserAttributes } from '../typeScript/interfaces';
+import { Roles, UserType } from '../typeScript/enums';
+
 const checkTelegramId = async (telegramId: number) => {
   const user = await sequelize.model('User').findOne({ where: { telegramId } });
   if (user) {
@@ -19,17 +22,15 @@ const checkUserName = async (userName: string) => {
 };
 
 const checkGroupExist = async (GroupId: number) => {
-  if (!GroupId) {
-    return;
-  }
+  if (!GroupId) return;
+
   const group = await sequelize
     .model('Group')
     .findOne({ where: { id: GroupId } });
-  if (group) {
-    return;
-  } else {
-    throw new Error(`Group id:${GroupId} not exist`);
-  }
+
+  if (group) return;
+
+  throw new Error(`Group id:${GroupId} not exist`);
 };
 
 export const userSchemaCreate = Joi.object<UserAttributes>({

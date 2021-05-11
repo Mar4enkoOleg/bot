@@ -1,16 +1,17 @@
-import {
-  GroupAttributes,
-  QuestionAttributes,
-  Roles,
-  SubjectAttributes,
-  UserAttributes,
-} from '../../helpers/interfacesEnums';
-import { UserType } from '../../helpers/interfacesEnums';
 import { sequelize } from '../models';
+
 import '../models/group';
 import '../models/user';
 import '../models/subject';
 import '../models/question';
+
+import { Roles, UserType } from '../../typeScript/enums';
+import {
+  SubjectAttributes,
+  UserAttributes,
+  GroupAttributes,
+  QuestionAttributes,
+} from '../../typeScript/interfaces';
 
 const users: Array<UserAttributes> = [
   // RoleId = 1 (defaultValue in sequelize model)
