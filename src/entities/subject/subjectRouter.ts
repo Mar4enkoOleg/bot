@@ -1,13 +1,15 @@
 import { Router } from 'express';
+import tryCatchWrapper from '../../helpers/tryCatchWrapper';
 import { add, remove, getAll, getById, update } from './subjectController';
 
-const router = Router();
+const subject = Router();
 
-router.get('/', getAll);
-router.post('/', add);
+subject.get('/', tryCatchWrapper(getAll));
+subject.post('/', tryCatchWrapper(add));
 
-router.get('/:id', getById);
-router.put('/:id', update);
-router.delete('/:id', remove);
+subject
+  .get('/:id', tryCatchWrapper(getById))
+  .put('/:id', tryCatchWrapper(update))
+  .delete('/:id', tryCatchWrapper(remove));
 
-export default router;
+export default subject;

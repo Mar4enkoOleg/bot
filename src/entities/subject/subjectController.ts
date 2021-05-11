@@ -1,95 +1,84 @@
 import { Request, Response } from 'express';
-import { SubjectAttributes } from '../../helpers/interfacesEnums';
+
 import SubjectModel from '../../db/models/subject';
-import ApiError from '../../helpers/ApiError';
+import Logger from '../../config/winston_config';
+
+import Res from '../../helpers/Response';
+
+import { httpCode } from '../../typeScript/enums';
+import { SubjectAttributes } from '../../typeScript/interfaces';
 
 export const getAll = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const subjects = await SubjectModel.findAll();
-    if (!subjects.length) {
-      return next(ApiError.badRequest(`Subjects does not exist yet`));
-    }
-    return res.status(200).json(subjects);
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const subjects = await SubjectModel.findAll();
+
+  if (!subjects.length) {
+    return Res.BadRequest(res, `Subjects does not exist yet`);
   }
+
+  return Res.Success(res, subjects);
 };
 
 export const getById = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const id = parseInt(req.params.id);
-    const subject = await SubjectModel.findOne({ where: { id } });
-    if (!subject) {
-      return next(ApiError.badRequest(`Subject with id=${id} not exist`));
-    }
-    return res.status(200).json(subject);
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const id = parseInt(req.params?.id, 10);
+
+  Logger.info(`Subject id '${id}'`);
+
+  const subject = await SubjectModel.findOne({ where: { id } });
+  if (!subject) {
+    return Res.BadRequest(res, `Subject with id=${id} not exist`);
   }
+  return Res.Success(res, subject);
 };
 
-export const add = async (
-  req: Request,
-  res: Response,
-  next: Function
-): Promise<Response> => {
-  try {
-    const { title }: SubjectAttributes = req.body;
-    await SubjectModel.create({
-      title,
-    });
-    return res.status(201).json({ message: 'Subject was created' });
-  } catch (error) {
-    return next(ApiError.forbidden(error.message));
-  }
+export const add = async (req: Request, res: Response): Promise<Response> => {
+  const { title }: SubjectAttributes = req.body;
+
+  const newSubject = await SubjectModel.create({
+    title,
+  });
+
+  return Res.Created(res, { ...newSubject.get() });
 };
 
 export const update = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const id = parseInt(req.params.id);
-    const { title }: SubjectAttributes = req.body;
-    const updateSubject = await SubjectModel.findOne({ where: { id } });
-    if (!updateSubject) {
-      return next(ApiError.badRequest(`Subject with id=${id} not exist`));
-    }
-    await SubjectModel.update(
-      {
-        title,
-      },
-      { where: { id } }
-    );
-    return res.status(200).json({ message: `Subject with id=${id} updated` });
-  } catch (error) {
-    return next(ApiError.forbidden(error.message));
+  const id = parseInt(req.params?.id, 10);
+  const { title }: SubjectAttributes = req.body;
+
+  Logger.info(`Subject id '${id}' , req.body '${req.body}'`);
+
+  const updateSubject = await SubjectModel.findOne({ where: { id } });
+  if (!updateSubject) {
+    return Res.BadRequest(res, `Subject with id '${id}' not exist`);
   }
+
+  // eslint-disable-next-line no-unused-vars
+  const [_amount, [updatedSubject]] = await SubjectModel.update(
+    { title },
+    { returning: true, where: { id } }
+  );
+  return Res.Success(res, updatedSubject);
 };
 
 export const remove = async (
   req: Request,
-  res: Response,
-  next: Function
+  res: Response
 ): Promise<Response> => {
-  try {
-    const id = parseInt(req.params.id);
-    const deleteSubject = await SubjectModel.findOne({ where: { id } });
-    if (!deleteSubject) {
-      return next(ApiError.badRequest(`Subject with id=${id} not exist`));
-    }
-    await SubjectModel.destroy({ where: { id } });
-    return res.status(200).json({ message: `Subject with id=${id} deleted` });
-  } catch (error) {
-    return next(ApiError.forbidden(error.message));
+  const id = parseInt(req.params?.id, 10);
+  const deleteSubject = await SubjectModel.findOne({ where: { id } });
+
+  if (!deleteSubject) {
+    return Res.BadRequest(res, `Subject with id '${id}' not exist`);
   }
+
+  await SubjectModel.destroy({ where: { id } });
+  return res.sendStatus(httpCode.NO_CONTENT);
 };

@@ -8,10 +8,13 @@ const port = process.env.PORT || 3000;
 const start = async () => {
   try {
     Logger.info(`ENV ${process.env.NODE_ENV}`);
+
     await db.authenticate();
     Logger.info('Connection has been established successfully.');
+
     await db.sync();
     Logger.info('All models were synchronized successfully.');
+
     app.listen(port, () => Logger.info(`Server start on ${port} port`));
   } catch (error) {
     Logger.error(error);

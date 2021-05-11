@@ -1,7 +1,8 @@
 import { DataTypes, Model, Optional } from 'sequelize';
+
 import { sequelize } from '.';
-import { GroupAttributes } from '../../helpers/interfacesEnums';
 import User from './user';
+import { GroupAttributes } from '../../typeScript/interfaces';
 
 interface GroupCreationAttributes extends Optional<GroupAttributes, 'id'> {}
 

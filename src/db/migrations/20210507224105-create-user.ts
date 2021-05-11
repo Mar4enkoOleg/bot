@@ -1,4 +1,4 @@
-import { Roles } from '../../helpers/interfacesEnums';
+import { Roles } from '../../typeScript/enums';
 
 export default {
   up: async (queryInterface: any, Sequelize: any) => {
@@ -46,7 +46,8 @@ export default {
       },
     });
   },
-  down: async (queryInterface: any, Sequelize: any) => {
+
+  down: async (queryInterface: any) => {
     await queryInterface.dropTable('Users');
   },
 };
