@@ -462,3 +462,7 @@
 2021-05-11 23:52:06:526 [34mdebug[39m: [34mThis is a debug log[39m
 2021-05-11 23:52:06:526 [32mhttp[39m: [32mGET /logger 304 - - 4.425 ms[39m
 [32m[39m
+2021-05-11 23:52:36:5236 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:52:38:5238 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:52:40:5240 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:52:40:5240 [32minfo[39m: [32mServer start on 3000 port[39m
