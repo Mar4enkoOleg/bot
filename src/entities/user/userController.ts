@@ -3,39 +3,51 @@ import { UserAttributes } from '../../helpers/interfacesEnums'
 import UserModel from '../../db/models/user'
 import ApiError from '../../helpers/ApiError'
 import { userSchemaCreate, userSchemaUpdate } from '../../helpers/validation'
-import { setAll, getAllCache, setOne } from './userCache'
-// import Redis from 'ioredis'
+import { setOne, setAllToCache, deleteFromCache } from './userCache'
 
-// const redis = new Redis()
-
-export const getAll = async (req: Request, res: Response, next: Function) => {
+export const getAll = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    // const arr = getAllCache()
-    // console.log(arr)
+    if (Object.keys(req.body).length !== 0) {
+      //get by filters
+      const fields = Object.keys(req.body)
+      const values = Object.values(req.body)
+      console.log(fields)
+      console.log(values)
 
-    // return res.json(arr)
-    // getAllCache()
-    const users = await UserModel.findAll()
-    if (!users.length) {
-      next(ApiError.badRequest(`Users does not exist yet`))
+      const users = await UserModel.findAll({
+        attributes: fields,
+        // where: { userName: values[0] },
+      })
+
+      res.json(users)
+      return
     }
-    setAll(users)
+    const users = await UserModel.findAll()
 
-    res.status(200).json(users)
+    if (!users.length) {
+      res.json(ApiError.badRequest(`Users does not exist yet`))
+      return
+    }
+    setAllToCache(users)
+
+    res.json(users)
+    return
   } catch (error) {
     next(ApiError.badRequest(error.message))
   }
 }
 
-export const getUserByParams = async (req: Request, res: Response, next: Function): Promise<Response> => {
+export const getUserByParams = async (req: Request, res: Response, next: Function) => {
   try {
-    const params: any = req.body
-    //////////////////////////////
+    const params: Array<string | number> = req.body
+    console.log(params)
 
-    const user = null
-    return res.json(user)
+    const user = 1
+    res.json(user)
+    return
   } catch (error) {
-    return next(ApiError.badRequest(`User not found`))
+    next(ApiError.badRequest(`User not found`))
+    return
   }
 }
 
@@ -45,15 +57,17 @@ export const getById = async (req: Request, res: Response, next: Function) => {
     const user = await UserModel.findOne({ where: { id } })
     if (!user) {
       next(ApiError.badRequest(`User with id=${id} not exist`))
+      return
     }
     setOne(user)
     res.status(200).json(user)
+    return
   } catch (error) {
     next(ApiError.badRequest(error.message))
   }
 }
 
-export const add = async (req: Request, res: Response, next: Function): Promise<Response> => {
+export const add = async (req: Request, res: Response, next: Function) => {
   try {
     const { telegramId, fullName, role, userName, state, userType, phone, GroupId }: UserAttributes = req.body
     await userSchemaCreate.validateAsync(req.body)
@@ -68,18 +82,21 @@ export const add = async (req: Request, res: Response, next: Function): Promise<
       phone,
       GroupId,
     })
-    return res.status(201).json({ message: 'User was created' })
+    setAllToCache(await UserModel.findAll())
+    res.status(201).json({ message: 'User was created' })
+    return
   } catch (error) {
-    return next(ApiError.badRequest(error.message))
+    next(ApiError.badRequest(error.message))
+    return
   }
 }
 
-export const update = async (req: Request, res: Response, next: Function): Promise<Response> => {
+export const update = async (req: Request, res: Response, next: Function) => {
   try {
     const id = parseInt(req.params.id)
     const updateCandidate = await UserModel.findOne({ where: { id } })
     if (!updateCandidate) {
-      return next(ApiError.badRequest(`User with id=${id} not exist`))
+      next(ApiError.badRequest(`User with id=${id} not exist`))
     }
     await userSchemaUpdate.validateAsync(req.body)
 
@@ -98,12 +115,16 @@ export const update = async (req: Request, res: Response, next: Function): Promi
       },
       { where: { id } }
     )
-    return res.status(200).json({ message: `User with id=${id} updated` })
+
+    setAllToCache(await UserModel.findAll())
+    res.status(200).json({ message: `User with id=${id} updated` })
+
+    return
   } catch (error) {
     return next(ApiError.badRequest(error.message))
   }
 }
-export const remove = async (req: Request, res: Response, next: Function): Promise<Response> => {
+export const remove = async (req: Request, res: Response, next: Function) => {
   try {
     const id = parseInt(req.params.id)
     const deleteCandidate = await UserModel.findOne({ where: { id } })
@@ -111,8 +132,11 @@ export const remove = async (req: Request, res: Response, next: Function): Promi
       return next(ApiError.badRequest(`User with id=${id} not exist`))
     }
     await UserModel.destroy({ where: { id } })
-    return res.status(200).json({ message: `User with id=${id} deleted` })
+    deleteFromCache(id)
+    res.status(200).json({ message: `User with id=${id} deleted` })
+    return
   } catch (error) {
-    return next(ApiError.badRequest(error.message))
+    next(ApiError.badRequest(error.message))
+    return
   }
 }

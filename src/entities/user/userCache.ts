@@ -1,12 +1,13 @@
 import { NextFunction, Request, Response } from 'express'
 import Redis from 'ioredis'
 import { UserInstance } from '../../db/models/user'
+import ApiError from '../../helpers/ApiError'
 
 const redis = new Redis()
 const expireTime: number = 60 * 60 // seconds(for test 1 hour)
 
-export const setAll = (userarr: Array<UserInstance>) => {
-  userarr.forEach((user) => {
+export const setAllToCache = async (userarr: Array<UserInstance>) => {
+  userarr.forEach(async (user) => {
     redis.hmset(
       `userId:${user.id}`,
       {
@@ -20,15 +21,16 @@ export const setAll = (userarr: Array<UserInstance>) => {
         role: `${user.role}`,
         GroupId: `${user.GroupId}`,
       },
-      () => {
-        redis.sadd(`userIds`, `userId:${user.id}`)
+      async () => {
+        await redis.sadd(`userIds`, `userId:${user.id}`)
+        await redis.expire(`userIds`, expireTime)
       }
     )
-    redis.expire(`userId:${user.id}`, expireTime)
+    await redis.expire(`userId:${user.id}`, expireTime)
   })
 }
 
-export const setOne = (user: any) => {
+export const setOne = async (user: any) => {
   redis.hmset(
     `userId:${user.id}`,
     {
@@ -43,45 +45,38 @@ export const setOne = (user: any) => {
       GroupId: `${user.GroupId}`,
     },
     async () => {
-      redis.sadd(`userIds`, `userId:${user.id}`)
-      redis.expire('userIds', expireTime)
+      await redis.sadd(`userIds`, `userId:${user.id}`)
+      await redis.expire('userIds', expireTime)
     }
   )
-  redis.expire(`userId:${user.id}`, expireTime)
+  await redis.expire(`userId:${user.id}`, expireTime)
 }
 
-export const getAllCache = async () => {
-  const userIds = await redis.smembers('userIds')
-  console.log(userIds)
-  let users: any[] = []
-  userIds.forEach((userId) => {
-    redis.hgetall(userId, (err, data) => {
-      if (err) throw err
+export const getCacheById = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { id } = req.params
 
-      //   console.log(data)
-
-      users.push(data)
-      console.log(users)
+    redis.hgetall(`userId:${id}`, (err, data) => {
+      if (err) {
+        next()
+      }
+      if (Object.keys(data).length !== 0) {
+        res.json(data)
+        return
+      } else {
+        next()
+      }
     })
-  })
-  //   console.log(typeof users)
-
-  return users
+  } catch (err) {
+    next(ApiError.badRequest(err.message))
+  }
 }
 
-export const getCacheById = (req: Request, res: Response, next: NextFunction) => {
-  const { id } = req.params
-  redis.hgetall(`userId:${id}`, (err, data) => {
-    if (err) throw err
-    if (Object.keys(data).length !== 0) {
-      console.log(data)
-
-      console.log('work redis')
-      res.json(data)
-    } else {
-      console.log('go to next')
-
-      next()
-    }
-  })
+export const deleteFromCache = async (userId: number) => {
+  try {
+    await redis.srem(`userIds`, `userId:${userId}`)
+    await redis.del(`userId:${userId}`)
+  } catch (err) {
+    throw err
+  }
 }
