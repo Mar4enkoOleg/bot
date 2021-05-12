@@ -4,7 +4,7 @@ import { UserInstance } from '../../db/models/user'
 import ApiError from '../../helpers/ApiError'
 
 const redis = new Redis()
-const expireTime: number = 60 * 60 // seconds(for test 1 hour)
+const expireTime: number = 60 * 60 * 24 // 86 400s / 24h
 
 export const setAllToCache = async (userarr: Array<UserInstance>) => {
   userarr.forEach(async (user) => {
@@ -56,13 +56,9 @@ export const setOneToCache = async (user: any) => {
   await redis.expire(`userId:${user.id}`, expireTime)
 }
 
-const fn = (arr: Array<Object>, item: Object) => {
-  return arr.push(item)
-}
-
-export const getIds = () => {
+const getIds = async () => {
   try {
-    const ids = redis.smembers('userIds')
+    const ids = await redis.smembers('userIds')
 
     return ids
   } catch (err) {
