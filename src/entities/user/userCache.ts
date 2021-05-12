@@ -20,6 +20,8 @@ export const setAllToCache = async (userarr: Array<UserInstance>) => {
         state: `${user.state}`,
         role: `${user.role}`,
         GroupId: `${user.GroupId}`,
+        createdAt: `${user.createdAt}`,
+        updatedAt: `${user.updatedAt}`,
       },
       async () => {
         await redis.sadd(`userIds`, `userId:${user.id}`)
@@ -30,7 +32,7 @@ export const setAllToCache = async (userarr: Array<UserInstance>) => {
   })
 }
 
-export const setOne = async (user: any) => {
+export const setOneToCache = async (user: any) => {
   redis.hmset(
     `userId:${user.id}`,
     {
@@ -43,6 +45,8 @@ export const setOne = async (user: any) => {
       state: `${user.state}`,
       role: `${user.role}`,
       GroupId: `${user.GroupId}`,
+      createdAt: `${user.createdAt}`,
+      updatedAt: `${user.updatedAt}`,
     },
     async () => {
       await redis.sadd(`userIds`, `userId:${user.id}`)
@@ -52,19 +56,50 @@ export const setOne = async (user: any) => {
   await redis.expire(`userId:${user.id}`, expireTime)
 }
 
+const fn = (arr: Array<Object>, item: Object) => {
+  return arr.push(item)
+}
+
+export const getIds = () => {
+  try {
+    const ids = redis.smembers('userIds')
+
+    return ids
+  } catch (err) {
+    throw err
+  }
+}
+export const getAllFromCache = async () => {
+  try {
+    const users = []
+    const ids = await getIds()
+    for (let i = 0; i < ids.length; i++) {
+      const id = ids[i]
+      const data = await redis.hgetall(id)
+      users.push(data)
+    }
+    return users
+  } catch (err) {
+    throw err
+  }
+}
+
 export const getCacheById = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { id } = req.params
 
     redis.hgetall(`userId:${id}`, (err, data) => {
       if (err) {
+        console.log(err)
         next()
+        return
       }
       if (Object.keys(data).length !== 0) {
         res.json(data)
         return
       } else {
         next()
+        return
       }
     })
   } catch (err) {

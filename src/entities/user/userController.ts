@@ -3,25 +3,26 @@ import { UserAttributes } from '../../helpers/interfacesEnums'
 import UserModel from '../../db/models/user'
 import ApiError from '../../helpers/ApiError'
 import { userSchemaCreate, userSchemaUpdate } from '../../helpers/validation'
-import { setOne, setAllToCache, deleteFromCache } from './userCache'
+import { setOneToCache, setAllToCache, deleteFromCache, getAllFromCache } from './userCache'
 
 export const getAll = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    const cacheUsers = await getAllFromCache()
+
     if (Object.keys(req.body).length !== 0) {
-      //get by filters
-      const fields = Object.keys(req.body)
-      const values = Object.values(req.body)
-      console.log(fields)
-      console.log(values)
-
+      const params = req.body
       const users = await UserModel.findAll({
-        attributes: fields,
-        // where: { userName: values[0] },
+        where: { ...params },
       })
-
       res.json(users)
       return
     }
+
+    if (cacheUsers.length) {
+      res.json(cacheUsers)
+      return
+    }
+
     const users = await UserModel.findAll()
 
     if (!users.length) {
@@ -37,20 +38,6 @@ export const getAll = async (req: Request, res: Response, next: NextFunction) =>
   }
 }
 
-export const getUserByParams = async (req: Request, res: Response, next: Function) => {
-  try {
-    const params: Array<string | number> = req.body
-    console.log(params)
-
-    const user = 1
-    res.json(user)
-    return
-  } catch (error) {
-    next(ApiError.badRequest(`User not found`))
-    return
-  }
-}
-
 export const getById = async (req: Request, res: Response, next: Function) => {
   try {
     const id = parseInt(req.params.id)
@@ -59,7 +46,7 @@ export const getById = async (req: Request, res: Response, next: Function) => {
       next(ApiError.badRequest(`User with id=${id} not exist`))
       return
     }
-    setOne(user)
+    setOneToCache(user)
     res.status(200).json(user)
     return
   } catch (error) {
