@@ -55,7 +55,7 @@ export const userSchemaCreate = Joi.object<UserAttributes>({
 });
 
 export const userSchemaUpdate = Joi.object<UserAttributes>({
-  telegramId: Joi.number().required().min(0).max(99999999),
+  telegramId: Joi.number().min(0).max(99999999),
   fullName: Joi.string().min(2).max(50),
   userName: Joi.string().min(2).max(100).alphanum(),
   userType: Joi.string().valid(

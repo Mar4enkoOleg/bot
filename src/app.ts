@@ -16,6 +16,7 @@ import subjectsRouter from './entities/subject/subjectRouter';
 import questionsRouter from './entities/questions/questionsRouter';
 import infoRouter from './entities/info/infoRouter';
 import usersInfoRouter from './entities/user/usersInfoRouter';
+import dfRouter from './entities/dialogFlow/dialogFlowRouter';
 
 const app = express();
 
@@ -37,6 +38,8 @@ app.use('/subjects', subjectsRouter);
 app.use('/questions', questionsRouter);
 
 app.use('/info', infoRouter);
+
+app.use('/dialogflow', dfRouter);
 
 app.get('/logger', (_, res) => {
   Logger.error('This is an error log');
