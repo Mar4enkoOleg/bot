@@ -466,3 +466,7 @@
 2021-05-11 23:52:38:5238 [32minfo[39m: [32mConnection has been established successfully.[39m
 2021-05-11 23:52:40:5240 [32minfo[39m: [32mAll models were synchronized successfully.[39m
 2021-05-11 23:52:40:5240 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-12 23:57:51:5751 [32minfo[39m: [32mENV undefined[39m
+2021-05-12 23:57:52:5752 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-12 23:57:53:5753 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-12 23:57:53:5753 [32minfo[39m: [32mServer start on 3001 port[39m
