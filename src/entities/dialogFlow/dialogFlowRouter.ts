@@ -1,10 +1,9 @@
 import { Router } from 'express';
-
 import tryCatchWrapper from '../../helpers/tryCatchWrapper';
+import { getlistIntents } from './dialogFlowController';
 
+const dfRouter = Router();
 
-const df = Router();
+dfRouter.post('/', tryCatchWrapper(getlistIntents));
 
-// df.post('/dialogFlow', tryCatchWrapper(getBotInfo));
-
-export default  df;
+export default dfRouter;
