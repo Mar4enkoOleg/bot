@@ -1,4 +1,6 @@
+
 require('dotenv').config()
+
 
 module.exports = {
   development: {
@@ -26,4 +28,5 @@ module.exports = {
       },
     },
   },
-}
+};
+

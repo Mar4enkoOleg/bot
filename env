@@ -1,0 +1,8 @@
+NODE_ENVV=development
+PORT=3001
+
+DB_USER=postgres
+DB_PASSWORD=1
+DB_NAME=marchenko
+DB_HOST=localhost
+
