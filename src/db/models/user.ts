@@ -1,12 +1,16 @@
-import { DataTypes, Model, Optional } from 'sequelize'
-import { sequelize } from '.'
-import { Roles, UserAttributes } from '../../interfacesEnums'
+import { DataTypes, Model, Optional } from 'sequelize';
+import { sequelize } from '.';
+
+import { Roles } from '../../typeScript/enums';
+import { UserAttributes } from '../../typeScript/interfaces';
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
-interface UserInstance extends Model<UserAttributes, UserCreationAttributes>, UserAttributes {
-  createdAt?: Date
-  updatedAt?: Date
+export interface UserInstance
+  extends Model<UserAttributes, UserCreationAttributes>,
+    UserAttributes {
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const User = sequelize.define<UserInstance>('User', {
@@ -38,6 +42,6 @@ const User = sequelize.define<UserInstance>('User', {
     defaultValue: Roles.USER,
     allowNull: false,
   },
-})
+});
 
-export default User
+export default User;

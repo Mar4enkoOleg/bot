@@ -1,10 +1,17 @@
-import { GroupAttributes, QuestionAttributes, Roles, SubjectAttributes, UserAttributes } from '../../interfacesEnums'
-import { UserType } from '../../interfacesEnums'
-import { sequelize } from '../models'
-import '../models/group'
-import '../models/user'
-import '../models/subject'
-import '../models/question'
+import { sequelize } from '../models';
+
+import '../models/group';
+import '../models/user';
+import '../models/subject';
+import '../models/question';
+
+import { Roles, UserType } from '../../typeScript/enums';
+import {
+  SubjectAttributes,
+  UserAttributes,
+  GroupAttributes,
+  QuestionAttributes,
+} from '../../typeScript/interfaces';
 
 const users: Array<UserAttributes> = [
   // RoleId = 1 (defaultValue in sequelize model)
@@ -36,7 +43,7 @@ const users: Array<UserAttributes> = [
     state: '.......',
     GroupId: 2,
   },
-]
+];
 
 const groups: Array<GroupAttributes> = [
   {
@@ -45,7 +52,7 @@ const groups: Array<GroupAttributes> = [
   {
     name: 'Group2',
   },
-]
+];
 
 const subjects: Array<SubjectAttributes> = [
   {
@@ -54,7 +61,7 @@ const subjects: Array<SubjectAttributes> = [
   {
     title: 'Deep learning',
   },
-]
+];
 
 const questions: Array<QuestionAttributes> = [
   { name: 'Вопрос1', answer: 'Answer1', SubjectId: 1 },
@@ -64,26 +71,26 @@ const questions: Array<QuestionAttributes> = [
   { name: 'Question5', answer: 'Answer5', SubjectId: 2 },
   { name: 'Question6', answer: 'Answer6', SubjectId: 2 },
   { name: 'Question7', answer: 'Answer7', SubjectId: 2 },
-]
+];
 
 async function createUsersAndGroups() {
   groups.map(async (group) => {
-    await sequelize.model('Group').create(group)
-  })
+    await sequelize.model('Group').create(group);
+  });
 
   users.map(async (user) => {
-    await sequelize.model('User').create(user)
-  })
+    await sequelize.model('User').create(user);
+  });
 }
 
 async function createSubjectsAndQuestions() {
   subjects.map(async (sub) => {
-    await sequelize.model('Subject').create(sub)
-  })
+    await sequelize.model('Subject').create(sub);
+  });
   questions.map(async (question) => {
-    await sequelize.model('Question').create(question)
-  })
+    await sequelize.model('Question').create(question);
+  });
 }
 
-createUsersAndGroups()
-createSubjectsAndQuestions()
+createUsersAndGroups();
+createSubjectsAndQuestions();

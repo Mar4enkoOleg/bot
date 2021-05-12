@@ -1,0 +1,472 @@
+2021-05-10 10:54:32:5432 [31merror[39m: [31mThis is an error log[39m
+2021-05-10 10:54:32:5432 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-10 10:54:32:5432 [32minfo[39m: [32mThis is a info log[39m
+2021-05-10 10:54:32:5432 [35mhttp[39m: [35mThis is a http log[39m
+2021-05-10 10:54:32:5432 [37mdebug[39m: [37mThis is a debug log[39m
+2021-05-10 10:55:02:552 [31merror[39m: [31mThis is an error log[39m
+2021-05-10 10:55:02:552 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-10 10:55:02:552 [32minfo[39m: [32mThis is a info log[39m
+2021-05-10 10:55:02:552 [35mhttp[39m: [35mThis is a http log[39m
+2021-05-10 10:55:02:552 [37mdebug[39m: [37mThis is a debug log[39m
+2021-05-10 10:55:50:5550 [31merror[39m: [31mThis is an error log[39m
+2021-05-10 10:55:50:5550 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-10 10:55:50:5550 [32minfo[39m: [32mThis is a info log[39m
+2021-05-10 10:55:50:5550 [35mhttp[39m: [35mThis is a http log[39m
+2021-05-10 10:55:50:5550 [37mdebug[39m: [37mThis is a debug log[39m
+2021-05-10 10:55:52:5552 [31merror[39m: [31mThis is an error log[39m
+2021-05-10 10:55:52:5552 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-10 10:55:52:5552 [32minfo[39m: [32mThis is a info log[39m
+2021-05-10 10:55:52:5552 [35mhttp[39m: [35mThis is a http log[39m
+2021-05-10 10:55:52:5552 [37mdebug[39m: [37mThis is a debug log[39m
+2021-05-10 19:14:39:1439 [31merror[39m: [31mThis is an error log[39m
+2021-05-10 19:14:39:1439 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-10 19:14:39:1439 [32minfo[39m: [32mThis is a info log[39m
+2021-05-10 19:14:39:1439 [35mhttp[39m: [35mThis is a http log[39m
+2021-05-10 19:14:39:1439 [37mdebug[39m: [37mThis is a debug log[39m
+2021-05-10 19:14:39:1439 [35mhttp[39m: [35mGET /logger 304 - - 6.012 ms[39m
+[35m[39m
+2021-05-10 20:36:41:3641 [35mhttp[39m: [35mGET / 404 139 - 1.886 ms[39m
+[35m[39m
+2021-05-10 20:36:51:3651 [31merror[39m: [31mThis is an error log[39m
+2021-05-10 20:36:51:3651 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-10 20:36:51:3651 [32minfo[39m: [32mThis is a info log[39m
+2021-05-10 20:36:51:3651 [35mhttp[39m: [35mThis is a http log[39m
+2021-05-10 20:36:51:3651 [37mdebug[39m: [37mThis is a debug log[39m
+2021-05-10 20:36:51:3651 [35mhttp[39m: [35mGET /logger 304 - - 4.438 ms[39m
+[35m[39m
+2021-05-10 20:47:35:4735 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 20:47:37:4737 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 20:47:39:4739 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 20:47:39:4739 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 20:48:18:4818 [31merror[39m: [31mThis is an error log[39m
+2021-05-10 20:48:18:4818 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-10 20:48:18:4818 [32minfo[39m: [32mThis is a info log[39m
+2021-05-10 20:48:18:4818 [35mhttp[39m: [35mThis is a http log[39m
+2021-05-10 20:48:18:4818 [37mdebug[39m: [37mThis is a debug log[39m
+2021-05-10 20:48:18:4818 [35mhttp[39m: [35mGET /logger 304 - - 4.487 ms[39m
+[35m[39m
+2021-05-10 20:50:00:500 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 20:50:02:502 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 20:50:04:504 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 20:50:04:504 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 20:53:02:532 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 20:53:04:534 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 20:53:06:536 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 20:53:06:536 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 20:55:27:5527 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 20:55:29:5529 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 20:55:31:5531 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 20:55:31:5531 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 20:56:52:5652 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 20:56:54:5654 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 20:56:56:5656 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 20:56:56:5656 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 20:57:57:5757 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 20:58:00:580 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 20:58:01:581 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 20:58:01:581 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 20:58:04:584 [35mhttp[39m: [35mGET /users/ 500 28 - 3.401 ms[39m
+[35m[39m
+2021-05-10 20:59:19:5919 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 20:59:21:5921 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 20:59:23:5923 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 20:59:23:5923 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 20:59:30:5930 [35mhttp[39m: [35mGET /user/ 404 144 - 2.215 ms[39m
+[35m[39m
+2021-05-10 20:59:48:5948 [35mhttp[39m: [35mGET /users/ 500 28 - 2.828 ms[39m
+[35m[39m
+2021-05-10 21:00:17:017 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:00:19:019 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:00:21:021 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:00:21:021 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:00:30:030 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:00:32:032 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:00:33:033 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:00:33:033 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:00:37:037 [35mhttp[39m: [35mGET /users/ 200 715 - 134.364 ms[39m
+[35m[39m
+2021-05-10 21:01:02:12 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:01:04:14 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:01:05:15 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:01:05:15 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:01:08:18 [35mhttp[39m: [35mGET /users/ 304 - - 122.359 ms[39m
+[35m[39m
+2021-05-10 21:03:10:310 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:03:12:312 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:03:13:313 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:03:13:313 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:03:26:326 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:03:28:328 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:03:30:330 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:03:30:330 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:03:34:334 [35mhttp[39m: [35mGET /users/ 304 - - 131.165 ms[39m
+[35m[39m
+2021-05-10 21:03:39:339 [32minfo[39m: [32mreq User id 1[39m
+2021-05-10 21:03:39:339 [35mhttp[39m: [35mGET /users/1 200 246 - 129.969 ms[39m
+[35m[39m
+2021-05-10 21:03:47:347 [32minfo[39m: [32mreq User id 11[39m
+2021-05-10 21:03:48:348 [35mhttp[39m: [35mGET /users/11 400 39 - 126.724 ms[39m
+[35m[39m
+2021-05-10 21:04:09:49 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:04:11:411 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:04:13:413 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:04:13:413 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:04:13:413 [32minfo[39m: [32mreq User id 11[39m
+2021-05-10 21:04:13:413 [35mhttp[39m: [35mGET /users/11 400 43 - 133.059 ms[39m
+[35m[39m
+2021-05-10 21:04:15:415 [32minfo[39m: [32mreq User id 11[39m
+2021-05-10 21:04:15:415 [35mhttp[39m: [35mGET /users/11 400 43 - 126.976 ms[39m
+[35m[39m
+2021-05-10 21:04:23:423 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:04:26:426 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:04:27:427 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:04:27:427 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:04:30:430 [32minfo[39m: [32mreq User id 11[39m
+2021-05-10 21:04:30:430 [35mhttp[39m: [35mGET /users/11 400 41 - 131.665 ms[39m
+[35m[39m
+2021-05-10 21:06:49:649 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:06:51:651 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:06:53:653 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:06:53:653 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:07:36:736 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:07:38:738 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:07:39:739 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:07:39:739 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:07:57:757 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:07:59:759 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:08:01:81 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:08:01:81 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:19:16:1916 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:19:18:1918 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:19:20:1920 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:19:20:1920 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:24:13:2413 [35mhttp[39m: [35mGET /users 200 715 - 1022.054 ms[39m
+[35m[39m
+2021-05-10 21:30:40:3040 [35mhttp[39m: [35mGET /users.1 404 146 - 1.335 ms[39m
+[35m[39m
+2021-05-10 21:30:46:3046 [32minfo[39m: [32mreq User id 1[39m
+2021-05-10 21:30:47:3047 [35mhttp[39m: [35mGET /users/1 200 246 - 1021.573 ms[39m
+[35m[39m
+2021-05-10 21:30:52:3052 [35mhttp[39m: [35mGET /users 200 715 - 126.143 ms[39m
+[35m[39m
+2021-05-10 21:30:54:3054 [35mhttp[39m: [35mGET /users.1 404 146 - 0.869 ms[39m
+[35m[39m
+2021-05-10 21:31:15:3115 [32minfo[39m: [32mreq User id 1[39m
+2021-05-10 21:31:16:3116 [35mhttp[39m: [35mGET /users/1 200 246 - 1008.020 ms[39m
+[35m[39m
+2021-05-10 21:32:21:3221 [32minfo[39m: [32m{ telegramId: 1632312 }[39m
+2021-05-10 21:32:22:3222 [35mhttp[39m: [35mPOST /users 201 30 - 1067.661 ms[39m
+[35m[39m
+2021-05-10 21:34:46:3446 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:34:48:3448 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:34:50:3450 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:34:50:3450 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:35:13:3513 [32minfo[39m: [32m{ telegramId: 1632565 }[39m
+2021-05-10 21:35:14:3514 [35mhttp[39m: [35mPOST /users 201 570 - 1168.387 ms[39m
+[35m[39m
+2021-05-10 21:40:13:4013 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:40:15:4015 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:40:16:4016 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:40:16:4016 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:40:20:4020 [32minfo[39m: [32m{ telegramId: 163212312 }[39m
+2021-05-10 21:40:20:4020 [35mhttp[39m: [35mPOST /users 500 28 - 14.528 ms[39m
+[35m[39m
+2021-05-10 21:40:32:4032 [32minfo[39m: [32m{ telegramId: 16353 }[39m
+2021-05-10 21:40:33:4033 [35mhttp[39m: [35mPOST /users 201 217 - 1060.536 ms[39m
+[35m[39m
+2021-05-10 21:40:58:4058 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:41:00:410 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:41:02:412 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:41:02:412 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:47:00:470 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:47:02:472 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:47:03:473 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:47:05:475 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:47:07:477 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:47:07:477 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:47:56:4756 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:47:58:4758 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:48:00:480 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:48:00:480 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:48:41:4841 [35mhttp[39m: [35mPUT /users/4 400 40 - 945.899 ms[39m
+[35m[39m
+2021-05-10 21:49:05:495 [32minfo[39m: [32mreq User id 1[39m
+2021-05-10 21:49:06:496 [35mhttp[39m: [35mGET /users/1 200 246 - 931.806 ms[39m
+[35m[39m
+2021-05-10 21:49:13:4913 [35mhttp[39m: [35mGET /users/ 200 1558 - 116.632 ms[39m
+[35m[39m
+2021-05-10 21:49:34:4934 [35mhttp[39m: [35mPUT /users/7 200 11 - 1062.346 ms[39m
+[35m[39m
+2021-05-10 21:49:59:4959 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:50:02:502 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:50:03:503 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:50:03:503 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:50:11:5011 [35mhttp[39m: [35mPUT /users/7 200 12 - 260.623 ms[39m
+[35m[39m
+2021-05-10 21:51:41:5141 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:51:43:5143 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:51:45:5145 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:51:45:5145 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:51:54:5154 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:51:56:5156 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:51:58:5158 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:51:58:5158 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:52:04:524 [35mhttp[39m: [35mPUT /users/7 200 269 - 259.775 ms[39m
+[35m[39m
+2021-05-10 21:53:23:5323 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:53:25:5325 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:53:27:5327 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:53:27:5327 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:53:56:5356 [35mhttp[39m: [35mPUT /users/7 200 263 - 1084.331 ms[39m
+[35m[39m
+2021-05-10 21:54:10:5410 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:54:12:5412 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:54:14:5414 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:54:14:5414 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 21:58:56:5856 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 21:58:58:5858 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 21:58:59:5859 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 21:58:59:5859 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 22:00:50:050 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 22:00:52:052 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 22:00:54:054 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 22:00:54:054 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 22:03:52:352 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 22:03:54:354 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 22:03:56:356 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 22:03:56:356 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 22:03:57:357 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 22:03:59:359 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 22:04:01:41 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 22:04:01:41 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-10 22:04:37:437 [32minfo[39m: [32mENV undefined[39m
+2021-05-10 22:04:40:440 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-10 22:04:41:441 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-10 22:04:41:441 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:10:13:1013 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:10:15:1015 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:10:17:1017 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:10:17:1017 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:11:32:1132 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:11:34:1134 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:11:35:1135 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:11:35:1135 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:12:46:1246 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:12:49:1249 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:12:50:1250 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:12:50:1250 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:13:26:1326 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:13:28:1328 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:13:30:1330 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:13:30:1330 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:13:49:1349 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:13:51:1351 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:13:53:1353 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:13:53:1353 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:13:55:1355 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:13:57:1357 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:13:59:1359 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:13:59:1359 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:14:06:146 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:14:08:148 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:14:10:1410 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:14:10:1410 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:14:30:1430 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:14:32:1432 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:14:34:1434 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:14:34:1434 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:15:12:1512 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:15:14:1514 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:15:16:1516 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:15:16:1516 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:15:40:1540 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:15:42:1542 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:15:44:1544 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:15:46:1546 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:15:47:1547 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:15:47:1547 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:16:12:1612 [31merror[39m: [31mThis is an error log[39m
+2021-05-11 22:16:12:1612 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-11 22:16:12:1612 [32minfo[39m: [32mThis is a info log[39m
+2021-05-11 22:16:12:1612 [35mhttp[39m: [35mThis is a http log[39m
+2021-05-11 22:16:12:1612 [37mdebug[39m: [37mThis is a debug log[39m
+2021-05-11 22:16:12:1612 [35mhttp[39m: [35mGET /logger 304 - - 4.962 ms[39m
+[35m[39m
+2021-05-11 22:16:55:1655 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:16:57:1657 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:16:58:1658 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:16:58:1658 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 22:17:00:170 [31merror[39m: [31mThis is an error log[39m
+2021-05-11 22:17:00:170 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-11 22:17:00:170 [32minfo[39m: [32mThis is a info log[39m
+2021-05-11 22:17:00:170 [37mdebug[39m: [37mThis is a debug log[39m
+2021-05-11 22:17:00:170 [35mhttp[39m: [35mGET /logger 304 - - 4.045 ms[39m
+[35m[39m
+2021-05-11 22:17:40:1740 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 22:17:42:1742 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 22:17:44:1744 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 22:17:44:1744 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:32:58:3258 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:33:00:330 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:33:00:330 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:33:03:333 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:33:04:334 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:33:04:334 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:33:11:3311 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:33:13:3313 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:33:15:3315 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:33:15:3315 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:33:23:3323 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:33:26:3326 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:33:27:3327 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:33:27:3327 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:33:35:3335 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:33:37:3337 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:33:39:3339 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:33:39:3339 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:33:53:3353 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:33:55:3355 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:33:57:3357 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:33:57:3357 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:34:25:3425 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:34:27:3427 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:34:29:3429 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:34:29:3429 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:35:13:3513 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:35:15:3515 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:35:17:3517 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:35:17:3517 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:35:29:3529 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:35:31:3531 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:35:32:3532 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:35:32:3532 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:35:45:3545 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:35:47:3547 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:35:49:3549 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:35:49:3549 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:35:53:3553 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:35:56:3556 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:35:57:3557 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:35:57:3557 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:37:20:3720 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:37:22:3722 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:37:24:3724 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:37:24:3724 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:37:54:3754 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:37:56:3756 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:37:58:3758 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:37:58:3758 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:39:21:3921 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:39:23:3923 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:39:25:3925 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:39:25:3925 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:39:32:3932 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:39:34:3934 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:39:35:3935 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:39:35:3935 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:39:36:3936 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:39:38:3938 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:39:40:3940 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:39:40:3940 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:39:49:3949 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:39:51:3951 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:39:54:3954 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:39:55:3955 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:39:55:3955 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:40:32:4032 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:40:34:4034 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:40:36:4036 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:40:36:4036 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:41:04:414 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:41:06:416 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:41:08:418 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:41:08:418 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:41:17:4117 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:41:19:4119 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:41:21:4121 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:41:21:4121 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:42:19:4219 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:42:21:4221 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:42:23:4223 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:42:23:4223 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:42:34:4234 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:42:36:4236 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:42:38:4238 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:42:38:4238 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:43:13:4313 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:43:16:4316 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:43:17:4317 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:43:17:4317 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:43:40:4340 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:43:43:4343 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:43:44:4344 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:43:44:4344 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:44:14:4414 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:44:16:4416 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:44:18:4418 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:44:18:4418 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:44:40:4440 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:44:42:4442 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:44:44:4444 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:44:44:4444 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:45:09:459 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:45:11:4511 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:45:13:4513 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:45:13:4513 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:46:31:4631 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:46:33:4633 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:46:35:4635 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:46:35:4635 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:46:44:4644 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:46:46:4646 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:46:48:4648 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:46:48:4648 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:48:09:489 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:48:11:4811 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:48:13:4813 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:48:13:4813 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:49:16:4916 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:49:18:4918 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:49:20:4920 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:49:20:4920 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:49:40:4940 [31merror[39m: [31mThis is an error log[39m
+2021-05-11 23:49:40:4940 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-11 23:49:40:4940 [32minfo[39m: [32mThis is a info log[39m
+2021-05-11 23:49:40:4940 [35mhttp[39m: [35mThis is a http log[39m
+2021-05-11 23:49:40:4940 [37mdebug[39m: [37mThis is a debug log[39m
+2021-05-11 23:49:40:4940 [35mhttp[39m: [35mGET /logger 304 - - 4.921 ms[39m
+[35m[39m
+2021-05-11 23:50:08:508 info: ENV undefined
+2021-05-11 23:50:10:5010 info: Connection has been established successfully.
+2021-05-11 23:50:12:5012 info: All models were synchronized successfully.
+2021-05-11 23:50:12:5012 info: Server start on 3000 port
+2021-05-11 23:50:22:5022 error: This is an error log
+2021-05-11 23:50:22:5022 warn: This is a warn log
+2021-05-11 23:50:22:5022 info: This is a info log
+2021-05-11 23:50:22:5022 http: This is a http log
+2021-05-11 23:50:22:5022 debug: This is a debug log
+2021-05-11 23:50:22:5022 http: GET /logger 304 - - 3.937 ms
+
+2021-05-11 23:51:52:5152 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:51:55:5155 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:51:56:5156 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:51:56:5156 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:51:58:5158 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:52:00:520 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:52:02:522 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:52:02:522 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-11 23:52:06:526 [31merror[39m: [31mThis is an error log[39m
+2021-05-11 23:52:06:526 [33mwarn[39m: [33mThis is a warn log[39m
+2021-05-11 23:52:06:526 [32minfo[39m: [32mThis is a info log[39m
+2021-05-11 23:52:06:526 [32mhttp[39m: [32mThis is a http log[39m
+2021-05-11 23:52:06:526 [34mdebug[39m: [34mThis is a debug log[39m
+2021-05-11 23:52:06:526 [32mhttp[39m: [32mGET /logger 304 - - 4.425 ms[39m
+[32m[39m
+2021-05-11 23:52:36:5236 [32minfo[39m: [32mENV undefined[39m
+2021-05-11 23:52:38:5238 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-11 23:52:40:5240 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-11 23:52:40:5240 [32minfo[39m: [32mServer start on 3000 port[39m
+2021-05-12 23:57:51:5751 [32minfo[39m: [32mENV undefined[39m
+2021-05-12 23:57:52:5752 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-12 23:57:53:5753 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-12 23:57:53:5753 [32minfo[39m: [32mServer start on 3001 port[39m

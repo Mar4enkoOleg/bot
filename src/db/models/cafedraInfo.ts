@@ -1,5 +1,5 @@
-import { DataTypes } from 'sequelize'
-import { sequelize } from '.'
+import { DataTypes } from 'sequelize';
+import { sequelize } from '.';
 
 const CafedraInfo = sequelize.define('CafedraInfo', {
   description: {
@@ -7,10 +7,10 @@ const CafedraInfo = sequelize.define('CafedraInfo', {
     allowNull: false,
     defaultValue: 'About cafedra',
     get() {
-      const result = this.getDataValue('description')
-      return result
+      const result = this.getDataValue('description');
+      return result;
     },
   },
-})
+});
 
-export default CafedraInfo
+export default CafedraInfo;

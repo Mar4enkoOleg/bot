@@ -1,5 +1,5 @@
-import { DataTypes } from 'sequelize'
-import { sequelize } from '.'
+import { DataTypes } from 'sequelize';
+import { sequelize } from '.';
 
 const BotInfo = sequelize.define('BotInfo', {
   description: {
@@ -7,10 +7,10 @@ const BotInfo = sequelize.define('BotInfo', {
     allowNull: false,
     defaultValue: 'About bot',
     get() {
-      const result = this.getDataValue('description')
-      return result
+      const result = this.getDataValue('description');
+      return result;
     },
   },
-})
+});
 
-export default BotInfo
+export default BotInfo;

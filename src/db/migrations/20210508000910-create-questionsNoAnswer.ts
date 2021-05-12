@@ -1,5 +1,3 @@
-'use strict'
-
 export default {
   up: async (queryInterface: any, Sequelize: any) => {
     await queryInterface.createTable('QuestionsNoAnswers', {
@@ -12,9 +10,10 @@ export default {
       name: {
         type: Sequelize.STRING,
       },
-    })
+    });
   },
-  down: async (queryInterface: any, Sequelize: any) => {
-    await queryInterface.dropTable('QuestionsNoAnswers')
+
+  down: async (queryInterface: any) => {
+    await queryInterface.dropTable('QuestionsNoAnswers');
   },
-}
+};

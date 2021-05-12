@@ -1,6 +1,4 @@
-'use strict'
-
-import { Roles } from '../../interfacesEnums'
+import { Roles } from '../../typeScript/enums';
 
 export default {
   up: async (queryInterface: any, Sequelize: any) => {
@@ -46,9 +44,10 @@ export default {
         allowNull: false,
         type: Sequelize.DATE,
       },
-    })
+    });
   },
-  down: async (queryInterface: any, Sequelize: any) => {
-    await queryInterface.dropTable('Users')
+
+  down: async (queryInterface: any) => {
+    await queryInterface.dropTable('Users');
   },
-}
+};

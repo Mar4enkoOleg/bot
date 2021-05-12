@@ -1,5 +1,3 @@
-'use strict'
-
 export default {
   up: async (queryInterface: any, Sequelize: any) => {
     await queryInterface.createTable('CafedraInfos', {
@@ -8,9 +6,9 @@ export default {
         allowNull: false,
         defaultValue: 'About cafedra',
       },
-    })
+    });
   },
-  down: async (queryInterface: any, Sequelize: any) => {
-    await queryInterface.dropTable('CafedraInfos')
+  down: async (queryInterface: any) => {
+    await queryInterface.dropTable('CafedraInfos');
   },
-}
+};

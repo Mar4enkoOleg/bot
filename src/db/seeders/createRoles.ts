@@ -1,6 +1,7 @@
-import { RoleAttributes } from '../../interfacesEnums'
-import { sequelize } from '../models'
-import '../models/role'
+import { sequelize } from '../models';
+
+import { RoleAttributes } from '../../typeScript/interfaces';
+import '../models/role';
 
 const roles: Array<RoleAttributes> = [
   {
@@ -12,12 +13,12 @@ const roles: Array<RoleAttributes> = [
   {
     value: 'SUPERADMIN',
   },
-]
+];
 
 async function createRoles() {
   roles.map(async (role) => {
-    await sequelize.model('Role').create(role)
-  })
+    await sequelize.model('Role').create(role);
+  });
 }
 
-createRoles()
+createRoles();
