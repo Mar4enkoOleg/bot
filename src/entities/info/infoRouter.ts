@@ -1,17 +1,16 @@
 import { Router } from 'express';
 
-import tryCatchWrapper from '../../helpers/tryCatchWrapper';
 import {
-  getCafedraInfo,
-  updateCafedraInfo,
-  getBotInfo,
+  createInfo,
+  getInfoByTag,
+  setInfoByTag,
 } from './infoController';
+import tryCatchWrapper from '../../helpers/tryCatchWrapper';
 
 const info = Router();
 
-info.get('/bot', tryCatchWrapper(getBotInfo));
-
-info.get('/cafedra', tryCatchWrapper(getCafedraInfo));
-info.put('/cafedra', tryCatchWrapper(updateCafedraInfo));
+info.get('/about/:subj', tryCatchWrapper(getInfoByTag));
+info.put('/update/:subj', tryCatchWrapper(setInfoByTag));
+info.put('/create', tryCatchWrapper(createInfo));
 
 export default info;

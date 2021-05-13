@@ -7,6 +7,7 @@ import Res from '../../helpers/Response';
 
 import { UserAttributes } from '../../typeScript/interfaces';
 import { setAllToCache, setOneToCache } from './userCache';
+import { Roles } from '../../typeScript/enums';
 
 export const getAll = async (
   req: Request,
@@ -96,4 +97,18 @@ export const remove = async (
   await UserModel.destroy({ where: { id } });
   next();
   return Res.Deleted(res, deleteCandidate.get());
+};
+
+export const getAllAdmins = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  Logger.info(`req for All Admins`);
+  const foundAdmins = await UserModel.findAll({
+    where: { GroupId: Roles.ADMIN },
+  });
+  if (foundAdmins === null) {
+    return Res.BadRequest(res, `There are no admins`);
+  }
+  return Res.Success(res, foundAdmins);
 };
