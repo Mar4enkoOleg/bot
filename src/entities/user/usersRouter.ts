@@ -3,7 +3,7 @@ import { validationBody, validationId } from '../user/userValidation';
 import tryCatchWrapper from '../../helpers/tryCatchWrapper';
 import { userSchemas } from '../../helpers/userValidSchemas';
 import { deleteFromCache, getAllFromCache, getCacheById } from './userCache';
-import { getAll, remove, getById, update, add } from './userController';
+import { getAll, remove, getById, update, add, getAllAdmins } from './userController';
 
 const users = Router();
 
@@ -28,5 +28,7 @@ users.delete(
   tryCatchWrapper(remove),
   tryCatchWrapper(deleteFromCache)
 );
+
+users.get('/admins', tryCatchWrapper(getAllAdmins));
 
 export default users;
