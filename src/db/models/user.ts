@@ -1,7 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { sequelize } from '.';
 
-import { Roles } from '../../typeScript/enums';
+import { Roles, UserType } from '../../typeScript/enums';
 import { UserAttributes } from '../../typeScript/interfaces';
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
@@ -32,13 +32,16 @@ const User = sequelize.define<UserInstance>('User', {
     type: DataTypes.STRING,
   },
   userType: {
-    type: DataTypes.STRING,
+    type: DataTypes.ENUM,
+    values: Object.values(UserType),
+    defaultValue: UserType.OTHER,
   },
   state: {
     type: DataTypes.STRING,
   },
   role: {
-    type: DataTypes.STRING,
+    type: DataTypes.ENUM,
+    values: Object.values(Roles),
     defaultValue: Roles.USER,
     allowNull: false,
   },

@@ -9,6 +9,7 @@ const users = Router();
 
 users.post('/', validationBody(userSchemas.userPOST), tryCatchWrapper(add));
 users.get('/', tryCatchWrapper(getAllFromCache), tryCatchWrapper(getAll));
+users.get('/admins/', tryCatchWrapper(getAllAdmins));
 
 users.get(
   '/:id',
@@ -28,7 +29,5 @@ users.delete(
   tryCatchWrapper(remove),
   tryCatchWrapper(deleteFromCache)
 );
-
-users.get('/admins', tryCatchWrapper(getAllAdmins));
 
 export default users;

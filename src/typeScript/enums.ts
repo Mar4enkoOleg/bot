@@ -20,12 +20,13 @@ export enum httpCode {
 }
 
 export enum Roles {
-  'USER',
-  'ADMIN',
-  'SUPERADMIN',
+  USER = 'USER',
+  ADMIN = 'ADMIN',
+  SUPERADMIN = 'SUPERADMIN',
 }
 export enum UserType {
   STUDENT = 'Student',
   ASPIRANT = 'Aspirant',
   TEACHER = 'Teacher',
+  OTHER = 'Other'
 }
