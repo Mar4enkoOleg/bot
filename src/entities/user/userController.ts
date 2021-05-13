@@ -4,7 +4,6 @@ import UserModel from '../../db/models/user';
 import Logger from '../../config/winston_config';
 
 import Res from '../../helpers/Response';
-// import { userSchemaCreate, userSchemaUpdate } from '../../helpers/validation';
 
 import { UserAttributes } from '../../typeScript/interfaces';
 import { setAllToCache, setOneToCache } from './userCache';
@@ -46,15 +45,11 @@ export const getById = async (
   return Res.Success(res, user);
 };
 
-// при создании с повтор telegramId вызывает internal error
-// попробовать валидировать перед вызовом создания
 export const add = async (req: Request, res: Response): Promise<Response> => {
   // telegramId, fullname, role, userName, state, userType, phone, GroupId
   const userAttributes: UserAttributes = req.body;
 
   Logger.info(userAttributes);
-
-  // await userSchemaCreate.validateAsync(userAttributes);
 
   const dbUser = await UserModel.create({
     ...userAttributes,
@@ -75,8 +70,6 @@ export const update = async (
   if (!updateCandidate) {
     return Res.BadRequest(res, `User with id '${id}' not exist`);
   }
-
-  // await userSchemaUpdate.validateAsync(req.body);
 
   const userAttributes: UserAttributes = req.body;
 

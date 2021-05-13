@@ -1,15 +1,32 @@
 import { Router } from 'express';
+import { validationBody, validationId } from '../user/userValidation';
 import tryCatchWrapper from '../../helpers/tryCatchWrapper';
+import { userSchemas } from '../../helpers/userValidSchemas';
 import { deleteFromCache, getAllFromCache, getCacheById } from './userCache';
 import { getAll, remove, getById, update, add } from './userController';
 
 const users = Router();
 
-users.post('/', tryCatchWrapper(add));
+users.post('/', validationBody(userSchemas.userPOST), tryCatchWrapper(add));
 users.get('/', tryCatchWrapper(getAllFromCache), tryCatchWrapper(getAll));
 
-users.get('/:id', tryCatchWrapper(getCacheById), tryCatchWrapper(getById));
-users.put('/:id', tryCatchWrapper(update));
-users.delete('/:id', tryCatchWrapper(remove), tryCatchWrapper(deleteFromCache));
+users.get(
+  '/:id',
+  validationId(userSchemas.userById),
+  tryCatchWrapper(getCacheById),
+  tryCatchWrapper(getById)
+);
+users.put(
+  '/:id',
+  validationId(userSchemas.userById),
+  validationBody(userSchemas.userPUT),
+  tryCatchWrapper(update)
+);
+users.delete(
+  '/:id',
+  validationId(userSchemas.userById),
+  tryCatchWrapper(remove),
+  tryCatchWrapper(deleteFromCache)
+);
 
 export default users;
