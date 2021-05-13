@@ -2,6 +2,7 @@ import { Router } from 'express';
 import tryCatchWrapper from '../../helpers/tryCatchWrapper';
 import {
   getAll,
+  getAllAdmins,
   remove,
   getById,
   update,
@@ -13,6 +14,8 @@ const users = Router();
 
 users.post('/', tryCatchWrapper(add));
 users.get('/', tryCatchWrapper(getAll));
+
+users.get('/admins', tryCatchWrapper(getAllAdmins));
 
 users.get('/:id', tryCatchWrapper(getById));
 users.put('/:id', tryCatchWrapper(update));

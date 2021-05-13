@@ -6,7 +6,7 @@ import Logger from '../../config/winston_config';
 import Res from '../../helpers/Response';
 import { userSchemaCreate, userSchemaUpdate } from '../../helpers/validation';
 
-import { httpCode } from '../../typeScript/enums';
+import { httpCode, Roles } from '../../typeScript/enums';
 import { UserAttributes } from '../../typeScript/interfaces';
 
 export const getAll = async (
@@ -20,6 +20,20 @@ export const getAll = async (
   }
 
   return Res.Success(res, users);
+};
+
+export const getAllAdmins = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  Logger.info(`req for All Admins`);
+  const foundAdmins = await UserModel.findAll({
+    where: { GroupId: Roles.ADMIN },
+  });
+  if (foundAdmins === null) {
+    return Res.BadRequest(res, `There are no admins`);
+  }
+  return Res.Success(res, foundAdmins);
 };
 
 //  need to Fix it

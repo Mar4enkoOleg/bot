@@ -20,9 +20,9 @@ export enum httpCode {
 }
 
 export enum Roles {
-  USER = 'USER',
-  ADMIN = 'ADMIN',
-  SUPERADMIN = 'SUPERADMIN',
+  'USER',
+  'ADMIN',
+  'SUPERADMIN',
 }
 export enum UserType {
   STUDENT = 'Student',
