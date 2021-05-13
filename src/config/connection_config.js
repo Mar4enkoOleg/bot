@@ -9,6 +9,7 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: 'postgres',
   },
+
   test: {
     username: 'root',
     password: null,
@@ -16,6 +17,7 @@ module.exports = {
     host: '127.0.0.1',
     dialect: 'mysql',
   },
+
   production: {
     url: process.env.HEROKU_POSTGRESQL_GOLD_URL,
     ssl: true,
