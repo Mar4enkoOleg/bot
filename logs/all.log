@@ -6204,3 +6204,87 @@
 2021-05-13 23:38:45:3845 [32minfo[39m: [32mConnection has been established successfully.[39m
 2021-05-13 23:38:46:3846 [32minfo[39m: [32mAll models were synchronized successfully.[39m
 2021-05-13 23:38:46:3846 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-13 23:47:15:4715 [32minfo[39m: [32m{[39m
+[32m  development: {[39m
+[32m    username: 'postgres',[39m
+[32m    password: '1',[39m
+[32m    database: 'marchenko',[39m
+[32m    host: 'localhost',[39m
+[32m    dialect: 'postgres'[39m
+[32m  },[39m
+[32m  test: {[39m
+[32m    username: 'root',[39m
+[32m    password: null,[39m
+[32m    database: 'database_test',[39m
+[32m    host: '127.0.0.1',[39m
+[32m    dialect: 'mysql'[39m
+[32m  },[39m
+[32m  production: {[39m
+[32m    url: 'postgres://ihoogunqvdgcka:a8b5fe06878651e79c51c700c8a54ef8434328d16b759151b990fcb918f1e330@ec2-63-34-97-163.eu-west-1.compute.amazonaws.com:5432/d8guoudfi4i0nu',[39m
+[32m    ssl: true,[39m
+[32m    dialect: 'postgres',[39m
+[32m    dialectOptions: { ssl: [Object] },[39m
+[32m    host: 'ec2-63-34-97-163.eu-west-1.compute.amazonaws.com',[39m
+[32m    port: '5432'[39m
+[32m  }[39m
+[32m}[39m
+2021-05-13 23:47:15:4715 [32minfo[39m: [32mENV undefined[39m
+2021-05-13 23:47:16:4716 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-13 23:47:17:4717 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-13 23:47:17:4717 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-13 23:47:34:4734 [32minfo[39m: [32m{[39m
+[32m  development: {[39m
+[32m    username: 'postgres',[39m
+[32m    password: '1',[39m
+[32m    database: 'marchenko',[39m
+[32m    host: 'localhost',[39m
+[32m    dialect: 'postgres'[39m
+[32m  },[39m
+[32m  test: {[39m
+[32m    username: 'root',[39m
+[32m    password: null,[39m
+[32m    database: 'database_test',[39m
+[32m    host: '127.0.0.1',[39m
+[32m    dialect: 'mysql'[39m
+[32m  },[39m
+[32m  production: {[39m
+[32m    url: 'postgres://ihoogunqvdgcka:a8b5fe06878651e79c51c700c8a54ef8434328d16b759151b990fcb918f1e330@ec2-63-34-97-163.eu-west-1.compute.amazonaws.com:5432/d8guoudfi4i0nu',[39m
+[32m    ssl: true,[39m
+[32m    dialect: 'postgres',[39m
+[32m    dialectOptions: { ssl: [Object] },[39m
+[32m    host: 'ec2-63-34-97-163.eu-west-1.compute.amazonaws.com',[39m
+[32m    port: '5432'[39m
+[32m  }[39m
+[32m}[39m
+2021-05-13 23:47:34:4734 [32minfo[39m: [32mENV undefined[39m
+2021-05-13 23:47:35:4735 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-13 23:47:36:4736 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-13 23:47:36:4736 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-13 23:48:07:487 [32minfo[39m: [32m{[39m
+[32m  development: {[39m
+[32m    username: 'postgres',[39m
+[32m    password: '1',[39m
+[32m    database: 'marchenko',[39m
+[32m    host: 'localhost',[39m
+[32m    dialect: 'postgres'[39m
+[32m  },[39m
+[32m  test: {[39m
+[32m    username: 'root',[39m
+[32m    password: null,[39m
+[32m    database: 'database_test',[39m
+[32m    host: '127.0.0.1',[39m
+[32m    dialect: 'mysql'[39m
+[32m  },[39m
+[32m  production: {[39m
+[32m    url: 'postgres://ihoogunqvdgcka:a8b5fe06878651e79c51c700c8a54ef8434328d16b759151b990fcb918f1e330@ec2-63-34-97-163.eu-west-1.compute.amazonaws.com:5432/d8guoudfi4i0nu',[39m
+[32m    ssl: true,[39m
+[32m    dialect: 'postgres',[39m
+[32m    dialectOptions: { ssl: [Object] },[39m
+[32m    host: 'ec2-63-34-97-163.eu-west-1.compute.amazonaws.com',[39m
+[32m    port: '5432'[39m
+[32m  }[39m
+[32m}[39m
+2021-05-13 23:48:07:487 [32minfo[39m: [32mENV undefined[39m
+2021-05-13 23:48:08:488 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-13 23:48:08:488 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-13 23:48:08:488 [32minfo[39m: [32mServer start on 3001 port[39m
