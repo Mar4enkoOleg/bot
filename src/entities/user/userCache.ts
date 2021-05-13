@@ -3,7 +3,9 @@ import Redis from 'ioredis';
 import { UserInstance } from '../../db/models/user';
 import Res from '../../helpers/Response';
 
-const redis = new Redis();
+const url = process.env.REDIS_URL;
+
+const redis = new Redis(url);
 const expireTime: number = 60 * 60 * 24; // 86 400s / 24h
 
 // catch error

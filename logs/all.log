@@ -5947,3 +5947,204 @@
 2021-05-13 06:06:28:628 [32minfo[39m: [32mConnection has been established successfully.[39m
 2021-05-13 06:06:28:628 [32minfo[39m: [32mAll models were synchronized successfully.[39m
 2021-05-13 06:06:28:628 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-13 21:32:44:3244 [32minfo[39m: [32mENV development[39m
+2021-05-13 21:32:47:3247 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-13 21:32:47:3247 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-13 21:32:47:3247 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-13 21:33:57:3357 [32minfo[39m: [32mENV development[39m
+2021-05-13 21:33:58:3358 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-13 21:33:58:3358 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-13 21:33:58:3358 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-13 21:34:14:3414 [35mhttp[39m: [35mDELETE /users/ 404 148 - 3.807 ms[39m
+[35m[39m
+2021-05-13 21:34:20:3420 [32minfo[39m: [32m[[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-13 21:34:20:3420 [35mhttp[39m: [35mGET /users/ 200 248 - 273.417 ms[39m
+[35m[39m
+2021-05-13 21:34:53:3453 [32minfo[39m: [32m[[39m
+[32m  {[39m
+[32m    telegramId: '3',[39m
+[32m    fullName: 'Petrov Petr',[39m
+[32m    state: '.......',[39m
+[32m    id: '7',[39m
+[32m    role: 'USER',[39m
+[32m    phone: '333-333-333',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Petruha',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    GroupId: '2',[39m
+[32m    userType: 'Student'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    telegramId: '2',[39m
+[32m    fullName: 'Ivanov Ivan',[39m
+[32m    state: '.......',[39m
+[32m    id: '6',[39m
+[32m    role: 'ADMIN',[39m
+[32m    phone: '222-222-222',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Ivanushka',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    GroupId: '1',[39m
+[32m    userType: 'Teacher'[39m
+[32m  }[39m
+[32m][39m
+2021-05-13 21:34:53:3453 [35mhttp[39m: [35mGET /users/ 200 767 - 8.720 ms[39m
+[35m[39m
+2021-05-13 21:35:30:3530 [32minfo[39m: [32m[[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 7,[39m
+[32m      telegramId: 3,[39m
+[32m      fullName: 'Petrov Petr',[39m
+[32m      userName: 'Petruha',[39m
+[32m      phone: '333-333-333',[39m
+[32m      userType: 'Student',[39m
+[32m      state: '.......',[39m
+[32m      role: 'USER',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 2[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 7,[39m
+[32m      telegramId: 3,[39m
+[32m      fullName: 'Petrov Petr',[39m
+[32m      userName: 'Petruha',[39m
+[32m      phone: '333-333-333',[39m
+[32m      userType: 'Student',[39m
+[32m      state: '.......',[39m
+[32m      role: 'USER',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 2[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-13 21:35:30:3530 [35mhttp[39m: [35mGET /users/ 200 483 - 164.397 ms[39m
+[35m[39m
+2021-05-13 21:35:36:3536 [32minfo[39m: [32m[[39m
+[32m  {[39m
+[32m    state: '.......',[39m
+[32m    fullName: 'Petrov Petr',[39m
+[32m    id: '7',[39m
+[32m    phone: '333-333-333',[39m
+[32m    role: 'USER',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Petruha',[39m
+[32m    userType: 'Student',[39m
+[32m    GroupId: '2',[39m
+[32m    telegramId: '3'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    state: '.......',[39m
+[32m    fullName: 'Ivanov Ivan',[39m
+[32m    id: '6',[39m
+[32m    phone: '222-222-222',[39m
+[32m    role: 'ADMIN',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Ivanushka',[39m
+[32m    userType: 'Teacher',[39m
+[32m    GroupId: '1',[39m
+[32m    telegramId: '2'[39m
+[32m  }[39m
+[32m][39m
+2021-05-13 21:35:36:3536 [35mhttp[39m: [35mGET /users/ 200 767 - 9.561 ms[39m
+[35m[39m
+2021-05-13 21:37:53:3753 [32minfo[39m: [32mENV development[39m
+2021-05-13 21:37:54:3754 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-13 21:37:54:3754 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-13 21:37:54:3754 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-13 21:40:54:4054 [32minfo[39m: [32mENV development[39m
+2021-05-13 21:40:55:4055 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-13 21:40:55:4055 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-13 21:40:55:4055 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-13 21:45:57:4557 [32minfo[39m: [32mENV development[39m
+2021-05-13 21:45:58:4558 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-13 21:45:58:4558 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-13 21:45:58:4558 [32minfo[39m: [32mServer start on 3001 port[39m
