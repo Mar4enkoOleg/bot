@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
 import { Op } from 'sequelize';
+
 import Logger from '../../config/winston_config';
-// import BotInfoModel from '../../db/models/botInfo';
-// import CafedraInfoModel from '../../db/models/cafedraInfo';
 import Info from '../../db/models/info';
 
 import Res from '../../helpers/Response';
