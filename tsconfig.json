@@ -67,6 +67,5 @@
   "include": [
     "./src"
   ],
-  "files": ["./src/config/connection_config.js",
-  "./src/config/botan-lpnu-tbdx.json"]
+  "files": ["./src/config/connection_config.js"  ]
 }
