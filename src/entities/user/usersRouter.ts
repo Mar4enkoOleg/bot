@@ -1,23 +1,39 @@
 import { Router } from 'express';
 import tryCatchWrapper from '../../helpers/tryCatchWrapper';
+import { deleteFromCache, getAllFromCache, getCacheById } from './userCache';
 import {
   getAll,
   remove,
   getById,
   update,
   add,
-  getUserByParams,
+  getAllAdmins,
 } from './userController';
+import {
+  createUserValidation,
+  idValidation,
+  updateUserValidation,
+} from './userValidation';
 
 const users = Router();
 
-users.post('/', tryCatchWrapper(add));
-users.get('/', tryCatchWrapper(getAll));
+users.post('/', createUserValidation, tryCatchWrapper(add));
+users.get('/', tryCatchWrapper(getAllFromCache), tryCatchWrapper(getAll));
 
-users.get('/:id', tryCatchWrapper(getById));
-users.put('/:id', tryCatchWrapper(update));
-users.delete('/:id', tryCatchWrapper(remove));
+users.get('/admins/', tryCatchWrapper(getAllAdmins));
 
-users.get('/byparams/', tryCatchWrapper(getUserByParams));
+users.get(
+  '/:id',
+  idValidation,
+  tryCatchWrapper(getCacheById),
+  tryCatchWrapper(getById)
+);
+users.put('/:id', idValidation, updateUserValidation, tryCatchWrapper(update));
+users.delete(
+  '/:id',
+  idValidation,
+  tryCatchWrapper(remove),
+  tryCatchWrapper(deleteFromCache)
+);
 
 export default users;

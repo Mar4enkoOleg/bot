@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "botan-lpnu-tbdx",
+  "private_key_id": "ba601a1d063d8163b7733fa7244f8f88ad38e711",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCmi3TCjIq2sURW\nNA9EbE7bN7mA5fi7cutO71rPErDSiHGQY+qTFDjwzR/yEoX8N4kcx9pBS5qQFP7q\n9xVsz03wsGtSY/4criLR2ZACvnqqpEtjyGY93iCzy3mef13zmwtSsFkdFd8MYKI6\nsjMuO7+ulpxZgAjxoIe22UvpClFpj+3nivEhM9wbzjCiKM5vVs7IVFBLRWavwibk\nK5Wr8VI6bpRUMS5kmz5uyeNmib8x7I7Y9CDGYSoJ+4aWUo21yM0fcqm/EJjSGhGg\nHIv4GKmJwm8oHkjt0/wgcitv6X7YRZCv+T/s8iptBCorGPePSo+DjPnymWpNL9u9\nWR2wCCAPAgMBAAECggEACwXI1QV7OssxtCje587pSy39e4/87d8VvtQtpO3eQRjh\nt0Y9pL1eZWWWGy3pqz87tmltwwuPb8DL/F4dD2YLCQaMG9hdXaWSzWPCWcQklz2n\ndbOyPJ8CeBPb+UcBv1lAHxln1Hp5mDafFhZsN7+hmJsEPxIvxVo0EUCBeyuBJuTR\n6iw8PiMIXNVz5X4MP54ZfXDa+SgMa18wupZ8XRZKE4+8FiCoCQM/l2tqcz5BCuVH\nELhnjbodEW45+hjQ6UAT8QC8EpZAIVae2NV563AWuwL0MhFCxb1nQepBy2m0OrVm\nEjUi90Mw0CPJJBXp/DBsWmFP1X63iuAth5jfFIarnQKBgQDSl5J4CfYeCFokcPZj\n0be++JQ4W4+g1+mBIjdPbbsWwBNDw4QopqJrkZulFW9My4TES422Yy89vHqVS6P6\nckjOemLva6KkgsfCAgwll0+QG/3Vkvs4M6IvG2eXkeiRkCVr1l9pIKmurd5Wyx3/\nIkv+3UEQU0uh/GpwCasL/AgJFQKBgQDKdIZVPlr1HsQ+EUUzPrnSMSwbATVPmdbP\n2iPJ2owY14f798UQRGc2+1bqf7AL0GqRRfzIZhtNCMHexRKOEOQNVgXlgnqhf9JB\nfBu/D5pQ30/Yhr0WguHbsmmHWEsi6B8nUpR8zFU6L22ExISZ7anteG2ZuGn2YBLr\ndt2R5qeFkwKBgQCXzd8tXLDnkUm5fxx9dA2qQfJGdeohHcMa7RlFzmnQyoCYlnXL\n/+KQ/BNgewUSLJr2DSiIUxMYw6bxu+bmgD9vZ9WtlL9XK1bnySYMavhVf3gI3rzt\nFHtSzcRtBCbL10bCZ3O7imoGmxrtIdnrskNp4wAlzoV0rUnknXOJXhJEyQKBgQC+\nJRLFnPrwnSTS5oWHy7HaqDQ0aL4ZNPN74/UY8BoEeulMzThYPuZxzT2koKhHcEem\niYUQ8lVR1JfBEnaK13JY1CJVnGZwqAxhVJ76ozzcF+B2DJYrPmHCZZ6Xb2WiM0CP\nPhAX5hFlxIWn3Kptp7mhPyow5fMfYrxiShFvpqJP4QKBgB9u9+7Zeoq8SVTVCGfh\ncSDA+BEbrtExoyw/PhhXBrrhSWuJ/xFP8a+RkehEQxdR0gJ3FsiYFBvuOldtkzVL\naVQUeXf8txF29Spb/8YDiJxTYipWUa5/OI4pCR78EXJNGNoe4t8OrAYyX1Kadu7P\nHwyrLEFjD+feuFY1Xtijl+nU\n-----END PRIVATE KEY-----\n",
+  "client_email": "botanlpnu-498@botan-lpnu-tbdx.iam.gserviceaccount.com",
+  "client_id": "112939998327020080120",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/botanlpnu-498%40botan-lpnu-tbdx.iam.gserviceaccount.com"
+}

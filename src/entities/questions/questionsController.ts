@@ -5,7 +5,6 @@ import QuestionNoAnswer from '../../db/models/questionsNoAnswer';
 import Subject from '../../db/models/subject';
 import Logger from '../../config/winston_config';
 
-import ApiError from '../../helpers/ApiError';
 import { popularQuestionsSettings } from '../../helpers/constants';
 import Res from '../../helpers/Response';
 
@@ -143,16 +142,12 @@ export const getPopular = async (
   res: Response,
   next: Function
 ): Promise<Response> => {
-  try {
-    const popularQuestions = await QuestionModel.findAll({
-      order: [['counter', 'DESC']],
-      limit: popularQuestionsSettings.limitQuestions,
-    });
-    if (!popularQuestions.length) {
-      return next(ApiError.badRequest(`No questions yet`));
-    }
-    return res.status(200).json(popularQuestions);
-  } catch (error) {
-    return next(ApiError.badRequest(error.message));
+  const popularQuestions = await QuestionModel.findAll({
+    order: [['counter', 'DESC']],
+    limit: popularQuestionsSettings.limitQuestions,
+  });
+  if (!popularQuestions.length) {
+    return Res.BadRequest(res, 'No questions');
   }
+  return res.status(200).json(popularQuestions);
 };

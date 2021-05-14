@@ -9,6 +9,12 @@ class Res {
       data,
     });
   }
+  static Deleted<D>(res: Response, data: D): Response {
+    Logger.info(data);
+    return res.status(httpCode.OK).json({
+      data,
+    });
+  }
 
   static Created<D>(res: Response, data: D): Response {
     Logger.info(data);

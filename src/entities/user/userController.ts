@@ -1,36 +1,34 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import UserModel from '../../db/models/user';
 import Logger from '../../config/winston_config';
 
 import Res from '../../helpers/Response';
-import { userSchemaCreate, userSchemaUpdate } from '../../helpers/validation';
 
-import { httpCode } from '../../typeScript/enums';
 import { UserAttributes } from '../../typeScript/interfaces';
+import { setAllToCache, setOneToCache } from './userCache';
+import { Roles } from '../../typeScript/enums';
 
 export const getAll = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
+  if (Object.keys(req.body).length !== 0) {
+    const params = req.body;
+    const users = await UserModel.findAll({
+      where: { ...params },
+    });
+    return Res.Success(res, users);
+  }
   const users = await UserModel.findAll();
 
   if (!users.length) {
     return Res.BadRequest(res, 'There are no users in DB');
   }
 
+  setAllToCache(users);
+
   return Res.Success(res, users);
-};
-
-//  need to Fix it
-export const getUserByParams = async (
-  req: Request,
-  res: Response
-): Promise<Response> => {
-  // const params: any = req.body;
-
-  const user = null;
-  return res.json(user);
 };
 
 export const getById = async (
@@ -44,6 +42,7 @@ export const getById = async (
   if (!user) {
     return Res.BadRequest(res, `User with id '${id}' not exist`);
   }
+  setOneToCache(user);
   return Res.Success(res, user);
 };
 
@@ -53,11 +52,10 @@ export const add = async (req: Request, res: Response): Promise<Response> => {
 
   Logger.info(userAttributes);
 
-  await userSchemaCreate.validateAsync(req.body);
-
   const dbUser = await UserModel.create({
     ...userAttributes,
   });
+  setAllToCache(await UserModel.findAll());
   return Res.Created(res, { ...dbUser.get() });
 };
 
@@ -74,8 +72,6 @@ export const update = async (
     return Res.BadRequest(res, `User with id '${id}' not exist`);
   }
 
-  await userSchemaUpdate.validateAsync(req.body);
-
   const userAttributes: UserAttributes = req.body;
 
   // eslint-disable-next-line no-unused-vars
@@ -83,13 +79,14 @@ export const update = async (
     { ...userAttributes },
     { returning: true, where: { id } }
   );
-
+  setAllToCache(await UserModel.findAll());
   return Res.Success(res, updatedUser.get());
 };
 
 export const remove = async (
   req: Request,
-  res: Response
+  res: Response,
+  next: NextFunction
 ): Promise<Response> => {
   const id = parseInt(req.params.id, 10);
 
@@ -98,5 +95,20 @@ export const remove = async (
     return Res.BadRequest(res, `User with id '${id}' not exist`);
   }
   await UserModel.destroy({ where: { id } });
-  return res.sendStatus(httpCode.NO_CONTENT);
+  next();
+  return Res.Deleted(res, deleteCandidate.get());
+};
+
+export const getAllAdmins = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  Logger.info(`req for All Admins`);
+  const foundAdmins = await UserModel.findAll({
+    where: { role: Roles.ADMIN },
+  });
+  if (foundAdmins === null) {
+    return Res.BadRequest(res, `There are no admins`);
+  }
+  return Res.Success(res, foundAdmins);
 };

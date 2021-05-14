@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f87fcf42-cdad-4f4d-86e4-da1f9d772213",
+		"_postman_id": "d8dd545f-c72f-4846-8fdf-5108d8b4d5a7",
 		"name": "Chat bot",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,12 +9,33 @@
 			"name": "Users",
 			"item": [
 				{
-					"name": "Get user by ID",
+					"name": "Get All Users",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://warm-falls-88619.herokuapp.com/users/1",
+							"raw": "https://warm-falls-88619.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"warm-falls-88619",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Get info about all registered users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Admins",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warm-falls-88619.herokuapp.com/users/admins",
 							"protocol": "https",
 							"host": [
 								"warm-falls-88619",
@@ -23,19 +44,20 @@
 							],
 							"path": [
 								"users",
-								"1"
+								"admins"
 							]
-						}
+						},
+						"description": "Get info about all admins (without superadmins). The same can be obtained by function \"Get Users By Params\""
 					},
 					"response": []
 				},
 				{
-					"name": "Get all users",
+					"name": "Get User By ID",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://warm-falls-88619.herokuapp.com/users",
+							"raw": "https://warm-falls-88619.herokuapp.com/users/{{id}}",
 							"protocol": "https",
 							"host": [
 								"warm-falls-88619",
@@ -43,28 +65,21 @@
 								"com"
 							],
 							"path": [
-								"users"
+								"users",
+								"{{id}}"
 							]
-						}
+						},
+						"description": "Get info about user with some ID"
 					},
 					"response": []
 				},
 				{
-					"name": "Create user",
+					"name": "Get Users By Params",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"telegramId\": 123\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "https://warm-falls-88619.herokuapp.com/users",
+							"raw": "https://warm-falls-88619.herokuapp.com/users/byparams/?phone=333-333-333&userType=Student",
 							"protocol": "https",
 							"host": [
 								"warm-falls-88619",
@@ -72,9 +87,22 @@
 								"com"
 							],
 							"path": [
-								"users"
+								"users",
+								"byparams",
+								""
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "333-333-333"
+								},
+								{
+									"key": "userType",
+									"value": "Student"
+								}
 							]
-						}
+						},
+						"description": "Get info about user with some parameters, for instance, phone or/and type or something else"
 					},
 					"response": []
 				},
@@ -93,7 +121,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://warm-falls-88619.herokuapp.com/users/4",
+							"raw": "https://warm-falls-88619.herokuapp.com/users/{{upd_ID}}",
 							"protocol": "https",
 							"host": [
 								"warm-falls-88619",
@@ -102,9 +130,40 @@
 							],
 							"path": [
 								"users",
-								"4"
+								"{{upd_ID}}"
 							]
-						}
+						},
+						"description": "Update user's data of user with specified Id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"telegramId\": 1234\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-falls-88619.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"warm-falls-88619",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Create a new user with some parameters"
 					},
 					"response": []
 				},
@@ -114,7 +173,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://warm-falls-88619.herokuapp.com/users/4",
+							"raw": "https://warm-falls-88619.herokuapp.com/users/{{del_Id}}",
 							"protocol": "https",
 							"host": [
 								"warm-falls-88619",
@@ -123,13 +182,346 @@
 							],
 							"path": [
 								"users",
-								"4"
+								"{{del_Id}}"
 							]
-						}
+						},
+						"description": "Delete user with specified Id"
 					},
 					"response": []
 				}
+			],
+			"description": "API for users processing",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
 			]
+		},
+		{
+			"name": "Info",
+			"item": [
+				{
+					"name": "About bot",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"infoSubj\", \"bot\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warm-falls-88619.herokuapp.com/info/about/{{infoSubj}}",
+							"protocol": "https",
+							"host": [
+								"warm-falls-88619",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"info",
+								"about",
+								"{{infoSubj}}"
+							]
+						},
+						"description": "Get information about Bot"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bot Info",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"infoSubj\", \"bot\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://warm-falls-88619.herokuapp.com/info/update/{{infoSubj}}?title=О боте&description=Информация о боте, назначении и авторах&searchTag=bot",
+							"protocol": "https",
+							"host": [
+								"warm-falls-88619",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"info",
+								"update",
+								"{{infoSubj}}"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "О боте"
+								},
+								{
+									"key": "description",
+									"value": "Информация о боте, назначении и авторах"
+								},
+								{
+									"key": "searchTag",
+									"value": "bot"
+								}
+							]
+						},
+						"description": "Update information about Bot"
+					},
+					"response": []
+				},
+				{
+					"name": "About Cathedra",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"infoSubj\", \"cathedra\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warm-falls-88619.herokuapp.com/info/about/{{infoSubj}}",
+							"protocol": "https",
+							"host": [
+								"warm-falls-88619",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"info",
+								"about",
+								"{{infoSubj}}"
+							]
+						},
+						"description": "Get information about Cathedra"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cathedra Info",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"infoSubj\", \"cathedra\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://warm-falls-88619.herokuapp.com/info/update/{{infoSubj}}?title=О кафедре&description=Заметка о кафедре, истории, преподавателях и т.п.&serachTag=cathedra",
+							"protocol": "https",
+							"host": [
+								"warm-falls-88619",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"info",
+								"update",
+								"{{infoSubj}}"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "О кафедре"
+								},
+								{
+									"key": "description",
+									"value": "Заметка о кафедре, истории, преподавателях и т.п."
+								},
+								{
+									"key": "serachTag",
+									"value": "cathedra"
+								}
+							]
+						},
+						"description": "Update information about Cathedra"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Info About Anything",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"infoSubj\", \"cathedra\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://warm-falls-88619.herokuapp.com/info/create?title=О команде&description=Заметка о нашей команде&serachTag=developers",
+							"protocol": "https",
+							"host": [
+								"warm-falls-88619",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"info",
+								"create"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "О команде"
+								},
+								{
+									"key": "description",
+									"value": "Заметка о нашей команде"
+								},
+								{
+									"key": "serachTag",
+									"value": "developers"
+								}
+							]
+						},
+						"description": "Create info note about something, for instance, bot, cathedra, team"
+					},
+					"response": []
+				}
+			],
+			"description": "API for info processing"
+		},
+		{
+			"name": "DialogFlow",
+			"item": [
+				{
+					"name": "https://warm-falls-88619.herokuapp.com/dialogflow/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://warm-falls-88619.herokuapp.com/dialogflow/",
+							"protocol": "https",
+							"host": [
+								"warm-falls-88619",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"dialogflow",
+								""
+							]
+						},
+						"description": "Returns DialogFlow intents list in JSON format"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Questions",
+			"item": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "del_Id",
+			"value": "4"
+		},
+		{
+			"key": "upd_ID",
+			"value": "1"
+		},
+		{
+			"key": "infoSubj",
+			"value": "bot"
 		}
 	]
 }

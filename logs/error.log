@@ -10,3 +10,8 @@
 2021-05-11 23:49:40:4940 [31merror[39m: [31mThis is an error log[39m
 2021-05-11 23:50:22:5022 error: This is an error log
 2021-05-11 23:52:06:526 [31merror[39m: [31mThis is an error log[39m
+2021-05-13 01:00:44:044 [31merror[39m: [31mThe server does not support SSL connections[39m
+2021-05-13 01:03:37:337 [31merror[39m: [31mThe server does not support SSL connections[39m
+2021-05-13 01:04:36:436 [31merror[39m: [31mThe server does not support SSL connections[39m
+2021-05-13 01:04:46:446 [31merror[39m: [31mThe server does not support SSL connections[39m
+2021-05-13 01:08:34:834 [31merror[39m: [31mThe server does not support SSL connections[39m

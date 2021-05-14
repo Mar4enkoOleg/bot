@@ -1,0 +1,20 @@
+### Rename env_example ---> .env
+### .env for localhost
+### production variables in heroku
+
+NODE_ENV=development
+PORT=3001
+
+DB_USER=<db_user>
+DB_PASSWORD=<db_pass>
+DB_NAME=<db_name>
+DB_HOST=<localhost>
+
+GOOGLE_APPLICATION_CREDENTIALS=<path_to_dialogflow_service_account_file>
+DF_PROJECT=<dialogflow_project_id>
+
+HEROKU_POSTGRESQL_GOLD_URL=<DB_URL_STRING>
+DATABASE_URL=<DB_URL_STRING>
+
+REDIS_TLS_URL=<rediss://:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX>
+REDIS_URL=<redis://:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX>

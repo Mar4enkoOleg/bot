@@ -1,9 +1,9 @@
-import express from 'express';
+import express, { ErrorRequestHandler } from 'express';
 
 import Logger from './config/winston_config';
 import morganMiddleware from './config/morgan_config';
 
-import errorHandler from './helpers/middleware/errorHandler';
+import { httpCode } from './typeScript/enums';
 
 import './db/models/user';
 import './db/models/question';
@@ -17,6 +17,7 @@ import questionsRouter from './entities/questions/questionsRouter';
 import infoRouter from './entities/info/infoRouter';
 import usersInfoRouter from './entities/user/usersInfoRouter';
 import dfRouter from './entities/dialogFlow/dialogFlowRouter';
+import Res from './helpers/Response';
 
 const app = express();
 
@@ -51,6 +52,13 @@ app.get('/logger', (_, res) => {
   res.send('Hello world');
 });
 
-app.use(errorHandler);
+// eslint-disable-next-line no-unused-vars
+app.use(((err, _, res, next) => {
+  const { status, message } = err;
+  if (status === 'error') return Res.BadRequest(res, message);
+  if (status === httpCode.BAD_REQUEST) return Res.BadRequest(res, message);
+
+  return Res.InternalError(res, message);
+}) as ErrorRequestHandler);
 
 export default app;

@@ -1,23 +1,23 @@
-class ApiError extends Error {
-  status: number;
-  message: string;
-  constructor(s: number, m: string) {
-    super();
-    this.status = s;
-    this.message = m;
-  }
+// class ApiError extends Error {
+//   status: number;
+//   message: string;
+//   constructor(s: number, m: string) {
+//     super();
+//     this.status = s;
+//     this.message = m;
+//   }
 
-  static badRequest(message: string) {
-    return new ApiError(404, message);
-  }
+//   static badRequest(message: string) {
+//     return new ApiError(404, message);
+//   }
 
-  static internal(message: string) {
-    return new ApiError(500, message);
-  }
+//   static internal(message: string) {
+//     return new ApiError(500, message);
+//   }
 
-  static forbidden(message: string) {
-    return new ApiError(403, message);
-  }
-}
+//   static forbidden(message: string) {
+//     return new ApiError(403, message);
+//   }
+// }
 
-export default ApiError;
+// export default ApiError;

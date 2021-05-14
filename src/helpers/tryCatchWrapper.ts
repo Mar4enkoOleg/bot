@@ -7,8 +7,6 @@ export type ControllerFunction = (
   next: NextFunction
 ) => any;
 
-export default (cb: ControllerFunction) => (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => cb(req, res, next).catch((err: any) => next(err));
+export default (cb: ControllerFunction) =>
+  (req: Request, res: Response, next: NextFunction) =>
+    cb(req, res, next).catch((err: any) => next(err));
