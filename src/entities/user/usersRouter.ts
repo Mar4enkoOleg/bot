@@ -1,31 +1,37 @@
 import { Router } from 'express';
-import { validationBody, validationId } from '../user/userValidation';
 import tryCatchWrapper from '../../helpers/tryCatchWrapper';
-import { userSchemas } from '../../helpers/userValidSchemas';
 import { deleteFromCache, getAllFromCache, getCacheById } from './userCache';
-import { getAll, remove, getById, update, add, getAllAdmins } from './userController';
+import {
+  getAll,
+  remove,
+  getById,
+  update,
+  add,
+  getAllAdmins,
+} from './userController';
+import {
+  createUserValidation,
+  idValidation,
+  updateUserValidation,
+} from './userValidation';
 
 const users = Router();
 
-users.post('/', validationBody(userSchemas.userPOST), tryCatchWrapper(add));
+users.post('/', createUserValidation, tryCatchWrapper(add));
 users.get('/', tryCatchWrapper(getAllFromCache), tryCatchWrapper(getAll));
+
 users.get('/admins/', tryCatchWrapper(getAllAdmins));
 
 users.get(
   '/:id',
-  validationId(userSchemas.userById),
+  idValidation,
   tryCatchWrapper(getCacheById),
   tryCatchWrapper(getById)
 );
-users.put(
-  '/:id',
-  validationId(userSchemas.userById),
-  validationBody(userSchemas.userPUT),
-  tryCatchWrapper(update)
-);
+users.put('/:id', idValidation, updateUserValidation, tryCatchWrapper(update));
 users.delete(
   '/:id',
-  validationId(userSchemas.userById),
+  idValidation,
   tryCatchWrapper(remove),
   tryCatchWrapper(deleteFromCache)
 );

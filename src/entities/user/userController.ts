@@ -105,7 +105,7 @@ export const getAllAdmins = async (
 ): Promise<Response> => {
   Logger.info(`req for All Admins`);
   const foundAdmins = await UserModel.findAll({
-    where: { GroupId: Roles.ADMIN },
+    where: { role: Roles.ADMIN },
   });
   if (foundAdmins === null) {
     return Res.BadRequest(res, `There are no admins`);
