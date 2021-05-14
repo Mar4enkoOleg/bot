@@ -19,10 +19,6 @@ import usersInfoRouter from './entities/user/usersInfoRouter';
 import dfRouter from './entities/dialogFlow/dialogFlowRouter';
 import Res from './helpers/Response';
 
-import dialogFlowConfig from './config/connection_config';
-
-Logger.info(dialogFlowConfig);
-
 const app = express();
 
 // Http Loger

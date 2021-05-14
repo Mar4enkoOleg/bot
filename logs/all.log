@@ -6288,3 +6288,1346 @@
 2021-05-13 23:48:08:488 [32minfo[39m: [32mConnection has been established successfully.[39m
 2021-05-13 23:48:08:488 [32minfo[39m: [32mAll models were synchronized successfully.[39m
 2021-05-13 23:48:08:488 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 01:40:27:4027 [32minfo[39m: [32m{[39m
+[32m  development: {[39m
+[32m    username: 'postgres',[39m
+[32m    password: '1',[39m
+[32m    database: 'marchenko',[39m
+[32m    host: 'localhost',[39m
+[32m    dialect: 'postgres'[39m
+[32m  },[39m
+[32m  test: {[39m
+[32m    username: 'root',[39m
+[32m    password: null,[39m
+[32m    database: 'database_test',[39m
+[32m    host: '127.0.0.1',[39m
+[32m    dialect: 'mysql'[39m
+[32m  },[39m
+[32m  production: {[39m
+[32m    url: undefined,[39m
+[32m    ssl: true,[39m
+[32m    dialect: 'postgres',[39m
+[32m    dialectOptions: { ssl: [Object] }[39m
+[32m  }[39m
+[32m}[39m
+2021-05-14 01:40:27:4027 [32minfo[39m: [32mENV development[39m
+2021-05-14 01:40:28:4028 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 01:40:29:4029 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 01:40:29:4029 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 01:40:53:4053 [32minfo[39m: [32m[[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 7,[39m
+[32m      telegramId: 3,[39m
+[32m      fullName: 'Petrov Petr',[39m
+[32m      userName: 'Petruha',[39m
+[32m      phone: '333-333-333',[39m
+[32m      userType: 'Student',[39m
+[32m      state: '.......',[39m
+[32m      role: 'USER',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 2[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 7,[39m
+[32m      telegramId: 3,[39m
+[32m      fullName: 'Petrov Petr',[39m
+[32m      userName: 'Petruha',[39m
+[32m      phone: '333-333-333',[39m
+[32m      userType: 'Student',[39m
+[32m      state: '.......',[39m
+[32m      role: 'USER',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 2[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 01:40:53:4053 [35mhttp[39m: [35mGET /users/ 200 483 - 375.710 ms[39m
+[35m[39m
+2021-05-14 01:40:58:4058 [32minfo[39m: [32m[[39m
+[32m  {[39m
+[32m    state: '.......',[39m
+[32m    fullName: 'Petrov Petr',[39m
+[32m    id: '7',[39m
+[32m    phone: '333-333-333',[39m
+[32m    role: 'USER',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Petruha',[39m
+[32m    userType: 'Student',[39m
+[32m    GroupId: '2',[39m
+[32m    telegramId: '3'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    state: '.......',[39m
+[32m    fullName: 'Ivanov Ivan',[39m
+[32m    id: '6',[39m
+[32m    phone: '222-222-222',[39m
+[32m    role: 'ADMIN',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Ivanushka',[39m
+[32m    userType: 'Teacher',[39m
+[32m    GroupId: '1',[39m
+[32m    telegramId: '2'[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 01:40:58:4058 [35mhttp[39m: [35mGET /users/ 200 767 - 7.256 ms[39m
+[35m[39m
+2021-05-14 01:41:58:4158 [32minfo[39m: [32mreq User id 2[39m
+2021-05-14 01:41:59:4159 [32minfo[39m: [32mUser with id '2' not exist[39m
+2021-05-14 01:41:59:4159 [35mhttp[39m: [35mGET /users/2 400 40 - 160.451 ms[39m
+[35m[39m
+2021-05-14 01:42:00:420 [32minfo[39m: [32mreq User id 2[39m
+2021-05-14 01:42:00:420 [32minfo[39m: [32mUser with id '2' not exist[39m
+2021-05-14 01:42:00:420 [35mhttp[39m: [35mGET /users/2 400 40 - 5.990 ms[39m
+[35m[39m
+2021-05-14 01:42:01:421 [32minfo[39m: [32mreq User id 2[39m
+2021-05-14 01:42:01:421 [32minfo[39m: [32mUser with id '2' not exist[39m
+2021-05-14 01:42:01:421 [35mhttp[39m: [35mGET /users/2 400 40 - 4.797 ms[39m
+[35m[39m
+2021-05-14 01:42:09:429 [32minfo[39m: [32mUnexpected token } in JSON at position 13[39m
+2021-05-14 01:42:09:429 [35mhttp[39m: [35mGET /users/2 400 55 - 4.380 ms[39m
+[35m[39m
+2021-05-14 01:42:20:4220 [32minfo[39m: [32mreq User id 2[39m
+2021-05-14 01:42:20:4220 [32minfo[39m: [32mUser with id '2' not exist[39m
+2021-05-14 01:42:20:4220 [35mhttp[39m: [35mGET /users/2 400 40 - 150.481 ms[39m
+[35m[39m
+2021-05-14 01:42:24:4224 [32minfo[39m: [32mreq User id 2[39m
+2021-05-14 01:42:24:4224 [32minfo[39m: [32mUser with id '2' not exist[39m
+2021-05-14 01:42:24:4224 [35mhttp[39m: [35mGET /users/2 400 40 - 18.317 ms[39m
+[35m[39m
+2021-05-14 01:42:25:4225 [32minfo[39m: [32mreq User id 2[39m
+2021-05-14 01:42:25:4225 [32minfo[39m: [32mUser with id '2' not exist[39m
+2021-05-14 01:42:25:4225 [35mhttp[39m: [35mGET /users/2 400 40 - 4.514 ms[39m
+[35m[39m
+2021-05-14 01:42:26:4226 [32minfo[39m: [32mreq User id 2[39m
+2021-05-14 01:42:26:4226 [32minfo[39m: [32mUser with id '2' not exist[39m
+2021-05-14 01:42:26:4226 [35mhttp[39m: [35mGET /users/2 400 40 - 6.579 ms[39m
+[35m[39m
+2021-05-14 01:42:30:4230 [32minfo[39m: [32mстолбец User.gro не существует[39m
+2021-05-14 01:42:30:4230 [35mhttp[39m: [35mGET /users/ 409 63 - 101.323 ms[39m
+[35m[39m
+2021-05-14 01:42:39:4239 [32minfo[39m: [32m[[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 01:42:39:4239 [35mhttp[39m: [35mGET /users/ 200 248 - 9.752 ms[39m
+[35m[39m
+2021-05-14 01:42:44:4244 [32minfo[39m: [32m[[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 01:42:44:4244 [35mhttp[39m: [35mGET /users/ 200 248 - 31.031 ms[39m
+[35m[39m
+2021-05-14 01:42:59:4259 [32minfo[39m: [32m{ telegramId: 321545 }[39m
+2021-05-14 01:43:00:430 [32minfo[39m: [32m{[39m
+[32m  userType: 'Other',[39m
+[32m  role: 'USER',[39m
+[32m  id: 47,[39m
+[32m  telegramId: 321545,[39m
+[32m  updatedAt: 2021-05-13T22:42:59.965Z,[39m
+[32m  createdAt: 2021-05-13T22:42:59.965Z,[39m
+[32m  fullName: null,[39m
+[32m  userName: null,[39m
+[32m  phone: null,[39m
+[32m  state: null,[39m
+[32m  GroupId: null[39m
+[32m}[39m
+2021-05-14 01:43:00:430 [35mhttp[39m: [35mPOST /users/ 201 222 - 181.484 ms[39m
+[35m[39m
+2021-05-14 01:43:14:4314 [32minfo[39m: [32m{ telegramId: 321545 }[39m
+2021-05-14 01:43:15:4315 [32minfo[39m: [32mповторяющееся значение ключа нарушает ограничение уникальности "Users_telegramId_key"[39m
+2021-05-14 01:43:15:4315 [35mhttp[39m: [35mPOST /users/ 409 158 - 155.925 ms[39m
+[35m[39m
+2021-05-14 01:43:21:4321 [32minfo[39m: [32m{ telegramId: 321545 }[39m
+2021-05-14 01:43:21:4321 [32minfo[39m: [32mповторяющееся значение ключа нарушает ограничение уникальности "Users_telegramId_key"[39m
+2021-05-14 01:43:21:4321 [35mhttp[39m: [35mPOST /users/ 409 158 - 5.789 ms[39m
+[35m[39m
+2021-05-14 01:43:28:4328 [32minfo[39m: [32m"telegramId" must be a number[39m
+2021-05-14 01:43:28:4328 [35mhttp[39m: [35mPOST /users/ 400 45 - 5.752 ms[39m
+[35m[39m
+2021-05-14 01:43:46:4346 [32minfo[39m: [32m[[39m
+[32m  {[39m
+[32m    id: '7',[39m
+[32m    phone: '333-333-333',[39m
+[32m    role: 'USER',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Petruha',[39m
+[32m    userType: 'Student',[39m
+[32m    GroupId: '2',[39m
+[32m    telegramId: '3',[39m
+[32m    fullName: 'Petrov Petr',[39m
+[32m    state: '.......'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    id: '6',[39m
+[32m    phone: '222-222-222',[39m
+[32m    role: 'ADMIN',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Ivanushka',[39m
+[32m    userType: 'Teacher',[39m
+[32m    GroupId: '1',[39m
+[32m    telegramId: '2',[39m
+[32m    fullName: 'Ivanov Ivan',[39m
+[32m    state: '.......'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    state: 'null',[39m
+[32m    fullName: 'null',[39m
+[32m    id: '47',[39m
+[32m    phone: 'null',[39m
+[32m    role: 'USER',[39m
+[32m    updatedAt: 'Fri May 14 2021 01:42:59 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Fri May 14 2021 01:42:59 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'null',[39m
+[32m    userType: 'Other',[39m
+[32m    GroupId: 'null',[39m
+[32m    telegramId: '321545'[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 01:43:46:4346 [35mhttp[39m: [35mGET /users/ 200 1131 - 22.063 ms[39m
+[35m[39m
+2021-05-14 01:44:01:441 [32minfo[39m: [32m"GroupId" must be a number[39m
+2021-05-14 01:44:01:441 [35mhttp[39m: [35mPUT /users/47 400 42 - 2.639 ms[39m
+[35m[39m
+2021-05-14 01:44:07:447 [32minfo[39m: [32mUser id '47'[39m
+2021-05-14 01:44:07:447 [32minfo[39m: [32m{[39m
+[32m  id: 47,[39m
+[32m  telegramId: 321545,[39m
+[32m  fullName: null,[39m
+[32m  userName: 'TestTest122',[39m
+[32m  phone: null,[39m
+[32m  userType: 'Other',[39m
+[32m  state: null,[39m
+[32m  role: 'USER',[39m
+[32m  createdAt: 2021-05-13T22:42:59.965Z,[39m
+[32m  updatedAt: 2021-05-13T22:44:07.266Z,[39m
+[32m  GroupId: 1[39m
+[32m}[39m
+2021-05-14 01:44:07:447 [35mhttp[39m: [35mPUT /users/47 200 228 - 188.111 ms[39m
+[35m[39m
+2021-05-14 02:04:52:452 [32minfo[39m: [32m{[39m
+[32m  development: {[39m
+[32m    username: 'postgres',[39m
+[32m    password: '1',[39m
+[32m    database: 'marchenko',[39m
+[32m    host: 'localhost',[39m
+[32m    dialect: 'postgres'[39m
+[32m  },[39m
+[32m  test: {[39m
+[32m    username: 'root',[39m
+[32m    password: null,[39m
+[32m    database: 'database_test',[39m
+[32m    host: '127.0.0.1',[39m
+[32m    dialect: 'mysql'[39m
+[32m  },[39m
+[32m  production: {[39m
+[32m    url: undefined,[39m
+[32m    ssl: true,[39m
+[32m    dialect: 'postgres',[39m
+[32m    dialectOptions: { ssl: [Object] }[39m
+[32m  }[39m
+[32m}[39m
+2021-05-14 02:04:52:452 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:04:53:453 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:04:53:453 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:04:53:453 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:04:56:456 [32minfo[39m: [32m{[39m
+[32m  development: {[39m
+[32m    username: 'postgres',[39m
+[32m    password: '1',[39m
+[32m    database: 'marchenko',[39m
+[32m    host: 'localhost',[39m
+[32m    dialect: 'postgres'[39m
+[32m  },[39m
+[32m  test: {[39m
+[32m    username: 'root',[39m
+[32m    password: null,[39m
+[32m    database: 'database_test',[39m
+[32m    host: '127.0.0.1',[39m
+[32m    dialect: 'mysql'[39m
+[32m  },[39m
+[32m  production: {[39m
+[32m    url: undefined,[39m
+[32m    ssl: true,[39m
+[32m    dialect: 'postgres',[39m
+[32m    dialectOptions: { ssl: [Object] }[39m
+[32m  }[39m
+[32m}[39m
+2021-05-14 02:04:56:456 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:04:56:456 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:04:57:457 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:04:57:457 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:05:04:54 [32minfo[39m: [32m{[39m
+[32m  development: {[39m
+[32m    username: 'postgres',[39m
+[32m    password: '1',[39m
+[32m    database: 'marchenko',[39m
+[32m    host: 'localhost',[39m
+[32m    dialect: 'postgres'[39m
+[32m  },[39m
+[32m  test: {[39m
+[32m    username: 'root',[39m
+[32m    password: null,[39m
+[32m    database: 'database_test',[39m
+[32m    host: '127.0.0.1',[39m
+[32m    dialect: 'mysql'[39m
+[32m  },[39m
+[32m  production: {[39m
+[32m    url: undefined,[39m
+[32m    ssl: true,[39m
+[32m    dialect: 'postgres',[39m
+[32m    dialectOptions: { ssl: [Object] }[39m
+[32m  }[39m
+[32m}[39m
+2021-05-14 02:05:04:54 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:05:05:55 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:05:05:55 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:05:05:55 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:48:56:4856 [32minfo[39m: [32m{[39m
+[32m  development: {[39m
+[32m    username: 'postgres',[39m
+[32m    password: '1',[39m
+[32m    database: 'marchenko',[39m
+[32m    host: 'localhost',[39m
+[32m    dialect: 'postgres'[39m
+[32m  },[39m
+[32m  test: {[39m
+[32m    username: 'root',[39m
+[32m    password: null,[39m
+[32m    database: 'database_test',[39m
+[32m    host: '127.0.0.1',[39m
+[32m    dialect: 'mysql'[39m
+[32m  },[39m
+[32m  production: {[39m
+[32m    url: undefined,[39m
+[32m    ssl: true,[39m
+[32m    dialect: 'postgres',[39m
+[32m    dialectOptions: { ssl: [Object] }[39m
+[32m  }[39m
+[32m}[39m
+2021-05-14 02:48:57:4857 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:48:57:4857 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:48:57:4857 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:48:57:4857 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:50:07:507 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:50:07:507 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:50:07:507 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:50:07:507 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:50:14:5014 [32minfo[39m: [32mtelegramId must be a number[39m
+2021-05-14 02:50:14:5014 [35mhttp[39m: [35mPOST /users/ 400 41 - 24.620 ms[39m
+[35m[39m
+2021-05-14 02:50:40:5040 [32minfo[39m: [32mtelegramId is required[39m
+2021-05-14 02:50:40:5040 [35mhttp[39m: [35mPOST /users/ 400 36 - 3.321 ms[39m
+[35m[39m
+2021-05-14 02:50:42:5042 [32minfo[39m: [32mtelegramId is required[39m
+2021-05-14 02:50:42:5042 [35mhttp[39m: [35mPOST /users/ 400 36 - 2.909 ms[39m
+[35m[39m
+2021-05-14 02:50:44:5044 [32minfo[39m: [32mtelegramId is required[39m
+2021-05-14 02:50:44:5044 [35mhttp[39m: [35mPOST /users/ 400 36 - 2.218 ms[39m
+[35m[39m
+2021-05-14 02:50:44:5044 [32minfo[39m: [32mtelegramId is required[39m
+2021-05-14 02:50:44:5044 [35mhttp[39m: [35mPOST /users/ 400 36 - 1.863 ms[39m
+[35m[39m
+2021-05-14 02:50:45:5045 [32minfo[39m: [32mtelegramId is required[39m
+2021-05-14 02:50:45:5045 [35mhttp[39m: [35mPOST /users/ 400 36 - 2.031 ms[39m
+[35m[39m
+2021-05-14 02:51:05:515 [32minfo[39m: [32mUserName is not allowed[39m
+2021-05-14 02:51:05:515 [35mhttp[39m: [35mPOST /users/ 400 37 - 3.090 ms[39m
+[35m[39m
+2021-05-14 02:51:20:5120 [32minfo[39m: [32mUnexpected token  in JSON at position 21[39m
+2021-05-14 02:51:20:5120 [35mhttp[39m: [35mPOST /users/ 400 56 - 4.425 ms[39m
+[35m[39m
+2021-05-14 02:51:31:5131 [32minfo[39m: [32muserName must be a string[39m
+2021-05-14 02:51:31:5131 [35mhttp[39m: [35mPOST /users/ 400 39 - 4.545 ms[39m
+[35m[39m
+2021-05-14 02:51:40:5140 [32minfo[39m: [32m{ userName: 'Test', telegramId: 42 }[39m
+2021-05-14 02:51:40:5140 [32minfo[39m: [32m{[39m
+[32m  userType: 'Other',[39m
+[32m  role: 'USER',[39m
+[32m  id: 50,[39m
+[32m  userName: 'Test',[39m
+[32m  telegramId: 42,[39m
+[32m  updatedAt: 2021-05-13T23:51:40.792Z,[39m
+[32m  createdAt: 2021-05-13T23:51:40.792Z,[39m
+[32m  fullName: null,[39m
+[32m  phone: null,[39m
+[32m  state: null,[39m
+[32m  GroupId: null[39m
+[32m}[39m
+2021-05-14 02:51:40:5140 [35mhttp[39m: [35mPOST /users/ 201 220 - 179.161 ms[39m
+[35m[39m
+2021-05-14 02:52:02:522 [32minfo[39m: [32mUser id '50'[39m
+2021-05-14 02:52:02:522 [32minfo[39m: [32m{[39m
+[32m  id: 50,[39m
+[32m  telegramId: 42,[39m
+[32m  fullName: null,[39m
+[32m  userName: 'Test',[39m
+[32m  phone: null,[39m
+[32m  userType: 'Other',[39m
+[32m  state: null,[39m
+[32m  role: 'USER',[39m
+[32m  createdAt: 2021-05-13T23:51:40.792Z,[39m
+[32m  updatedAt: 2021-05-13T23:52:02.893Z,[39m
+[32m  GroupId: 1[39m
+[32m}[39m
+2021-05-14 02:52:02:522 [35mhttp[39m: [35mPUT /users/50 200 217 - 165.712 ms[39m
+[35m[39m
+2021-05-14 02:52:20:5220 [32minfo[39m: [32m{[39m
+[32m  id: '50',[39m
+[32m  phone: 'null',[39m
+[32m  role: 'USER',[39m
+[32m  updatedAt: 'Fri May 14 2021 02:52:02 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m  createdAt: 'Fri May 14 2021 02:51:40 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m  userName: 'Test',[39m
+[32m  userType: 'Other',[39m
+[32m  GroupId: '1',[39m
+[32m  telegramId: '42',[39m
+[32m  fullName: 'null',[39m
+[32m  state: 'null'[39m
+[32m}[39m
+2021-05-14 02:52:20:5220 [35mhttp[39m: [35mGET /users/50 200 365 - 6.015 ms[39m
+[35m[39m
+2021-05-14 02:52:34:5234 [32minfo[39m: [32m{[39m
+[32m  id: '50',[39m
+[32m  phone: 'null',[39m
+[32m  role: 'USER',[39m
+[32m  updatedAt: 'Fri May 14 2021 02:52:02 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m  createdAt: 'Fri May 14 2021 02:51:40 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m  userName: 'Test',[39m
+[32m  userType: 'Other',[39m
+[32m  GroupId: '1',[39m
+[32m  telegramId: '42',[39m
+[32m  fullName: 'null',[39m
+[32m  state: 'null'[39m
+[32m}[39m
+2021-05-14 02:52:34:5234 [35mhttp[39m: [35mGET /users/50 200 365 - 3.490 ms[39m
+[35m[39m
+2021-05-14 02:52:36:5236 [32minfo[39m: [32m{[39m
+[32m  id: '50',[39m
+[32m  phone: 'null',[39m
+[32m  role: 'USER',[39m
+[32m  updatedAt: 'Fri May 14 2021 02:52:02 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m  createdAt: 'Fri May 14 2021 02:51:40 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m  userName: 'Test',[39m
+[32m  userType: 'Other',[39m
+[32m  GroupId: '1',[39m
+[32m  telegramId: '42',[39m
+[32m  fullName: 'null',[39m
+[32m  state: 'null'[39m
+[32m}[39m
+2021-05-14 02:52:36:5236 [35mhttp[39m: [35mGET /users/50 200 365 - 25.386 ms[39m
+[35m[39m
+2021-05-14 02:52:44:5244 [32minfo[39m: [32mстолбец User.sdf не существует[39m
+2021-05-14 02:52:44:5244 [35mhttp[39m: [35mGET /users/ 409 63 - 140.351 ms[39m
+[35m[39m
+2021-05-14 02:54:05:545 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:54:05:545 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:54:05:545 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:54:05:545 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:54:15:5415 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:54:16:5416 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:54:16:5416 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:54:16:5416 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:55:25:5525 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:55:25:5525 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:55:26:5526 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:55:26:5526 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:55:36:5536 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:55:36:5536 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:55:36:5536 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:55:36:5536 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:55:48:5548 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:55:48:5548 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:55:48:5548 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:55:48:5548 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:56:58:5658 [32minfo[39m: [32mreq for All Admins[39m
+2021-05-14 02:56:58:5658 [32minfo[39m: [32mневерный синтаксис для типа integer: "ADMIN"[39m
+2021-05-14 02:56:59:5659 [35mhttp[39m: [35mGET /users/admins/ 409 84 - 235.471 ms[39m
+[35m[39m
+2021-05-14 02:57:16:5716 [32minfo[39m: [32mreq for All Admins[39m
+2021-05-14 02:57:16:5716 [32minfo[39m: [32mневерный синтаксис для типа integer: "ADMIN"[39m
+2021-05-14 02:57:16:5716 [35mhttp[39m: [35mGET /users/admins 409 84 - 161.040 ms[39m
+[35m[39m
+2021-05-14 02:57:21:5721 [32minfo[39m: [32mid must be a number[39m
+2021-05-14 02:57:21:5721 [35mhttp[39m: [35mGET /users/admi 400 33 - 6.311 ms[39m
+[35m[39m
+2021-05-14 02:57:27:5727 [32minfo[39m: [32mreq for All Admins[39m
+2021-05-14 02:57:27:5727 [32minfo[39m: [32mневерный синтаксис для типа integer: "ADMIN"[39m
+2021-05-14 02:57:27:5727 [35mhttp[39m: [35mGET /users/admins 409 84 - 135.112 ms[39m
+[35m[39m
+2021-05-14 02:59:13:5913 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:59:13:5913 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:59:13:5913 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:59:13:5913 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:59:34:5934 [32minfo[39m: [32mENV development[39m
+2021-05-14 02:59:35:5935 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 02:59:35:5935 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 02:59:35:5935 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 02:59:46:5946 [32minfo[39m: [32mid must be a number[39m
+2021-05-14 02:59:46:5946 [35mhttp[39m: [35mGET /users/admins 400 33 - 25.803 ms[39m
+[35m[39m
+2021-05-14 03:00:48:048 [32minfo[39m: [32mENV development[39m
+2021-05-14 03:00:49:049 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 03:00:49:049 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 03:00:49:049 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 03:01:07:17 [32minfo[39m: [32mENV development[39m
+2021-05-14 03:01:08:18 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 03:01:08:18 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 03:01:08:18 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 03:01:12:112 [32minfo[39m: [32mreq for All Admins[39m
+2021-05-14 03:01:12:112 [32minfo[39m: [32m[[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 03:01:12:112 [35mhttp[39m: [35mGET /users/admins 200 248 - 82.596 ms[39m
+[35m[39m
+2021-05-14 03:01:34:134 [32minfo[39m: [32mrole must be one of [ADMIN, SUPERADMIN, USER][39m
+2021-05-14 03:01:34:134 [35mhttp[39m: [35mPUT /users/50 400 59 - 9.351 ms[39m
+[35m[39m
+2021-05-14 03:01:42:142 [32minfo[39m: [32mUser id '50'[39m
+2021-05-14 03:01:42:142 [32minfo[39m: [32m{[39m
+[32m  id: 50,[39m
+[32m  telegramId: 42,[39m
+[32m  fullName: null,[39m
+[32m  userName: 'Test',[39m
+[32m  phone: null,[39m
+[32m  userType: 'Other',[39m
+[32m  state: null,[39m
+[32m  role: 'ADMIN',[39m
+[32m  createdAt: 2021-05-13T23:51:40.792Z,[39m
+[32m  updatedAt: 2021-05-14T00:01:42.188Z,[39m
+[32m  GroupId: 1[39m
+[32m}[39m
+2021-05-14 03:01:42:142 [35mhttp[39m: [35mPUT /users/50 200 218 - 188.700 ms[39m
+[35m[39m
+2021-05-14 03:02:37:237 [35mhttp[39m: [35mDELETE /users/ 404 148 - 2.569 ms[39m
+[35m[39m
+2021-05-14 03:02:40:240 [32minfo[39m: [32mid must be a number[39m
+2021-05-14 03:02:40:240 [35mhttp[39m: [35mDELETE /users/s 400 33 - 2.179 ms[39m
+[35m[39m
+2021-05-14 03:02:45:245 [32minfo[39m: [32mid must be greater than or equal to 1[39m
+2021-05-14 03:02:45:245 [35mhttp[39m: [35mDELETE /users/-1 400 51 - 2.144 ms[39m
+[35m[39m
+2021-05-14 03:02:56:256 [32minfo[39m: [32mid must be a number[39m
+2021-05-14 03:02:56:256 [35mhttp[39m: [35mDELETE /users/50asd 400 33 - 1.824 ms[39m
+[35m[39m
+2021-05-14 03:03:01:31 [32minfo[39m: [32mid must be a number[39m
+2021-05-14 03:03:01:31 [35mhttp[39m: [35mDELETE /users/50%20s 400 33 - 1.457 ms[39m
+[35m[39m
+2021-05-14 03:03:03:33 [32minfo[39m: [32mid must be a number[39m
+2021-05-14 03:03:03:33 [35mhttp[39m: [35mDELETE /users/50%20s 400 33 - 1.495 ms[39m
+[35m[39m
+2021-05-14 03:03:12:312 [32minfo[39m: [32mreq for All Admins[39m
+2021-05-14 03:03:12:312 [32minfo[39m: [32m[[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 50,[39m
+[32m      telegramId: 42,[39m
+[32m      fullName: null,[39m
+[32m      userName: 'Test',[39m
+[32m      phone: null,[39m
+[32m      userType: 'Other',[39m
+[32m      state: null,[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-13T23:51:40.792Z,[39m
+[32m      updatedAt: 2021-05-14T00:01:42.188Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 50,[39m
+[32m      telegramId: 42,[39m
+[32m      fullName: null,[39m
+[32m      userName: 'Test',[39m
+[32m      phone: null,[39m
+[32m      userType: 'Other',[39m
+[32m      state: null,[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-13T23:51:40.792Z,[39m
+[32m      updatedAt: 2021-05-14T00:01:42.188Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 03:03:12:312 [35mhttp[39m: [35mGET /users/admins 200 458 - 178.302 ms[39m
+[35m[39m
+2021-05-14 03:03:51:351 [32minfo[39m: [32m[[39m
+[32m  {[39m
+[32m    id: '7',[39m
+[32m    phone: '333-333-333',[39m
+[32m    role: 'USER',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Petruha',[39m
+[32m    userType: 'Student',[39m
+[32m    GroupId: '2',[39m
+[32m    telegramId: '3',[39m
+[32m    fullName: 'Petrov Petr',[39m
+[32m    state: '.......'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    id: '6',[39m
+[32m    phone: '222-222-222',[39m
+[32m    role: 'ADMIN',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Ivanushka',[39m
+[32m    userType: 'Teacher',[39m
+[32m    GroupId: '1',[39m
+[32m    telegramId: '2',[39m
+[32m    fullName: 'Ivanov Ivan',[39m
+[32m    state: '.......'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    id: '47',[39m
+[32m    phone: 'null',[39m
+[32m    role: 'USER',[39m
+[32m    updatedAt: 'Fri May 14 2021 01:44:07 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Fri May 14 2021 01:42:59 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'TestTest122',[39m
+[32m    userType: 'Other',[39m
+[32m    GroupId: '1',[39m
+[32m    telegramId: '321545',[39m
+[32m    fullName: 'null',[39m
+[32m    state: 'null'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    id: '50',[39m
+[32m    phone: 'null',[39m
+[32m    role: 'ADMIN',[39m
+[32m    updatedAt: 'Fri May 14 2021 03:01:42 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Fri May 14 2021 02:51:40 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Test',[39m
+[32m    userType: 'Other',[39m
+[32m    GroupId: '1',[39m
+[32m    telegramId: '42',[39m
+[32m    fullName: 'null',[39m
+[32m    state: 'null'[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 03:03:51:351 [35mhttp[39m: [35mGET /users/ 200 1493 - 12.018 ms[39m
+[35m[39m
+2021-05-14 03:04:22:422 [32minfo[39m: [32m{[39m
+[32m  id: 50,[39m
+[32m  telegramId: 42,[39m
+[32m  fullName: null,[39m
+[32m  userName: 'Test',[39m
+[32m  phone: null,[39m
+[32m  userType: 'Other',[39m
+[32m  state: null,[39m
+[32m  role: 'ADMIN',[39m
+[32m  createdAt: 2021-05-13T23:51:40.792Z,[39m
+[32m  updatedAt: 2021-05-14T00:01:42.188Z,[39m
+[32m  GroupId: 1[39m
+[32m}[39m
+2021-05-14 03:04:22:422 [35mhttp[39m: [35mDELETE /users/50 200 218 - 155.421 ms[39m
+[35m[39m
+2021-05-14 03:04:36:436 [32minfo[39m: [32m[[39m
+[32m  {[39m
+[32m    id: '7',[39m
+[32m    phone: '333-333-333',[39m
+[32m    role: 'USER',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Petruha',[39m
+[32m    userType: 'Student',[39m
+[32m    GroupId: '2',[39m
+[32m    telegramId: '3',[39m
+[32m    fullName: 'Petrov Petr',[39m
+[32m    state: '.......'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    id: '6',[39m
+[32m    phone: '222-222-222',[39m
+[32m    role: 'ADMIN',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Ivanushka',[39m
+[32m    userType: 'Teacher',[39m
+[32m    GroupId: '1',[39m
+[32m    telegramId: '2',[39m
+[32m    fullName: 'Ivanov Ivan',[39m
+[32m    state: '.......'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    id: '47',[39m
+[32m    phone: 'null',[39m
+[32m    role: 'USER',[39m
+[32m    updatedAt: 'Fri May 14 2021 01:44:07 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Fri May 14 2021 01:42:59 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'TestTest122',[39m
+[32m    userType: 'Other',[39m
+[32m    GroupId: '1',[39m
+[32m    telegramId: '321545',[39m
+[32m    fullName: 'null',[39m
+[32m    state: 'null'[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 03:04:36:436 [35mhttp[39m: [35mGET /users/ 200 1135 - 8.648 ms[39m
+[35m[39m
+2021-05-14 03:04:45:445 [32minfo[39m: [32m[[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 6,[39m
+[32m      telegramId: 2,[39m
+[32m      fullName: 'Ivanov Ivan',[39m
+[32m      userName: 'Ivanushka',[39m
+[32m      phone: '222-222-222',[39m
+[32m      userType: 'Teacher',[39m
+[32m      state: '.......',[39m
+[32m      role: 'ADMIN',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 7,[39m
+[32m      telegramId: 3,[39m
+[32m      fullName: 'Petrov Petr',[39m
+[32m      userName: 'Petruha',[39m
+[32m      phone: '333-333-333',[39m
+[32m      userType: 'Student',[39m
+[32m      state: '.......',[39m
+[32m      role: 'USER',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 2[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 7,[39m
+[32m      telegramId: 3,[39m
+[32m      fullName: 'Petrov Petr',[39m
+[32m      userName: 'Petruha',[39m
+[32m      phone: '333-333-333',[39m
+[32m      userType: 'Student',[39m
+[32m      state: '.......',[39m
+[32m      role: 'USER',[39m
+[32m      createdAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      updatedAt: 2021-05-10T23:11:55.798Z,[39m
+[32m      GroupId: 2[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  User {[39m
+[32m    dataValues: {[39m
+[32m      id: 47,[39m
+[32m      telegramId: 321545,[39m
+[32m      fullName: null,[39m
+[32m      userName: 'TestTest122',[39m
+[32m      phone: null,[39m
+[32m      userType: 'Other',[39m
+[32m      state: null,[39m
+[32m      role: 'USER',[39m
+[32m      createdAt: 2021-05-13T22:42:59.965Z,[39m
+[32m      updatedAt: 2021-05-13T22:44:07.266Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 47,[39m
+[32m      telegramId: 321545,[39m
+[32m      fullName: null,[39m
+[32m      userName: 'TestTest122',[39m
+[32m      phone: null,[39m
+[32m      userType: 'Other',[39m
+[32m      state: null,[39m
+[32m      role: 'USER',[39m
+[32m      createdAt: 2021-05-13T22:42:59.965Z,[39m
+[32m      updatedAt: 2021-05-13T22:44:07.266Z,[39m
+[32m      GroupId: 1[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 03:04:45:445 [35mhttp[39m: [35mGET /users/ 200 703 - 136.806 ms[39m
+[35m[39m
+2021-05-14 03:04:49:449 [32minfo[39m: [32m[[39m
+[32m  {[39m
+[32m    state: '.......',[39m
+[32m    fullName: 'Petrov Petr',[39m
+[32m    id: '7',[39m
+[32m    phone: '333-333-333',[39m
+[32m    role: 'USER',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Petruha',[39m
+[32m    userType: 'Student',[39m
+[32m    GroupId: '2',[39m
+[32m    telegramId: '3'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    state: '.......',[39m
+[32m    fullName: 'Ivanov Ivan',[39m
+[32m    id: '6',[39m
+[32m    phone: '222-222-222',[39m
+[32m    role: 'ADMIN',[39m
+[32m    updatedAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Tue May 11 2021 02:11:55 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'Ivanushka',[39m
+[32m    userType: 'Teacher',[39m
+[32m    GroupId: '1',[39m
+[32m    telegramId: '2'[39m
+[32m  },[39m
+[32m  {[39m
+[32m    state: 'null',[39m
+[32m    fullName: 'null',[39m
+[32m    id: '47',[39m
+[32m    phone: 'null',[39m
+[32m    role: 'USER',[39m
+[32m    updatedAt: 'Fri May 14 2021 01:44:07 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    createdAt: 'Fri May 14 2021 01:42:59 GMT+0300 (Восточная Европа, летнее время)',[39m
+[32m    userName: 'TestTest122',[39m
+[32m    userType: 'Other',[39m
+[32m    GroupId: '1',[39m
+[32m    telegramId: '321545'[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 03:04:49:449 [35mhttp[39m: [35mGET /users/ 200 1135 - 7.657 ms[39m
+[35m[39m
+2021-05-14 03:09:49:949 [32minfo[39m: [32mENV development[39m
+2021-05-14 03:09:49:949 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 03:09:49:949 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 03:09:49:949 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 03:09:53:953 [35mhttp[39m: [35mGET /users/admins/2 404 153 - 17.666 ms[39m
+[35m[39m
+2021-05-14 03:11:19:1119 [32minfo[39m: [32mENV development[39m
+2021-05-14 03:11:20:1120 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 03:11:21:1121 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 03:11:21:1121 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 03:11:25:1125 [35mhttp[39m: [35mGET /users/admins/2 404 153 - 19.339 ms[39m
+[35m[39m
+2021-05-14 03:11:28:1128 [32minfo[39m: [32mreq for All Admins[39m
+2021-05-14 03:11:28:1128 [32minfo[39m: [32m[][39m
+2021-05-14 03:11:28:1128 [35mhttp[39m: [35mGET /users/admins/ 200 11 - 15.692 ms[39m
+[35m[39m
+2021-05-14 03:11:30:1130 [32minfo[39m: [32mreq for All Admins[39m
+2021-05-14 03:11:30:1130 [32minfo[39m: [32m[][39m
+2021-05-14 03:11:30:1130 [35mhttp[39m: [35mGET /users/admins/ 200 11 - 7.061 ms[39m
+[35m[39m
+2021-05-14 03:11:32:1132 [32minfo[39m: [32mreq for All Admins[39m
+2021-05-14 03:11:32:1132 [32minfo[39m: [32m[][39m
+2021-05-14 03:11:32:1132 [35mhttp[39m: [35mGET /users/admins/ 200 11 - 4.373 ms[39m
+[35m[39m
+2021-05-14 03:11:36:1136 [32minfo[39m: [32mThere are no users in DB[39m
+2021-05-14 03:11:36:1136 [35mhttp[39m: [35mGET /users/ 400 38 - 7.550 ms[39m
+[35m[39m
+2021-05-14 03:11:39:1139 [32minfo[39m: [32mThere are no users in DB[39m
+2021-05-14 03:11:39:1139 [35mhttp[39m: [35mGET /users/ 400 38 - 3.241 ms[39m
+[35m[39m
+2021-05-14 03:28:45:2845 [32minfo[39m: [32mENV development[39m
+2021-05-14 03:28:46:2846 [32minfo[39m: [32mConnection has been established successfully.[39m
+2021-05-14 03:28:46:2846 [32minfo[39m: [32mAll models were synchronized successfully.[39m
+2021-05-14 03:28:46:2846 [32minfo[39m: [32mServer start on 3001 port[39m
+2021-05-14 03:28:55:2855 [35mhttp[39m: [35mPOST /questions 404 149 - 18.462 ms[39m
+[35m[39m
+2021-05-14 03:29:21:2921 [32minfo[39m: [32mnotNull Violation: answer is required,[39m
+[32mnotNull Violation: subjectId is required[39m
+2021-05-14 03:29:21:2921 [35mhttp[39m: [35mPOST /questions/main 409 94 - 10.697 ms[39m
+[35m[39m
+2021-05-14 03:29:43:2943 [32minfo[39m: [32m[[39m
+[32m  Question {[39m
+[32m    dataValues: {[39m
+[32m      id: 1,[39m
+[32m      name: 'Вопрос1',[39m
+[32m      answer: 'Answer1',[39m
+[32m      SubjectId: 1,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.490Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.490Z[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 1,[39m
+[32m      name: 'Вопрос1',[39m
+[32m      answer: 'Answer1',[39m
+[32m      SubjectId: 1,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.490Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.490Z[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  Question {[39m
+[32m    dataValues: {[39m
+[32m      id: 2,[39m
+[32m      name: 'Question2',[39m
+[32m      answer: 'Answer2',[39m
+[32m      SubjectId: 1,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.490Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.490Z[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 2,[39m
+[32m      name: 'Question2',[39m
+[32m      answer: 'Answer2',[39m
+[32m      SubjectId: 1,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.490Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.490Z[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  Question {[39m
+[32m    dataValues: {[39m
+[32m      id: 3,[39m
+[32m      name: 'Question3',[39m
+[32m      answer: 'Answer3',[39m
+[32m      SubjectId: 1,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.490Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.490Z[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 3,[39m
+[32m      name: 'Question3',[39m
+[32m      answer: 'Answer3',[39m
+[32m      SubjectId: 1,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.490Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.490Z[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  Question {[39m
+[32m    dataValues: {[39m
+[32m      id: 4,[39m
+[32m      name: 'Question4',[39m
+[32m      answer: 'Answer4',[39m
+[32m      SubjectId: 1,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.490Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.490Z[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 4,[39m
+[32m      name: 'Question4',[39m
+[32m      answer: 'Answer4',[39m
+[32m      SubjectId: 1,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.490Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.490Z[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  Question {[39m
+[32m    dataValues: {[39m
+[32m      id: 5,[39m
+[32m      name: 'Question5',[39m
+[32m      answer: 'Answer5',[39m
+[32m      SubjectId: 2,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.491Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.491Z[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 5,[39m
+[32m      name: 'Question5',[39m
+[32m      answer: 'Answer5',[39m
+[32m      SubjectId: 2,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.491Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.491Z[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  Question {[39m
+[32m    dataValues: {[39m
+[32m      id: 6,[39m
+[32m      name: 'Question6',[39m
+[32m      answer: 'Answer6',[39m
+[32m      SubjectId: 2,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.491Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.491Z[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 6,[39m
+[32m      name: 'Question6',[39m
+[32m      answer: 'Answer6',[39m
+[32m      SubjectId: 2,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.491Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.491Z[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  },[39m
+[32m  Question {[39m
+[32m    dataValues: {[39m
+[32m      id: 7,[39m
+[32m      name: 'Question7',[39m
+[32m      answer: 'Answer7',[39m
+[32m      SubjectId: 2,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.491Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.491Z[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 7,[39m
+[32m      name: 'Question7',[39m
+[32m      answer: 'Answer7',[39m
+[32m      SubjectId: 2,[39m
+[32m      counter: 0,[39m
+[32m      createdAt: 2021-05-08T00:28:29.491Z,[39m
+[32m      updatedAt: 2021-05-08T00:28:29.491Z[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 03:29:43:2943 [35mhttp[39m: [35mGET /questions/main 200 1071 - 328.184 ms[39m
+[35m[39m
+2021-05-14 03:30:03:303 [32minfo[39m: [32mas no answer[39m
+2021-05-14 03:30:03:303 [35mhttp[39m: [35mGET /questions/main/as 400 26 - 186.477 ms[39m
+[35m[39m
+2021-05-14 03:30:12:3012 [35mhttp[39m: [35mGET /questions/popular 200 760 - 5.232 ms[39m
+[35m[39m
+2021-05-14 03:30:27:3027 [32minfo[39m: [32m[[39m
+[32m  QuestionNoAnswer {[39m
+[32m    dataValues: {[39m
+[32m      id: 1,[39m
+[32m      name: 'as',[39m
+[32m      createdAt: 2021-05-14T00:30:03.592Z,[39m
+[32m      updatedAt: 2021-05-14T00:30:03.592Z[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 1,[39m
+[32m      name: 'as',[39m
+[32m      createdAt: 2021-05-14T00:30:03.592Z,[39m
+[32m      updatedAt: 2021-05-14T00:30:03.592Z[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 03:30:27:3027 [35mhttp[39m: [35mGET /questions/noanswer 200 109 - 120.805 ms[39m
+[35m[39m
+2021-05-14 03:30:34:3034 [32minfo[39m: [32m[[39m
+[32m  QuestionNoAnswer {[39m
+[32m    dataValues: {[39m
+[32m      id: 1,[39m
+[32m      name: 'as',[39m
+[32m      createdAt: 2021-05-14T00:30:03.592Z,[39m
+[32m      updatedAt: 2021-05-14T00:30:03.592Z[39m
+[32m    },[39m
+[32m    _previousDataValues: {[39m
+[32m      id: 1,[39m
+[32m      name: 'as',[39m
+[32m      createdAt: 2021-05-14T00:30:03.592Z,[39m
+[32m      updatedAt: 2021-05-14T00:30:03.592Z[39m
+[32m    },[39m
+[32m    _changed: Set(0) {},[39m
+[32m    _options: {[39m
+[32m      isNewRecord: false,[39m
+[32m      _schema: null,[39m
+[32m      _schemaDelimiter: '',[39m
+[32m      raw: true,[39m
+[32m      attributes: [Array][39m
+[32m    },[39m
+[32m    isNewRecord: false[39m
+[32m  }[39m
+[32m][39m
+2021-05-14 03:30:34:3034 [35mhttp[39m: [35mGET /questions/noanswer 200 109 - 5.926 ms[39m
+[35m[39m
